@@ -117,6 +117,11 @@ input[type="text"]:focus {
 
 .recompensa_final {
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
     z-index: 2;
 }
 
@@ -125,6 +130,6 @@ input[type="text"]:focus {
     transition: opacity 0.5s ease;
 }
 
-.boss{
+.boss {
     width: 470px;
 }
