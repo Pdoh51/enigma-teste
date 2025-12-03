@@ -55,6 +55,7 @@ function verificarSenha() {
                 mensagem.style.opacity = "0";
                 mensagem.style.display = "none";
                 document.querySelector(".recompensa_final").style.display = "block";
+                //enviarMensagemDiscord();
             }, 3000);
         }
 
@@ -74,3 +75,24 @@ function atualizarBoss() {
     const bossImg = document.getElementById("boss");
     bossImg.src = `./src/img/boss${faseAtual}.webp`;
 }
+
+function enviarMensagemDiscord() {
+    const WEBHOOK_URL = "https://discord.com/api/webhooks/1445902272964853997/LoLISuy2fQl5FLskz__wFcrIuXGpLKKwCPHjdPy2DY7NDDn5jIDF2hgi7niySg9DfyQv";
+
+    fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            content: "✅ **Ele Terminou os Enigmas**"
+        })
+    })
+    .then(() => {
+        console.log("Mensagem enviada para o Discord");
+    })
+    .catch((err) => {
+        console.error("Erro ao enviar para o Discord:", err);
+    });
+}
+
