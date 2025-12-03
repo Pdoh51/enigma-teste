@@ -12,12 +12,29 @@ body {
     overflow-y: auto;
 }
 
-.bixa-linda {
+.Hiitsumo {
     width: 300px;
     position: absolute;
     bottom: 0;
     left: 5%;
     z-index: 1;
+}
+
+.fala_Hiitsumo {
+    position: absolute;
+    left: 2%;
+    transform: translateY(-100%);
+    top: 340px;
+    display: none;
+    color: white;
+    font-size: 20px;
+    background-color: #000000;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
 }
 
 .container {
@@ -131,5 +148,5 @@ input[type="text"]:focus {
 }
 
 .boss {
-    width: 470px;
+    width: 350px;
 }
