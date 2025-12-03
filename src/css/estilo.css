@@ -12,12 +12,21 @@ body {
     overflow-y: auto;
 }
 
+.bixa-linda {
+    width: 300px;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    z-index: 1;
+}
+
 .container {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 32%;
+    position: absolute;
+    bottom: 0;
     padding: 20px;
     width: 1000px;
     box-sizing: border-box;
@@ -52,7 +61,7 @@ body {
     gap: 10px;
     padding: 5px;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     background-color: #000000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border: 5px solid #ffffff;
@@ -104,4 +113,14 @@ input[type="text"]:focus {
 .enviar:active {
     background-color: #969696;
     transform: scale(1.05);
+}
+
+.recompensa_final {
+    display: none;
+    z-index: 2;
+}
+
+#mensagem {
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
