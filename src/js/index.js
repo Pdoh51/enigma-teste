@@ -29,6 +29,9 @@ function verificarSenha() {
         // avança fase
         faseAtual++;
 
+        atualizarBoss(); // muda a imagem do boss conforme a fase
+
+
         // AINDA EXISTEM FASES
         if (faseAtual < senhas.length) {
             mensagem.textContent = "Senha correta!";
@@ -41,7 +44,7 @@ function verificarSenha() {
                 mensagem.style.display = "none";
             }, 2000);
 
-        // FINAL DO JOGO
+            // FINAL DO JOGO
         } else {
             mensagem.textContent = "Você completou o desafio!";
             mensagem.style.color = "green";
@@ -55,7 +58,7 @@ function verificarSenha() {
             }, 3000);
         }
 
-    // SENHA ERRADA
+        // SENHA ERRADA
     } else {
         mensagem.textContent = "Senha incorreta!";
         mensagem.style.color = "red";
@@ -65,4 +68,9 @@ function verificarSenha() {
             mensagem.style.display = "none";
         }, 2000);
     }
+}
+
+function atualizarBoss() {
+    const bossImg = document.getElementById("boss");
+    bossImg.src = `./src/img/boss${faseAtual}.webp`;
 }
