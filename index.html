@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./src/css/estilo.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <img src="./src/img/camisa.png" alt="">
+
+    <div class="container">
+
+        <p id="mensagem"></p>
+
+        <div class="linha-senha">
+            <label for="senha">Senha:</label>
+            <div class="campo-digitacao">
+                <input id="senha" type="text" onfocus="esconderCursor()" onblur="mostrarCursor()" autofocus />
+            </div>
+            <button class="enviar" type="button" onclick="verificarSenha()">Enviar</button>
+        </div>
+
+        <div class="engrenagens" id="engrenagens">
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem0" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem1" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem2" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem3" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem4" />
+        </div>
+
+        <script src="./src/js/index.js"></script>
+</body>
+
+</html>

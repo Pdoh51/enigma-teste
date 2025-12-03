@@ -1,0 +1,107 @@
+* {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #000000;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: auto;
+    overflow-y: auto;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32%;
+    padding: 20px;
+    width: 1000px;
+    box-sizing: border-box;
+}
+
+.engrenagens {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    transition: opacity 1s ease;
+    opacity: 1;
+}
+
+.engrenagem {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.engrenagem.verde {
+    filter: hue-rotate(90deg);
+    transform: scale(1.1);
+}
+
+
+
+.linha-senha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 5px;
+    width: 100%;
+    max-width: 500px;
+    background-color: #000000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 5px solid #ffffff;
+    box-sizing: border-box;
+}
+
+/* Label */
+label {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+/* Área do input */
+.campo-digitacao {
+    flex: 1;
+    /* ocupa TODO o espaço do meio */
+    display: flex;
+    align-items: center;
+}
+
+/* Input */
+input[type="text"] {
+    width: 100%;
+    color: white;
+    padding: 13px;
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
+}
+
+input[type="text"]:focus {
+    outline: none;
+}
+
+/* Botão */
+.enviar {
+    padding: 6px 12px;
+    width: 80px;
+    height: 45px;
+    font-size: 20px;
+    background-color: #3d3d3d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.enviar:active {
+    background-color: #969696;
+    transform: scale(1.05);
+}
