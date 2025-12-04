@@ -117,12 +117,61 @@ function derrotarBoss() {
 }
 
 
-
+let HiitsumoEstado = 0;
 
 document.getElementById("botaoIniciar").addEventListener("click", () => {
-    const tela = document.getElementById("iniciar");
+    const botao = document.getElementById("botaoIniciar");   // o <img> do botão
+    const tela = document.getElementById("iniciar");         // o container da tela preta
+    const mensagem = document.getElementById("caixa-dialogo");
+    const blang = document.getElementById("blang");
+    const hiitsumoInteira = document.getElementById("Hiitsumo-inteira");
+    const cabeca = document.getElementById("cabeca");
 
-    tela.style.display = "none";
+    botao.src = "./src/img/iniciar-pressionado.webp";
+
+    setTimeout(() => {
+        tela.style.display = "none";
+    }, 1000);
+
+    cabeca.style.display = "none";
+
+    blang.play();
+    // depois de 3.5s, mostra a caixa de diálogo e digita a fala
+    setTimeout(() => {
+        mensagem.style.display = "flex";
+        digitarMensagem("AAAHH! Isso é ruim! Ruim!", "falaHiitsumo");
+    }, 3500);
+
+document.querySelector(".introducao").addEventListener("click", () => {
+
+    if (HiitsumoEstado === 0) {
+        mensagem.style.display = "block";
+        digitarMensagem("(Você não se lembra exatamente como ou quando foi parar aí, nesse lugar vazio e escuro.)", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } else if (HiitsumoEstado === 1) {
+        digitarMensagem("Não. Não vai funcionar. E agora?!", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } else if (HiitsumoEstado === 2) {
+        digitarMensagem("(Nada além de um vento distante e aquela voz feminina.)", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } else if (HiitsumoEstado === 3) {
+        digitarMensagem("Ah! Alôoooou! Você aí!", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } else if (HiitsumoEstado === 4) {
+        digitarMensagem("(Você olha na direção dela.)", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } else if (HiitsumoEstado === 5) {
+        digitarMensagem("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } else if (HiitsumoEstado === 6) {
+        hiitsumoInteira.style.display = "block"
+        cabeca.style.display = "block"
+        mensagem.style.padding = "5px 0px 0px 90px"
+        mensagem.style.top = "460px"
+        digitarMensagem("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    }
+})
 });
 
 
