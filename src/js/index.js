@@ -119,6 +119,15 @@ function derrotarBoss() {
 
 
 
+document.getElementById("botaoIniciar").addEventListener("click", () => {
+    const tela = document.getElementById("iniciar");
+
+    tela.style.display = "none";
+});
+
+
+
+
 
 
 let HiitsumoEstado1 = 0;
@@ -184,7 +193,7 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
 }
 
 // Permite pular a digitação ao clicar na mensagem
-document.getElementById("falaHiitsumo").addEventListener("click", () => {
+document.getElementById("dica").addEventListener("click", () => {
     pulando = true;
 
     document.querySelector(".Hiitsumo").click();

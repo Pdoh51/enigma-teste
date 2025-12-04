@@ -2,6 +2,20 @@
     font-family: "Pixelify Sans", sans-serif;
 }
 
+.iniciar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 5;
+}
+
 body {
     display: flex;
     background-color: #000000;
@@ -17,6 +31,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 5%;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -33,6 +48,7 @@ body {
     box-shadow: 0 0 0 4px black;
     transform: translateY(-100%);
     display: none;
+    cursor: pointer;
 }
 
 .cabeca {
@@ -50,9 +66,7 @@ body {
     color: white;
     font-size: 20px;
     background-color: transparent;
-    /* fundo já é da .dica */
     border: none;
-    /* borda já é da .dica */
     box-shadow: none;
     padding: 0;
     width: 100%;
@@ -166,6 +180,8 @@ input[type="text"]:focus {
 }
 
 #mensagem {
+    position: absolute;
+    top: 0px;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -175,19 +191,58 @@ input[type="text"]:focus {
 }
 
 @keyframes tremerDesfazer {
-  0%   { transform: translate(0, 0) scale(1); opacity: 1; filter: none; }
-  10%  { transform: translate(-5px, 5px) scale(0.98); }
-  20%  { transform: translate(5px, 10px) scale(0.96); }
-  30%  { transform: translate(-6px, 15px) scale(0.94); }
-  40%  { transform: translate(6px, 20px) scale(0.92); filter: brightness(1.1); }
-  50%  { transform: translate(-4px, 25px) scale(0.9); }
-  60%  { transform: translate(4px, 30px) scale(0.85); filter: brightness(1.2) contrast(1.2); }
-  70%  { transform: translate(-6px, 40px) scale(0.7); }
-  80%  { transform: translate(6px, 50px) scale(0.5); }
-  90%  { transform: translate(-3px, 55px) scale(0.4); filter: blur(3px); }
-  100% { transform: translate(0, 60px) scale(0.3); opacity: 0; filter: blur(6px); }
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+        filter: none;
+    }
+
+    10% {
+        transform: translate(-5px, 5px) scale(0.98);
+    }
+
+    20% {
+        transform: translate(5px, 10px) scale(0.96);
+    }
+
+    30% {
+        transform: translate(-6px, 15px) scale(0.94);
+    }
+
+    40% {
+        transform: translate(6px, 20px) scale(0.92);
+        filter: brightness(1.1);
+    }
+
+    50% {
+        transform: translate(-4px, 25px) scale(0.9);
+    }
+
+    60% {
+        transform: translate(4px, 30px) scale(0.85);
+        filter: brightness(1.2) contrast(1.2);
+    }
+
+    70% {
+        transform: translate(-6px, 40px) scale(0.7);
+    }
+
+    80% {
+        transform: translate(6px, 50px) scale(0.5);
+    }
+
+    90% {
+        transform: translate(-3px, 55px) scale(0.4);
+        filter: blur(3px);
+    }
+
+    100% {
+        transform: translate(0, 60px) scale(0.3);
+        opacity: 0;
+        filter: blur(6px);
+    }
 }
 
 .boss-derrotado {
-  animation: tremerDesfazer 2.4s forwards;
+    animation: tremerDesfazer 2.4s forwards;
 }
