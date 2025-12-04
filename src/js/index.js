@@ -135,6 +135,7 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
     const audio = document.getElementById("audioHiitsumo");
     const cabeca = document.getElementById("cabeca");
+    const Hiitsumo = document.getElementById("Hiitsumo");
 
     elemento.textContent = "";
     elemento.style.display = "block";
@@ -147,6 +148,7 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
 
     // Troca para imagem de fala
     cabeca.src = "./src/img/cabeca-falando.gif";
+    Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
 
     // Inicia o áudio em loop
     audio.currentTime = 0;
@@ -161,7 +163,8 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             // Troca para imagem parada
-            cabeca.src = "./src/img/cabeca.webp";
+            cabeca.src = "./src/img/cabeca.gif";
+            Hiitsumo.src = "./src/img/hiitsumo.gif";
             return;
         }
 
@@ -174,7 +177,8 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             // Troca para imagem parada
-            cabeca.src = "./src/img/cabeca.webp";
+            cabeca.src = "./src/img/cabeca.gif";
+            Hiitsumo.src = "./src/img/hiitsumo.gif";
         }
     }, velocidade);
 }
@@ -183,7 +187,6 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
 document.getElementById("falaHiitsumo").addEventListener("click", () => {
     pulando = true;
 
-    // Simula o clique no Nokia
     document.querySelector(".Hiitsumo").click();
 });
 
