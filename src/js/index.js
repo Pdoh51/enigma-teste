@@ -26,41 +26,53 @@ function verificarSenha() {
         engrenagem.src = "./src/img/engrenagem-verde.png";
         engrenagem.classList.add("verde");
 
-        // avança fase
-        faseAtual++;
+        mensagem.textContent = "Senha correta!";
+        mensagem.style.color = "green";
+        document.getElementById("senha").value = "";
 
-        atualizarBoss(); // muda a imagem do boss conforme a fase
+        // 🔥 PRIMEIRO: BOSS MORRE
+        derrotarBoss();
 
+        // ⏳ ESPERA A ANIMAÇÃO ACABAR PRA IR PRA PRÓXIMA FASE
+        setTimeout(() => {
 
-        // AINDA EXISTEM FASES
-        if (faseAtual < senhas.length) {
-            mensagem.textContent = "Senha correta!";
-            mensagem.style.color = "green";
-            document.getElementById("senha").value = "";
+            faseAtual++; // AGORA sim avança a fase
 
-            // ESCONDE APÓS 2s
-            mensagemTimeout = setTimeout(() => {
-                mensagem.style.opacity = "0";
-                mensagem.style.display = "none";
-            }, 2000);
+            // 🟢 AINDA EXISTEM FASES
+            if (faseAtual < senhas.length) {
 
-            // FINAL DO JOGO
-        } else {
-            mensagem.textContent = "Você completou o desafio!";
-            mensagem.style.color = "green";
-            document.querySelector(".linha-senha").style.display = "none";
-            mensagem.style.marginTop = "120px";
+                atualizarBoss(); // aparece o próximo boss
 
-            setTimeout(() => {
-                mensagem.style.opacity = "0";
-                mensagem.style.display = "none";
-                document.querySelector(".recompensa_final").style.display = "block";
-                //enviarMensagemDiscord();
-            }, 3000);
-        }
+                const boss = document.getElementById("boss");
+                boss.style.display = "block";
+                boss.classList.remove("boss-derrotado");
 
-        // SENHA ERRADA
-    } else {
+                mensagemTimeout = setTimeout(() => {
+                    mensagem.style.opacity = "0";
+                    mensagem.style.display = "none";
+                }, 2000);
+
+            }
+            // 🏁 FINAL DO JOGO
+            else {
+                mensagem.textContent = "Você completou o desafio!";
+                mensagem.style.color = "green";
+                document.querySelector(".linha-senha").style.display = "none";
+                mensagem.style.marginTop = "120px";
+
+                setTimeout(() => {
+                    mensagem.style.opacity = "0";
+                    mensagem.style.display = "none";
+                    document.querySelector(".recompensa_final").style.display = "block";
+                    // enviarMensagemDiscord();
+                }, 3000);
+            }
+
+        }, 1600); // TEMPO DA ANIMAÇÃO DO BOSS
+    }
+
+    // ❌ SENHA ERRADA
+    else {
         mensagem.textContent = "Senha incorreta!";
         mensagem.style.color = "red";
 
@@ -95,6 +107,17 @@ function enviarMensagemDiscord() {
             console.error("Erro ao enviar para o Discord:", err);
         });
 }
+
+function derrotarBoss() {
+    const boss = document.getElementById("boss");
+
+    boss.classList.remove("boss-derrotado");
+    void boss.offsetWidth; // reinicia a animação
+    boss.classList.add("boss-derrotado");
+}
+
+
+
 
 
 
@@ -203,92 +226,80 @@ document.querySelector(".Hiitsumo").addEventListener("click", () => {
             HiitsumoEstado1 = 0;
         }
     } else if (faseAtual === 1) {
-        if (mamacoEstado2 === 0) {
-            imagemMamaco.src = "./src/img/mamaco.gif";
-            digitarMensagem("Fala gorilão! Tô vendo aqui que você conseguiu passar de fase, meus parabéns sabia que você iria conseguir.", "mensagemMamaco");
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 1) {
-            digitarMensagem("Tá querendo uma dica agora né? Deixa eu pensar aqui hmmmm...", "mensagemMamaco");
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 2) {
-            digitarMensagem("A resposta da fase é a resposta das 3 perguntas tudo junto, sem espaço.", "mensagemMamaco");
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 3) {
-            imagemMamaco.src = "./src/img/nokia.gif";
+        if (HiitsumoEstado2 === 0) {
+            mensagem.style.display = "block";
+            digitarMensagem("1", "falaHiitsumo");
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 1) {
+            digitarMensagem("2", "falaHiitsumo");
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 2) {
+            digitarMensagem("3", "falaHiitsumo");
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 3) {
             mensagem.style.display = "none";
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 4) {
-            imagemMamaco.src = "./src/img/mamaco.gif";
-            digitarMensagem("Já quer outra dica? Beleza, deixa eu pensar hmmmmmm...", "mensagemMamaco");
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 5) {
-            digitarMensagem("Presta atenção na música e no contexto do texto, as respostas vão estar na origem desses 2.", "mensagemMamaco");
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 6) {
-            imagemMamaco.src = "./src/img/nokia.gif";
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 4) {
+            mensagem.style.display = "block";
+            digitarMensagem("4", "falaHiitsumo");
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 5) {
+            digitarMensagem("5", "falaHiitsumo");
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 6) {
             mensagem.style.display = "none";
-            mamacoEstado2 += 1;
-        } else if (mamacoEstado2 === 7) {
-            imagemMamaco.src = "./src/img/mamaco.gif";
-            digitarMensagem("Última dica em. As respostas são todas números e se você não percebeu ainda, as respostas estão no Clash Royale. Se tá difícil vai reclamar com quem fez essa merda.", "mensagemMamaco");
-            mamacoEstado2 += 1;
+            HiitsumoEstado2 += 1;
+        } else if (HiitsumoEstado2 === 7) {
+            mensagem.style.display = "block";
+            digitarMensagem("6", "falaHiitsumo");
+            HiitsumoEstado2 += 1;
         } else {
-            imagemMamaco.src = "./src/img/nokia.gif";
             mensagem.style.display = "none";
-            mamacoEstado2 = 0;
+            HiitsumoEstado2 = 0;
         }
     } else if (faseAtual === 2) {
-        if (mamacoEstado3 === 0) {
-            imagemMamaco.src = "./src/img/mamaco.gif";
-            digitarMensagem("Fala golira! Parabéns pela última em, mas agora se tá fudidu essa tá em nerdes.", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 1) {
-            digitarMensagem("Esse é complicado, deixa eu pensar numa dica aqui hmmmm...", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 2) {
-            digitarMensagem("Essa aí pelo que me falaram a resposta é só traduzir esse texto e mandar ele inteiro.", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 3) {
-            digitarMensagem(".............. hmmmmmmm ..............", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 4) {
-            digitarMensagem("Pediram aqui também pra você não usar gpt ou pesquisar pra traduzir, se não mamaco não ganha banana e nerd que fez esse enigma fica triste, mas confio que você não vai fazer isso, né?", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 5) {
-            imagemMamaco.src = "./src/img/nokia.gif";
+        if (HiitsumoEstado3 === 0) {
+            mensagem.style.display = "block";
+            digitarMensagem("1", "falaHiitsumo");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 1) {
+            digitarMensagem("2", "falaHiitsumo");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 2) {
+            digitarMensagem("3", "falaHiitsumo");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 3) {
+            digitarMensagem("4", "falaHiitsumo");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 4) {
+            digitarMensagem("5", "falaHiitsumo");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 5) {
             mensagem.style.display = "none";
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 6) {
-            imagemMamaco.src = "./src/img/mamaco.gif";
-            digitarMensagem("Nerdes é difícil né? Mas eu te ajudo, deixa eu pensar aqui hmmmmm...", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 7) {
-            digitarMensagem("Nesse texto tem alguns espaços de escrita, pra separar palavras e tals, eles são 00100000, 040 e 20, aí tu tenta resolver alguma coisa com isso.", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 8) {
-            imagemMamaco.src = "./src/img/nokia.gif";
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 6) {
+            mensagem.style.display = "block";
+            digitarMensagem("6", "mensagemMamaco");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 7) {
+            digitarMensagem("7", "mensagemMamaco");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 8) {
             mensagem.style.display = "none";
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 9) {
-            imagemMamaco.src = "./src/img/mamaco.gif";
-            digitarMensagem("Os orangotangos da sabedoria aqui perceberam que é meio complicado traduzir isso aí sem pesquisar. O que você não fez né? Bom, não importa muito, se você tá me ligando de novo não deve ter pesquisado, então eles me mandaram te entregar uma coisa aqui, deve chegar daqui a pouco...", "mensagemMamaco");
-            mamacoEstado3 += 1;
-        } else if (mamacoEstado3 === 10) {
-            digitarMensagem("Opa! chegou aí né? Agora eu acho que da pra fazer de boa. Aliás essa foi a última dica tá, depois disso só vou repetir.", "mensagemMamaco");
-            document.getElementById("imagemAlfabeto1").style.display = "block";
-            document.getElementById("imagemAlfabeto2").style.display = "block";
-            document.getElementById("imagemAlfabeto3").style.display = "block";
-            mamacoEstado3 += 1;
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 9) {
+            mensagem.style.display = "block";
+            digitarMensagem("8", "mensagemMamaco");
+            HiitsumoEstado3 += 1;
+        } else if (HiitsumoEstado3 === 10) {
+            digitarMensagem("9", "mensagemMamaco");
+            HiitsumoEstado3 += 1;
         } else {
-            imagemMamaco.src = "./src/img/nokia.gif";
             mensagem.style.display = "none";
-            mamacoEstado3 = 0;
+            HiitsumoEstado3 = 0;
         }
     } else if (faseAtual === 3) {
         document.getElementById("mensagemMamaco").classList.add("mensagem-fase4");
-        document.getElementById("imagemAlfabeto1").style.display = "none";
-        document.getElementById("imagemAlfabeto2").style.display = "none";
-        document.getElementById("imagemAlfabeto3").style.display = "none";
         if (mamacoEstado4 === 0) {
             imagemMamaco.src = "./src/img/gorila.gif";
             digitarMensagem("Hm? Quem ligar pra mamaco da dica? Alô? Hmmmm, mamaco da dica sair. Pegar mais Banana. Golira da ajuda dar dica.", "mensagemMamaco");
