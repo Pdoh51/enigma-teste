@@ -110,6 +110,9 @@ let pulando = false;
 // Função para digitar texto como em jogo de diálogo
 function digitarMensagem(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabeca");
+
     elemento.textContent = "";
     elemento.style.display = "block";
 
@@ -118,10 +121,24 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
     let i = 0;
 
     clearInterval(intervaloDigitacao);
+
+    // Troca para imagem de fala
+    cabeca.src = "./src/img/cabeca-falando.gif";
+
+    // Inicia o áudio em loop
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play();
+
     intervaloDigitacao = setInterval(() => {
         if (pulando) {
             elemento.textContent = textoCompleto;
             clearInterval(intervaloDigitacao);
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Troca para imagem parada
+            cabeca.src = "./src/img/cabeca.webp";
             return;
         }
 
@@ -130,6 +147,11 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
             i++;
         } else {
             clearInterval(intervaloDigitacao);
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Troca para imagem parada
+            cabeca.src = "./src/img/cabeca.webp";
         }
     }, velocidade);
 }
@@ -143,14 +165,15 @@ document.getElementById("falaHiitsumo").addEventListener("click", () => {
 });
 
 document.querySelector(".Hiitsumo").addEventListener("click", () => {
-    const mensagem = document.getElementById("falaHiitsumo");
+    const mensagem = document.getElementById("dica");
 
     if (faseAtual === 0) {
         if (HiitsumoEstado1 === 0) {
-            digitarMensagem("Tá lá 1", "falaHiitsumo");
+            mensagem.style.display = "block";
+            digitarMensagem("Já que meu criador mandou mais trabalho para o desenvolvedor, ele deveria me dar mais imagens e gifs animados bonitos", "falaHiitsumo");
             HiitsumoEstado1 += 1;
         } else if (HiitsumoEstado1 === 1) {
-            digitarMensagem("Tá lá 2", "falaHiitsumo");
+            digitarMensagem("Tá lá 2 bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla", "falaHiitsumo");
             HiitsumoEstado1 += 1;
         } else if (HiitsumoEstado1 === 2) {
             digitarMensagem("Tá lá 3", "falaHiitsumo");
@@ -159,6 +182,7 @@ document.querySelector(".Hiitsumo").addEventListener("click", () => {
             mensagem.style.display = "none";
             HiitsumoEstado1 += 1;
         } else if (HiitsumoEstado1 === 4) {
+            mensagem.style.display = "block";
             digitarMensagem("Tá lá 4", "falaHiitsumo");
             HiitsumoEstado1 += 1;
         } else if (HiitsumoEstado1 === 5) {
@@ -168,6 +192,7 @@ document.querySelector(".Hiitsumo").addEventListener("click", () => {
             mensagem.style.display = "none";
             HiitsumoEstado1 += 1;
         } else if (HiitsumoEstado1 === 7) {
+            mensagem.style.display = "block";
             digitarMensagem("Tá lá 6", "falaHiitsumo");
             HiitsumoEstado1 += 1;
         } else if (HiitsumoEstado1 === 8) {
