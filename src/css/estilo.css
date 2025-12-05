@@ -45,7 +45,7 @@
 .Hiitsumo-inicial {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 20%;
     width: 400px;
 }
 
@@ -64,7 +64,7 @@
 
 .opcaoA, .opcaoB{
     position: absolute;
-    top: 460px;
+    top: 73%;
     width: 400px;
     min-height: 85px;
     border: 4px solid white;
