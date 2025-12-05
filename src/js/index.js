@@ -175,11 +175,14 @@ document.querySelector(".introducao").addEventListener("click", () => {
         hiitsumoInicial.style.display = "block"
         cabeca.style.display = "block"
         mensagem.style.padding = "5px 0px 0px 90px"
-        mensagem.style.top = "460px"
+        mensagem.style.top = "480px"
         digitarMensagem("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumo");
         HiitsumoEstado += 1
         aparecerHiitsumo();
-    }
+    } else if (HiitsumoEstado === 7) {
+        digitarMensagem("000000000000", "falaHiitsumo");
+        HiitsumoEstado += 1;
+    } 
 })
 });
 

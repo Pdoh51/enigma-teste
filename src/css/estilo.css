@@ -52,7 +52,20 @@
 .caixa-dialogo {
     position: absolute;
     display: none;
-    top: 250px;
+    top: 270px;
+    width: 400px;
+    min-height: 85px;
+    border: 4px solid white;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 0 4px black;
+    cursor: pointer;
+}
+
+.opcaoA, .opcaoB{
+    position: absolute;
+    display: none;
+    top: 460px;
     width: 400px;
     min-height: 85px;
     border: 4px solid white;
