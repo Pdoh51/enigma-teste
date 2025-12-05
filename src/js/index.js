@@ -116,15 +116,23 @@ function derrotarBoss() {
     boss.classList.add("boss-derrotado");
 }
 
+function aparecerHiitsumo() {
+    const aparecer = document.getElementById("Hiitsumo");
+
+    aparecer.classList.remove("aparecer");
+    void aparecer.offsetWidth; 
+    aparecer.classList.add("aparecer");
+}
+
 
 let HiitsumoEstado = 0;
 
 document.getElementById("botaoIniciar").addEventListener("click", () => {
-    const botao = document.getElementById("botaoIniciar");   // o <img> do botão
-    const tela = document.getElementById("iniciar");         // o container da tela preta
+    const botao = document.getElementById("botaoIniciar");   
+    const tela = document.getElementById("iniciar");        
     const mensagem = document.getElementById("caixa-dialogo");
     const blang = document.getElementById("blang");
-    const hiitsumoInteira = document.getElementById("Hiitsumo-inteira");
+    const hiitsumoInicial = document.getElementById("Hiitsumo");
     const cabeca = document.getElementById("cabeca");
 
     botao.src = "./src/img/iniciar-pressionado.webp";
@@ -164,12 +172,13 @@ document.querySelector(".introducao").addEventListener("click", () => {
         digitarMensagem("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumo");
         HiitsumoEstado += 1;
     } else if (HiitsumoEstado === 6) {
-        hiitsumoInteira.style.display = "block"
+        hiitsumoInicial.style.display = "block"
         cabeca.style.display = "block"
         mensagem.style.padding = "5px 0px 0px 90px"
         mensagem.style.top = "460px"
         digitarMensagem("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumo");
-        HiitsumoEstado += 1;
+        HiitsumoEstado += 1
+        aparecerHiitsumo();
     }
 })
 });
