@@ -176,7 +176,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         } else if (HiitsumoEstado === 6) {
             hiitsumoInicial.style.display = "block";
             cabecaIntro.style.display = "block";
-            digitarMensagemIntro("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumoIntro");
+            digitarMensagemIntro1("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumoIntro");
             HiitsumoEstado += 1
             aparecerHiitsumo();
         } else if (HiitsumoEstado === 7) {
@@ -305,7 +305,7 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
 
     audio.pause();
     audio.currentTime = 0;
-    audio.loop = false;
+    audio.loop = true;
     audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
 
     // Troca para imagem de fala
@@ -331,7 +331,50 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     }, velocidade);
 }
 
+function digitarMensagemIntro1(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
 
+    Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
+
+    // Garante que o elemento existe
+    if (!elemento) return;
+
+    // Limpa texto anterior e mostra o elemento
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    let i = 0;
+
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
+
+    // Troca para imagem de fala
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada-falando.gif";
+
+    // Intervalo de digitação
+    const intervaloDigitacao = setInterval(() => {
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacao);
+
+            // Para o áudio
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Troca para imagem parada
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
+        }
+    }, velocidade);
+}
 
 
 let HiitsumoEstado1 = 0;
