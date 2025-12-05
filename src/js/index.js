@@ -175,7 +175,7 @@ document.querySelector(".introducao").addEventListener("click", () => {
         hiitsumoInicial.style.display = "block"
         cabeca.style.display = "block"
         mensagem.style.padding = "5px 0px 0px 90px"
-        mensagem.style.top = "480px"
+        mensagem.style.top = "73%"
         digitarMensagem("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumo");
         HiitsumoEstado += 1
         aparecerHiitsumo();
