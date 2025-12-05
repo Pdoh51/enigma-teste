@@ -234,8 +234,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
             document.getElementById("caixa-dialogo").style.width = "400px";
 
-            digitarMensagemIntro("HA! Eu finalmente posso falar que sim! Eu vim do futuro, sim, do ano de 2309.", "falaHiitsumoIntro");
-
+            digitarMensagemIntro(`HA! Eu finalmente posso falar que sim! Eu vim do futuro, sim, do ano de 2309`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
         } else if (HiitsumoEstado === 12) {
             document.getElementById("opcoes").style.display = "none";
@@ -243,7 +242,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             document.getElementById("caixa-dialogo").style.display = "flex";
             cabecaIntro.style.display = "block";
 
-            document.getElementById("caixa-dialogo").style.width = "500px";
+            document.getElementById("caixa-dialogo").style.width = "730px";
 
             digitarMensagemIntro(`Pra resumir o que está acontecendo, eu tenho uma máquina do tempo que não funciona muito bem, e quando eu tentei usar ela várias peças caíram em épocas e lugares diferentes, então eu estou tentando resgatar elas pra consertar a máquina e voltar pra minha casa, só que ela deve ter te puxado pro raio de distorção temporal por acidente, entendeu?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
@@ -288,56 +287,46 @@ function digitarOpcao(texto, elementoId, velocidade = 40) {
     }, velocidade);
 }
 
-// Função para digitar texto como em jogo de diálogo
+// Função para digitar texto como em jogo de diálogo (introdução)
 function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
     const audio = document.getElementById("audioHiitsumo");
     const cabeca = document.getElementById("cabecaIntro");
     const Hiitsumo = document.getElementById("HiitsumoIntro");
 
+    // Garante que o elemento existe
+    if (!elemento) return;
 
+    // Limpa texto anterior e mostra o elemento
     elemento.textContent = "";
     elemento.style.display = "block";
 
-    textoCompleto = texto;
-    pulando = false;
     let i = 0;
 
-    clearInterval(intervaloDigitacao);
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = false;
+    audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
 
     // Troca para imagem de fala
-    cabeca.src = "./src/img/cabeca-falando.gif";
-    Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
 
-    // Inicia o áudio em loop
-    audio.currentTime = 0;
-    audio.loop = true;
-    audio.play();
-
-    intervaloDigitacao = setInterval(() => {
-        if (pulando) {
-            elemento.textContent = textoCompleto;
-            clearInterval(intervaloDigitacao);
-            audio.pause();
-            audio.currentTime = 0;
-
-            // Troca para imagem parada
-            cabeca.src = "./src/img/cabeca.gif";
-            Hiitsumo.src = "./src/img/hiitsumo.gif";
-            return;
-        }
-
+    // Intervalo de digitação
+    const intervaloDigitacao = setInterval(() => {
         if (i < texto.length) {
             elemento.textContent += texto.charAt(i);
             i++;
         } else {
             clearInterval(intervaloDigitacao);
+
+            // Para o áudio
             audio.pause();
             audio.currentTime = 0;
 
             // Troca para imagem parada
-            cabeca.src = "./src/img/cabeca.gif";
-            Hiitsumo.src = "./src/img/hiitsumo.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
         }
     }, velocidade);
 }
