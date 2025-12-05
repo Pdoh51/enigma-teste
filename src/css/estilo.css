@@ -67,6 +67,10 @@
     cursor: pointer;
 }
 
+.opcaoB {
+    margin-top: 10px;
+}
+
 .opcoes button {
     display: none;
     width: 350px;

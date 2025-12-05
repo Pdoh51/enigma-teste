@@ -117,7 +117,7 @@ function derrotarBoss() {
 }
 
 function aparecerHiitsumo() {
-    const aparecer = document.getElementById("Hiitsumo");
+    const aparecer = document.getElementById("HiitsumoIntro");
 
     aparecer.classList.remove("aparecer");
     void aparecer.offsetWidth;
@@ -197,9 +197,55 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             document.getElementById("caixa-dialogo").style.display = "flex";
             cabecaIntro.style.display = "block";
 
+            document.getElementById("caixa-dialogo").style.width = "400px";
+
             const agora = new Date();
             const hora = agora.getHours();
             digitarMensagemIntro(`Bom, esse deve ser o seu quarto, mas estamos na hora que existe entre ${hora} e ${hora + 1}.`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 9) {
+            document.getElementById("caixa-dialogo").style.width = "500px";
+            digitarMensagemIntro(`Deve ser confuso pra você, eu sei, mas não se preocupe! Essa bugiganga que eu construí com o projeto do meu pai está com alguns problemas, mas você pode voltar pra casa em um instante.`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 10) {
+            document.getElementById("caixa-dialogo").style.display = "none";
+            cabecaIntro.style.display = "none";
+
+            document.getElementById("opcoes").style.display = "block";
+
+            opcA.style.display = "block";
+            digitarOpcao('"Você é do futuro?"', "opcaoA");
+
+            opcB.style.display = "block";
+            digitarOpcao('"Não entendi nada"', "opcaoB");
+
+            opcA.onclick = () => {
+                HiitsumoEstado += 1;
+            };
+
+            opcB.onclick = () => {
+                HiitsumoEstado += 2;
+            };
+        } else if (HiitsumoEstado === 11) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("falaHiitsumoIntro").style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+            cabecaIntro.style.display = "block";
+
+            document.getElementById("caixa-dialogo").style.width = "400px";
+
+            digitarMensagemIntro("HA! Eu finalmente posso falar que sim! Eu vim do futuro, sim, do ano de 2309.", "falaHiitsumoIntro");
+
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 12) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("falaHiitsumoIntro").style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+            cabecaIntro.style.display = "block";
+
+            document.getElementById("caixa-dialogo").style.width = "500px";
+
+            digitarMensagemIntro(`Pra resumir o que está acontecendo, eu tenho uma máquina do tempo que não funciona muito bem, e quando eu tentei usar ela várias peças caíram em épocas e lugares diferentes, então eu estou tentando resgatar elas pra consertar a máquina e voltar pra minha casa, só que ela deve ter te puxado pro raio de distorção temporal por acidente, entendeu?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
         }
     })
@@ -216,8 +262,6 @@ function digitarOpcao(texto, elementoId, velocidade = 40) {
     textoCompleto = texto;
     pulando = false;
     let i = 0;
-
-    clearInterval(intervaloDigitacao);
 
     // Inicia o áudio em loop
     audio.currentTime = 0;
