@@ -132,8 +132,8 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
     const tela = document.getElementById("iniciar");
     const mensagem = document.getElementById("caixa-dialogo");
     const blang = document.getElementById("blang");
-    const hiitsumoInicial = document.getElementById("Hiitsumo");
-    const cabeca = document.getElementById("cabeca");
+    const hiitsumoInicial = document.getElementsByClassName("Hiitsumo-inicial")[0];
+    const cabecaIntro = document.getElementById("cabecaIntro");
     const opcA = document.getElementById("opcaoA");
     const opcB = document.getElementById("opcaoB");
 
@@ -143,66 +143,64 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         tela.style.display = "none";
     }, 1000);
 
-    cabeca.style.display = "none";
+    cabecaIntro.style.display = "none";
 
     blang.play();
     // depois de 3.5s, mostra a caixa de diálogo e digita a fala
     setTimeout(() => {
         mensagem.style.display = "flex";
-        digitarMensagem("AAAHH! Isso é ruim! Ruim!", "falaHiitsumo");
+        digitarMensagemIntro("AAAHH! Isso é ruim! Ruim!", "falaHiitsumoIntro");
     }, 3500);
 
     document.querySelector(".introducao").addEventListener("click", () => {
 
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "block";
-            digitarMensagem("(Você não se lembra exatamente como ou quando foi parar aí, nesse lugar vazio e escuro.)", "falaHiitsumo");
+            digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí, nesse lugar vazio e escuro.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 1) {
-            digitarMensagem("Não. Não vai funcionar. E agora?!", "falaHiitsumo");
+            digitarMensagemIntro("Não. Não vai funcionar. E agora?!", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 2) {
-            digitarMensagem("(Nada além de um vento distante e aquela voz feminina.)", "falaHiitsumo");
+            digitarMensagemIntro("(Nada além de um vento distante e aquela voz feminina.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 3) {
-            digitarMensagem("Ah! Alôoooou! Você aí!", "falaHiitsumo");
+            digitarMensagemIntro("Ah! Alôoooou! Você aí!", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 4) {
-            digitarMensagem("(Você olha na direção dela.)", "falaHiitsumo");
+            digitarMensagemIntro("(Você olha na direção dela.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 5) {
-            digitarMensagem("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumo");
+            digitarMensagemIntro("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 6) {
-            hiitsumoInicial.style.display = "block"
-            cabeca.style.display = "block"
-            mensagem.style.padding = "5px 0px 0px 90px"
-            mensagem.style.top = "73%"
-            digitarMensagem("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumo");
+            hiitsumoInicial.style.display = "block";
+            cabecaIntro.style.display = "block";
+            digitarMensagemIntro("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumoIntro");
             HiitsumoEstado += 1
             aparecerHiitsumo();
         } else if (HiitsumoEstado === 7) {
             document.getElementById("caixa-dialogo").style.display = "none";
-            cabeca.style.display = "none";
+            cabecaIntro.style.display = "none";
 
             document.getElementById("opcoes").style.display = "block";
 
             opcA.style.display = "block";
-            opcA.textContent = '"Onde nós estamos?"';
+            digitarOpcao('"Onde nós estamos?"', "opcaoA");
             opcB.style.display = "none";
-            // listener da opção A
             opcA.onclick = () => {
-                // quando clicar, esconde opções e volta a mostrar a fala
-                document.getElementById("opcoes").style.display = "none";
-                document.getElementById("falaHiitsumo").style.display = "block";
-                document.getElementById("caixa-dialogo").style.display = "block";
-                cabeca.style.display = "block";
-
-                const agora = new Date();
-                const hora = agora.getHours();
-                digitarMensagem(`Bom, esse deve ser o seu quarto, mas estamos na hora que existe entre ${hora} e ${hora + 1}.`, "falaHiitsumo");
+                HiitsumoEstado += 1;
             };
-            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 8) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("falaHiitsumoIntro").style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+            cabecaIntro.style.display = "block";
+
+            const agora = new Date();
+            const hora = agora.getHours();
+            digitarMensagemIntro(`Bom, esse deve ser o seu quarto, mas estamos na hora que existe entre ${hora} e ${hora + 1}.`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
         }
     })
 });
@@ -242,6 +240,60 @@ function digitarOpcao(texto, elementoId, velocidade = 40) {
             clearInterval(intervaloDigitacao);
             audio.pause();
             audio.currentTime = 0;
+        }
+    }, velocidade);
+}
+
+// Função para digitar texto como em jogo de diálogo
+function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    textoCompleto = texto;
+    pulando = false;
+    let i = 0;
+
+    clearInterval(intervaloDigitacao);
+
+    // Troca para imagem de fala
+    cabeca.src = "./src/img/cabeca-falando.gif";
+    Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
+
+    // Inicia o áudio em loop
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play();
+
+    intervaloDigitacao = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacao);
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Troca para imagem parada
+            cabeca.src = "./src/img/cabeca.gif";
+            Hiitsumo.src = "./src/img/hiitsumo.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacao);
+            audio.pause();
+            audio.currentTime = 0;
+
+            // Troca para imagem parada
+            cabeca.src = "./src/img/cabeca.gif";
+            Hiitsumo.src = "./src/img/hiitsumo.gif";
         }
     }, velocidade);
 }
@@ -316,10 +368,10 @@ function digitarMensagem(texto, elementoId, velocidade = 40) {
 document.getElementById("dica").addEventListener("click", () => {
     pulando = true;
 
-    document.querySelector(".Hiitsumo").click();
+    document.getElementById("Hiitsumo").click();
 });
 
-document.querySelector(".Hiitsumo").addEventListener("click", () => {
+document.getElementById("Hiitsumo").addEventListener("click", () => {
     const mensagem = document.getElementById("dica");
 
     if (faseAtual === 0) {
