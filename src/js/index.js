@@ -148,14 +148,14 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
     blang.play();
     // depois de 3.5s, mostra a caixa de diálogo e digita a fala
     setTimeout(() => {
-        mensagem.style.display = "flex";
+        mensagem.style.display = "block";
         digitarMensagemIntro("AAAHH! Isso é ruim! Ruim!", "falaHiitsumoIntro");
     }, 3500);
 
     document.querySelector(".introducao").addEventListener("click", () => {
 
         if (HiitsumoEstado === 0) {
-            mensagem.style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí, nesse lugar vazio e escuro.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 1) {
