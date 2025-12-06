@@ -246,6 +246,11 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
             digitarMensagemIntro(`Pra resumir o que está acontecendo, eu tenho uma máquina do tempo que não funciona muito bem, e quando eu tentei usar ela várias peças caíram em épocas e lugares diferentes, então eu estou tentando resgatar elas pra consertar a máquina e voltar pra minha casa, só que ela deve ter te puxado pro raio de distorção temporal por acidente, entendeu?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 13) {
+            document.getElementById("caixa-dialogo").style.width = "350px";
+
+            digitarMensagemIntro(`Pra entendeu?`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
         }
     })
 });
@@ -253,26 +258,43 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 // Função para digitar texto como em jogo de diálogo
 function digitarOpcao(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
-    const audio = document.getElementById("audioHiitsumo");
+    if (!elemento) return;
 
+    // reset visual
     elemento.textContent = "";
     elemento.style.display = "block";
 
-    textoCompleto = texto;
-    pulando = false;
+    // criar áudio LOCAL para esta opção (usa o mesmo src do audioHiitsumo)
+    const globalAudio = document.getElementById("audioHiitsumo");
+    const audioOpc = new Audio(globalAudio ? globalAudio.src : "");
+    audioOpc.loop = false;
+    audioOpc.currentTime = 0;
+    // tente tocar (pode falhar se navegador bloquear, mas não quebra)
+    audioOpc.play().catch(() => { /* ignorar */ });
+
+    // flags/intervalo por elemento (evita interferência entre opções)
+    if (elemento._interval) {
+        clearInterval(elemento._interval);
+        elemento._interval = null;
+    }
+    elemento._pulando = false;
+
+    // permitir pular a digitação clicando na própria opção
+    const handleSkip = (e) => {
+        e.stopPropagation();
+        elemento._pulando = true;
+    };
+    elemento.addEventListener("click", handleSkip, { once: false });
+
     let i = 0;
-
-    // Inicia o áudio em loop
-    audio.currentTime = 0;
-    audio.loop = true;
-    audio.play();
-
-    intervaloDigitacao = setInterval(() => {
-        if (pulando) {
-            elemento.textContent = textoCompleto;
-            clearInterval(intervaloDigitacao);
-            audio.pause();
-            audio.currentTime = 0;
+    elemento._interval = setInterval(() => {
+        if (elemento._pulando) {
+            elemento.textContent = texto;
+            clearInterval(elemento._interval);
+            elemento._interval = null;
+            audioOpc.pause();
+            audioOpc.currentTime = 0;
+            elemento.removeEventListener("click", handleSkip);
             return;
         }
 
@@ -280,9 +302,11 @@ function digitarOpcao(texto, elementoId, velocidade = 40) {
             elemento.textContent += texto.charAt(i);
             i++;
         } else {
-            clearInterval(intervaloDigitacao);
-            audio.pause();
-            audio.currentTime = 0;
+            clearInterval(elemento._interval);
+            elemento._interval = null;
+            audioOpc.pause();
+            audioOpc.currentTime = 0;
+            elemento.removeEventListener("click", handleSkip);
         }
     }, velocidade);
 }
@@ -301,6 +325,8 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     elemento.textContent = "";
     elemento.style.display = "block";
 
+    textoCompleto = texto;
+    pulando = false;
     let i = 0;
 
     audio.pause();
