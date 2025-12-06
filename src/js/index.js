@@ -18,7 +18,6 @@ function verificarSenha() {
     mensagem.style.opacity = "1";
     mensagem.style.display = "block";
 
-    // SENHA CORRETA
     if (senhaDigitada === senhas[faseAtual]) {
 
         // abre engrenagem da fase atual
@@ -30,19 +29,13 @@ function verificarSenha() {
         mensagem.style.color = "green";
         document.getElementById("senha").value = "";
 
-        // 🔥 PRIMEIRO: BOSS MORRE
         derrotarBoss();
 
-        // ⏳ ESPERA A ANIMAÇÃO ACABAR PRA IR PRA PRÓXIMA FASE
         setTimeout(() => {
-
             faseAtual++; // AGORA sim avança a fase
-
             // 🟢 AINDA EXISTEM FASES
             if (faseAtual < senhas.length) {
-
                 atualizarBoss(); // aparece o próximo boss
-
                 const boss = document.getElementById("boss");
                 boss.style.display = "block";
                 boss.classList.remove("boss-derrotado");
@@ -51,10 +44,7 @@ function verificarSenha() {
                     mensagem.style.opacity = "0";
                     mensagem.style.display = "none";
                 }, 2000);
-
-            }
-            // 🏁 FINAL DO JOGO
-            else {
+            } else {
                 mensagem.textContent = "Você completou o desafio!";
                 mensagem.style.color = "green";
                 document.querySelector(".linha-senha").style.display = "none";
@@ -67,12 +57,8 @@ function verificarSenha() {
                     // enviarMensagemDiscord();
                 }, 3000);
             }
-
         }, 1600); // TEMPO DA ANIMAÇÃO DO BOSS
-    }
-
-    // ❌ SENHA ERRADA
-    else {
+    } else {
         mensagem.textContent = "Senha incorreta!";
         mensagem.style.color = "red";
 
@@ -156,30 +142,33 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
         if (HiitsumoEstado === 0) {
             document.getElementById("caixa-dialogo").style.display = "flex";
-            digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí, nesse lugar vazio e escuro.)", "falaHiitsumoIntro");
+            digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 1) {
-            digitarMensagemIntro("Não. Não vai funcionar. E agora?!", "falaHiitsumoIntro");
+            digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 2) {
-            digitarMensagemIntro("(Nada além de um vento distante e aquela voz feminina.)", "falaHiitsumoIntro");
+            digitarMensagemIntro("Não. Não vai funcionar. E agora?!", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 3) {
-            digitarMensagemIntro("Ah! Alôoooou! Você aí!", "falaHiitsumoIntro");
+            digitarMensagemIntro("(Nada além de um vento distante e aquela voz feminina.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 4) {
-            digitarMensagemIntro("(Você olha na direção dela.)", "falaHiitsumoIntro");
+            digitarMensagemIntro("Ah! Alôoooou! Você aí! Bem aqui!", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 5) {
-            digitarMensagemIntro("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumoIntro");
+            digitarMensagemIntro("(Você olha na direção dela.)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 6) {
+            digitarMensagemIntro("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 7) {
             hiitsumoInicial.style.display = "block";
             cabecaIntro.style.display = "block";
-            digitarMensagemIntro1("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumoIntro");
+            digitarMensagemCorada("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumoIntro");
             HiitsumoEstado += 1
             aparecerHiitsumo();
-        } else if (HiitsumoEstado === 7) {
+        } else if (HiitsumoEstado === 8) {
             document.getElementById("caixa-dialogo").style.display = "none";
             cabecaIntro.style.display = "none";
 
@@ -191,23 +180,23 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             opcA.onclick = () => {
                 HiitsumoEstado += 1;
             };
-        } else if (HiitsumoEstado === 8) {
+        } else if (HiitsumoEstado === 9) {
             document.getElementById("opcoes").style.display = "none";
             document.getElementById("falaHiitsumoIntro").style.display = "block";
             document.getElementById("caixa-dialogo").style.display = "flex";
             cabecaIntro.style.display = "block";
 
-            document.getElementById("caixa-dialogo").style.width = "400px";
+            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
 
             const agora = new Date();
             const hora = agora.getHours();
-            digitarMensagemIntro(`Bom, esse deve ser o seu quarto, mas estamos na hora que existe entre ${hora} e ${hora + 1}.`, "falaHiitsumoIntro");
-            HiitsumoEstado += 1
-        } else if (HiitsumoEstado === 9) {
-            document.getElementById("caixa-dialogo").style.width = "500px";
-            digitarMensagemIntro(`Deve ser confuso pra você, eu sei, mas não se preocupe! Essa bugiganga que eu construí com o projeto do meu pai está com alguns problemas, mas você pode voltar pra casa em um instante.`, "falaHiitsumoIntro");
+            digitarMensagemIntro(`Bom, esse deve ser o seu quarto, mas estamos na hora que existe entre às ${hora} e ${hora + 1}.`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
         } else if (HiitsumoEstado === 10) {
+            document.getElementById("caixa-dialogo").style.maxWidth = "500px";
+            digitarMensagemIntro(`Deve ser confuso pra você, eu sei, mas não se preocupe! Essa bugiganga que eu construí com o projeto do meu pai está com alguns problemas, mas você pode voltar pra casa em um instante.`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 11) {
             document.getElementById("caixa-dialogo").style.display = "none";
             cabecaIntro.style.display = "none";
 
@@ -224,30 +213,33 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             };
 
             opcB.onclick = () => {
-                HiitsumoEstado += 2;
+                HiitsumoEstado += 3;
             };
-        } else if (HiitsumoEstado === 11) {
-            document.getElementById("opcoes").style.display = "none";
-            document.getElementById("falaHiitsumoIntro").style.display = "block";
-            document.getElementById("caixa-dialogo").style.display = "flex";
-            cabecaIntro.style.display = "block";
-
-            document.getElementById("caixa-dialogo").style.width = "400px";
-
-            digitarMensagemIntro(`HA! Eu finalmente posso falar que sim! Eu vim do futuro, sim, do ano de 2309`, "falaHiitsumoIntro");
-            HiitsumoEstado += 1
         } else if (HiitsumoEstado === 12) {
             document.getElementById("opcoes").style.display = "none";
             document.getElementById("falaHiitsumoIntro").style.display = "block";
             document.getElementById("caixa-dialogo").style.display = "flex";
             cabecaIntro.style.display = "block";
 
-            document.getElementById("caixa-dialogo").style.width = "730px";
+            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
+
+            digitarMensagemIntro(`HA! Eu finalmente posso falar que sim!`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 13) {
+            digitarMensagemIntro(`Eu vim do futuro, sim, do ano de 2309`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 14) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("falaHiitsumoIntro").style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+            cabecaIntro.style.display = "block";
+
+            document.getElementById("caixa-dialogo").style.maxWidth = "730px";
 
             digitarMensagemIntro(`Pra resumir o que está acontecendo, eu tenho uma máquina do tempo que não funciona muito bem, e quando eu tentei usar ela várias peças caíram em épocas e lugares diferentes, então eu estou tentando resgatar elas pra consertar a máquina e voltar pra minha casa, só que ela deve ter te puxado pro raio de distorção temporal por acidente, entendeu?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
-        } else if (HiitsumoEstado === 13) {
-            document.getElementById("caixa-dialogo").style.width = "350px";
+        } else if (HiitsumoEstado === 15) {
+            document.getElementById("caixa-dialogo").style.maxWidth = "350px";
 
             digitarMensagemIntro(`Viu como o programador aqui é bom`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
@@ -255,7 +247,10 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
     })
 });
 
-// Função para digitar texto como em jogo de diálogo
+// Função para digitar texto como em jogo de diálogo (introdução)
+// variável global para controlar a digitação atual
+let intervaloDigitacaoAtual = null;
+
 function digitarOpcao(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
     if (!elemento) return;
@@ -311,26 +306,31 @@ function digitarOpcao(texto, elementoId, velocidade = 40) {
     }, velocidade);
 }
 
-// Função para digitar texto como em jogo de diálogo (introdução)
 function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
     const audio = document.getElementById("audioHiitsumo");
     const cabeca = document.getElementById("cabecaIntro");
     const Hiitsumo = document.getElementById("HiitsumoIntro");
 
-    // Garante que o elemento existe
     if (!elemento) return;
+
+    // 🔥 Interrompe qualquer digitação anterior
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    // 🔥 Para o áudio anterior
+    audio.pause();
+    audio.currentTime = 0;
 
     // Limpa texto anterior e mostra o elemento
     elemento.textContent = "";
     elemento.style.display = "block";
 
-    textoCompleto = texto;
-    pulando = false;
     let i = 0;
 
-    audio.pause();
-    audio.currentTime = 0;
+    // Reinicia o áudio
     audio.loop = true;
     audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
 
@@ -339,12 +339,13 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
 
     // Intervalo de digitação
-    const intervaloDigitacao = setInterval(() => {
+    intervaloDigitacaoAtual = setInterval(() => {
         if (i < texto.length) {
             elemento.textContent += texto.charAt(i);
             i++;
         } else {
-            clearInterval(intervaloDigitacao);
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
 
             // Para o áudio
             audio.pause();
@@ -357,16 +358,23 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     }, velocidade);
 }
 
-function digitarMensagemIntro1(texto, elementoId, velocidade = 40) {
+function digitarMensagemCorada(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
     const audio = document.getElementById("audioHiitsumo");
     const cabeca = document.getElementById("cabecaIntro");
     const Hiitsumo = document.getElementById("HiitsumoIntro");
 
-    Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
-
-    // Garante que o elemento existe
     if (!elemento) return;
+
+    // 🔥 Interrompe qualquer digitação anterior
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    // 🔥 Para o áudio anterior
+    audio.pause();
+    audio.currentTime = 0;
 
     // Limpa texto anterior e mostra o elemento
     elemento.textContent = "";
@@ -374,8 +382,7 @@ function digitarMensagemIntro1(texto, elementoId, velocidade = 40) {
 
     let i = 0;
 
-    audio.pause();
-    audio.currentTime = 0;
+    // Reinicia o áudio
     audio.loop = true;
     audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
 
@@ -384,12 +391,13 @@ function digitarMensagemIntro1(texto, elementoId, velocidade = 40) {
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada-falando.gif";
 
     // Intervalo de digitação
-    const intervaloDigitacao = setInterval(() => {
+    intervaloDigitacaoAtual = setInterval(() => {
         if (i < texto.length) {
             elemento.textContent += texto.charAt(i);
             i++;
         } else {
-            clearInterval(intervaloDigitacao);
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
 
             // Para o áudio
             audio.pause();
