@@ -249,7 +249,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         } else if (HiitsumoEstado === 13) {
             document.getElementById("caixa-dialogo").style.width = "350px";
 
-            digitarMensagemIntro(`Pra entendeu?`, "falaHiitsumoIntro");
+            digitarMensagemIntro(`Viu como o programador aqui é bom`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
         }
     })
