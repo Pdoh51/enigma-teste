@@ -140,6 +140,11 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
     document.querySelector(".introducao").addEventListener("click", () => {
 
+        if (digitando) {
+            pulando = true;
+            return;
+        }
+
         if (HiitsumoEstado === 0) {
             document.getElementById("caixa-dialogo").style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
@@ -239,9 +244,41 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             digitarMensagemIntro(`Pra resumir o que está acontecendo, eu tenho uma máquina do tempo que não funciona muito bem, e quando eu tentei usar ela várias peças caíram em épocas e lugares diferentes, então eu estou tentando resgatar elas pra consertar a máquina e voltar pra minha casa, só que ela deve ter te puxado pro raio de distorção temporal por acidente, entendeu?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
         } else if (HiitsumoEstado === 15) {
+            document.getElementById("caixa-dialogo").style.display = "none";
             document.getElementById("caixa-dialogo").style.maxWidth = "350px";
+            cabecaIntro.style.display = "none";
 
-            digitarMensagemIntro(`Viu como o programador aqui é bom`, "falaHiitsumoIntro");
+            document.getElementById("opcoes").style.display = "block";
+
+            opcA.style.display = "block";
+            digitarOpcao('"???"', "opcaoA");
+
+            opcB.style.display = "block";
+            digitarOpcao('"Entendi"', "opcaoB");
+
+            opcA.onclick = () => {
+                HiitsumoEstado += 1;
+            };
+
+            opcB.onclick = () => {
+                HiitsumoEstado += 2;
+            };
+        } else if (HiitsumoEstado === 16) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+
+            digitarMensagemParada(`(Ela parece ter ignorado sua confusão)`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1
+        } else if (HiitsumoEstado === 17) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("falaHiitsumoIntro").style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+            cabecaIntro.style.display = "block";
+
+            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
+
+
+            digitarMensagemIntro(`Perfeito então! Pra você voltar pra sua casa, só precisamos esperar uma hora que o efeito deve desaparecer, fácil, não?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1
         }
     })
@@ -250,6 +287,9 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 // Função para digitar texto como em jogo de diálogo (introdução)
 // variável global para controlar a digitação atual
 let intervaloDigitacaoAtual = null;
+let textoCompleto = "";
+let pulando = false;
+let digitando = false;
 
 function digitarOpcao(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
@@ -314,44 +354,132 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
 
     if (!elemento) return;
 
-    // 🔥 Interrompe qualquer digitação anterior
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
     if (intervaloDigitacaoAtual) {
         clearInterval(intervaloDigitacaoAtual);
         intervaloDigitacaoAtual = null;
     }
 
-    // 🔥 Para o áudio anterior
-    audio.pause();
-    audio.currentTime = 0;
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
 
-    // Limpa texto anterior e mostra o elemento
     elemento.textContent = "";
     elemento.style.display = "block";
 
-    let i = 0;
-
-    // Reinicia o áudio
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
     audio.loop = true;
-    audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
+    audio.play().catch(() => { });
 
-    // Troca para imagem de fala
     if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
 
-    // Intervalo de digitação
+    let i = 0;
     intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+            return;
+        }
+
         if (i < texto.length) {
             elemento.textContent += texto.charAt(i);
             i++;
         } else {
             clearInterval(intervaloDigitacaoAtual);
             intervaloDigitacaoAtual = null;
+            digitando = false;
 
-            // Para o áudio
             audio.pause();
             audio.currentTime = 0;
 
-            // Troca para imagem parada
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+        }
+    }, velocidade);
+}
+
+function digitarMensagemParada(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
         }
@@ -366,44 +494,62 @@ function digitarMensagemCorada(texto, elementoId, velocidade = 40) {
 
     if (!elemento) return;
 
-    // 🔥 Interrompe qualquer digitação anterior
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
     if (intervaloDigitacaoAtual) {
         clearInterval(intervaloDigitacaoAtual);
         intervaloDigitacaoAtual = null;
     }
 
-    // 🔥 Para o áudio anterior
-    audio.pause();
-    audio.currentTime = 0;
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
 
-    // Limpa texto anterior e mostra o elemento
     elemento.textContent = "";
     elemento.style.display = "block";
 
-    let i = 0;
-
-    // Reinicia o áudio
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
     audio.loop = true;
-    audio.play().catch(err => console.log("Erro ao tocar áudio:", err));
+    audio.play().catch(() => { });
 
-    // Troca para imagem de fala
     if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada-falando.gif";
 
-    // Intervalo de digitação
+    let i = 0;
     intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
+            return;
+        }
+
         if (i < texto.length) {
             elemento.textContent += texto.charAt(i);
             i++;
         } else {
             clearInterval(intervaloDigitacaoAtual);
             intervaloDigitacaoAtual = null;
+            digitando = false;
 
-            // Para o áudio
             audio.pause();
             audio.currentTime = 0;
 
-            // Troca para imagem parada
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
         }
@@ -417,8 +563,6 @@ let HiitsumoEstado3 = 0;
 let HiitsumoEstado4 = 0;
 let HiitsumoEstado5 = 0;
 let intervaloDigitacao = null;
-let textoCompleto = "";
-let pulando = false;
 
 // Função para digitar texto como em jogo de diálogo
 function digitarMensagem(texto, elementoId, velocidade = 40) {
