@@ -122,6 +122,16 @@ function desaparecerHiitsumo() {
 let HiitsumoEstado = 0;
 
 document.getElementById("botaoIniciar").addEventListener("click", () => {
+
+    // ✅ RESET TOTAL AO INICIAR O JOGO
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+    textoCompleto = "";
+    pulando = false;
+    digitando = false;
+
     const botao = document.getElementById("botaoIniciar");
     const tela = document.getElementById("iniciar");
     const mensagem = document.getElementById("caixa-dialogo");
@@ -146,7 +156,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         digitarMensagemIntro("AAAHH! Isso é ruim! Ruim!", "falaHiitsumoIntro");
     }, 3500);
 
-    document.querySelector(".introducao").addEventListener("click", () => {
+    document.querySelector(".introducao").onclick = () => {
 
         if (digitando) {
             pulando = true;
@@ -285,7 +295,6 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
             document.getElementById("caixa-dialogo").style.maxWidth = "450px";
 
-
             digitarMensagemIntro(`Perfeito então! Pra você voltar pra sua casa, só precisamos esperar uma hora que o efeito deve desaparecer, fácil, não?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 18) {
@@ -306,7 +315,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             };
 
             opcB.onclick = () => {
-                HiitsumoEstado += 2;
+                HiitsumoEstado += 5;
             };
         } else if (HiitsumoEstado === 19) {
             document.getElementById("opcoes").style.display = "none";
@@ -316,7 +325,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             digitarMensagemParada(`(Ela acena pra você e volta aos reparos da máquina, você fica entediado, mas antes que pudesse perceber, o vazio foi borrando e…)`, "falaHiitsumoIntro");
             setTimeout(() => {
                 desaparecerHiitsumo();
-            }, 5000);
+            }, 5500);
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 20) {
             hiitsumoInicial.style.display = "none";
@@ -325,9 +334,30 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         } else if (HiitsumoEstado === 21) {
             digitarMensagemIntro(`(Final alternativo: “O que foi isso?”)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
-        } 
-    })
+        } else if (HiitsumoEstado === 22) {
+            tela.style.display = "flex";
+            botao.src = "./src/img/iniciar.png";
+            mensagem.style.display = "none";
+            document.getElementById("caixa-dialogo").style.maxWidth = "360px";
+            hiitsumoInicial.classList.remove("desaparecer");
+
+            resetarDigitacao();
+
+            HiitsumoEstado = 0;
+        }
+    }
 });
+
+function resetarDigitacao() {
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+    textoCompleto = "";
+    pulando = false;
+    digitando = false;
+}
+
 
 // Função para digitar texto como em jogo de diálogo (introdução)
 // variável global para controlar a digitação atual
