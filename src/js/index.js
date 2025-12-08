@@ -118,12 +118,20 @@ function desaparecerHiitsumo() {
     desaparecer.classList.add("desaparecer");
 }
 
+function aparecerMaquina() {
+    const aparecerMaquina = document.getElementById("maquina");
+
+    aparecerMaquina.classList.remove("aparecer-maquina");
+    void aparecerMaquina.offsetWidth;
+    aparecerMaquina.classList.add("aparecer-maquina");
+}
+
 
 let HiitsumoEstado = 0;
 
 document.getElementById("botaoIniciar").addEventListener("click", () => {
 
-    // ✅ RESET TOTAL AO INICIAR O JOGO
+    // RESET TOTAL AO INICIAR O JOGO
     if (intervaloDigitacaoAtual) {
         clearInterval(intervaloDigitacaoAtual);
         intervaloDigitacaoAtual = null;
@@ -140,6 +148,10 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
     const cabecaIntro = document.getElementById("cabecaIntro");
     const opcA = document.getElementById("opcaoA");
     const opcB = document.getElementById("opcaoB");
+    const carregar = document.getElementById("carregar");
+    const linhaNome = document.getElementById("nome");
+    const introducao = document.getElementById("introducao");
+    const fundo = document.getElementById("fundo");
 
     botao.src = "./src/img/iniciar-pressionado.webp";
 
@@ -284,6 +296,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         } else if (HiitsumoEstado === 16) {
             document.getElementById("opcoes").style.display = "none";
             document.getElementById("caixa-dialogo").style.display = "flex";
+            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
 
             digitarMensagemParada(`(Ela parece ter ignorado sua confusão)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -341,22 +354,79 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             document.getElementById("caixa-dialogo").style.maxWidth = "360px";
             hiitsumoInicial.classList.remove("desaparecer");
 
-            resetarDigitacao();
+            HiitsumoEstado = 0;
+        } else if (HiitsumoEstado === 23) {
+            document.getElementById("opcoes").style.display = "none";
+            document.getElementById("falaHiitsumoIntro").style.display = "block";
+            document.getElementById("caixa-dialogo").style.display = "flex";
+            cabecaIntro.style.display = "block";
 
+            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
+
+            digitarMensagemIntro(`Sério?! Você faria isso?! Pois então vamos! São 5 peças que eu perdi e com sua ajuda não deve demorar muito!`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 24) {
+            cabecaIntro.style.display = "none";
+            carregar.style.display = "flex";
+            aparecerMaquina();
+            digitarMensagemParada(`(Ela vai com passos rápidos até a máquina do tempo e você vai atrás dela.)`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 25) {
+            document.getElementById("caixa-dialogo").style.maxWidth = "450px";
+            digitarMensagemParada(`(Ela toca em alguns botões para iniciar a máquina, você fica apreensivo, mas algo te diz que vai ficar tudo certo.)`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 26) {
+            cabecaIntro.style.display = "block";
+            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
+            digitarMensagemIntro(`Ei, eu quero te agradecer pela sua gentileza, qual o seu nome?`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 27) {
+            cabecaIntro.style.display = "none";
+            mensagem.style.display = "none";
+            linhaNome.style.display = "flex";
+        } else if (HiitsumoEstado === 28) {
+            cabecaIntro.style.display = "block";
+            mensagem.style.display = "flex";
+            linhaNome.style.display = "none";
+            document.getElementById("caixa-dialogo").style.maxWidth = "450px";
+
+            digitarMensagemIntro(`É um prazer te conhecer, ${nomePlayer}.`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 29) {
+            cabecaIntro.style.display = "none";
+            digitarMensagemParada(`(Você sente a máquina tremer e o espaço ao seu redor acelerar e distorcer, como uma turbulência.)`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 30) {
+            digitarMensagemParada(`(É realmente um tanto assustador, mas ela parece estar acostumada, e com um sorriso, ela diz…)`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 31) {
+            cabecaIntro.style.display = "block";
+            document.getElementById("caixa-dialogo").style.maxWidth = "360px";
+            digitarMensagemIntro(`O meu nome é Hiitsumo!`, "falaHiitsumoIntro");
+            HiitsumoEstado += 1;
+        } else if (HiitsumoEstado === 32) {
+            introducao.style.display = "none";
+            carregar.style.display = "none";
+            fundo.style.display = "none";
             HiitsumoEstado = 0;
         }
     }
 });
 
-function resetarDigitacao() {
-    if (intervaloDigitacaoAtual) {
-        clearInterval(intervaloDigitacaoAtual);
-        intervaloDigitacaoAtual = null;
+let nomePlayer = "";
+
+document.getElementById("confirmarNome").addEventListener("click", () => {
+    const input = document.getElementById("nomeJogador");
+    nomePlayer = input.value.trim();
+
+    if (nomePlayer === "") {
+        return;
     }
-    textoCompleto = "";
-    pulando = false;
-    digitando = false;
-}
+
+    // Esconde a caixa depois de confirmar
+    document.getElementById("nome").style.display = "none";
+    HiitsumoEstado += 1;
+});
 
 
 // Função para digitar texto como em jogo de diálogo (introdução)

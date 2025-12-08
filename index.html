@@ -15,6 +15,12 @@
 
 <body>
 
+    <div id="fundo" class="fundo"></div>
+
+    <div id="carregar" class="carregar">
+        <img id="maquina" class="maquina" src="./src/img/maquina-tempo0.png" alt="">
+    </div>
+
     <div id="iniciar" class="iniciar">
         <img class="img-iniciar" src="./src/img/iniciar.png" id="botaoIniciar" />
     </div>
@@ -29,9 +35,15 @@
             <img id="cabecaIntro" class="cabeca" src="./src/img/cabeca-falando.gif" alt="">
             <p class="introducao_Hiitsumo" id="falaHiitsumoIntro"></p>
         </div>
+        <div class="linha-nome" id="nome">
+            <div class="campo-digitacao">
+                <input type="text" id="nomeJogador" placeholder="Digite seu nome">
+            </div>
+            <button type="button" class="confirmar" id="confirmarNome">Confirmar</button>
+        </div>
         <div id="opcoes" class="opcoes" style="display:none;">
-            <button id="opcaoA" class="opcaoA"  type="button"></button>
-            <button id="opcaoB" class="opcaoB"  type="button"></button>
+            <button id="opcaoA" class="opcaoA" type="button"></button>
+            <button id="opcaoB" class="opcaoB" type="button"></button>
         </div>
     </div>
 
