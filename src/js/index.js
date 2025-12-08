@@ -154,6 +154,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
     const introducao = document.getElementById("introducao");
     const fundo = document.getElementById("fundo");
     const somMaquina = document.getElementById("somMaquina");
+    const titulo = document.getElementById("titulo");
 
     botao.src = "./src/img/iniciar-pressionado.webp";
 
@@ -231,7 +232,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 10) {
             document.getElementById("caixa-dialogo").style.maxWidth = "500px";
-            digitarMensagemIntro(`Deve ser confuso pra você, eu sei, mas não se preocupe! Essa bugiganga que eu construí com o projeto do meu pai está com alguns problemas, mas você pode voltar pra casa em um instante.`, "falaHiitsumoIntro");
+            digitarMensagemFeliz(`Deve ser confuso pra você, eu sei, mas não se preocupe! Essa bugiganga que eu construí com o projeto do meu pai está com alguns problemas, mas você pode voltar pra casa em um instante.`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 11) {
             document.getElementById("caixa-dialogo").style.display = "none";
@@ -260,7 +261,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
             document.getElementById("caixa-dialogo").style.maxWidth = "400px";
 
-            digitarMensagemIntro(`HA! Eu finalmente posso falar que sim!`, "falaHiitsumoIntro");
+            digitarMensagemFeliz(`HA! Eu finalmente posso falar que sim!`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 13) {
             digitarMensagemV(`Eu vim do futuro, sim, do ano de 2309`, "falaHiitsumoIntro");
@@ -298,7 +299,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         } else if (HiitsumoEstado === 16) {
             document.getElementById("opcoes").style.display = "none";
             document.getElementById("caixa-dialogo").style.display = "flex";
-            document.getElementById("caixa-dialogo").style.maxWidth = "400px";
+            document.getElementById("caixa-dialogo").style.maxWidth = "450px";
 
             digitarMensagemParada(`(Ela parece ter ignorado sua confusão)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -308,9 +309,9 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             document.getElementById("caixa-dialogo").style.display = "flex";
             cabecaIntro.style.display = "block";
 
-            document.getElementById("caixa-dialogo").style.maxWidth = "450px";
+            document.getElementById("caixa-dialogo").style.maxWidth = "500px";
 
-            digitarMensagemIntro(`Perfeito então! Pra você voltar pra sua casa, só precisamos esperar uma hora que o efeito deve desaparecer, fácil, não?`, "falaHiitsumoIntro");
+            digitarMensagemMao(`Perfeito então! Pra você voltar pra sua casa, só precisamos esperar uma hora que o efeito deve desaparecer, fácil, não?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 18) {
             document.getElementById("caixa-dialogo").style.display = "none";
@@ -367,22 +368,22 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
             document.getElementById("caixa-dialogo").style.maxWidth = "400px";
 
-            digitarMensagemIntro(`Sério?! Você faria isso?! Pois então vamos! São 5 peças que eu perdi e com sua ajuda não deve demorar muito!`, "falaHiitsumoIntro");
+            digitarMensagemAnimada(`Sério?! Você faria isso?! Pois então vamos! São 5 peças que eu perdi e com sua ajuda não deve demorar muito!`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 24) {
             cabecaIntro.style.display = "none";
             carregar.style.display = "flex";
             aparecerMaquina();
-            digitarMensagemParada(`(Ela vai com passos rápidos até a máquina do tempo e você vai atrás dela.)`, "falaHiitsumoIntro");
+            digitarMensagemParadaFeliz(`(Ela vai com passos rápidos até a máquina do tempo e você vai atrás dela.)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 25) {
             document.getElementById("caixa-dialogo").style.maxWidth = "450px";
-            digitarMensagemParada(`(Ela toca em alguns botões para iniciar a máquina, você fica apreensivo, mas algo te diz que vai ficar tudo certo.)`, "falaHiitsumoIntro");
+            digitarMensagemParadaFeliz(`(Ela toca em alguns botões para iniciar a máquina, você fica apreensivo, mas algo te diz que vai ficar tudo certo.)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 26) {
             cabecaIntro.style.display = "block";
             document.getElementById("caixa-dialogo").style.maxWidth = "400px";
-            digitarMensagemIntro(`Ei, eu quero te agradecer pela sua gentileza, qual o seu nome?`, "falaHiitsumoIntro");
+            digitarMensagemFeliz(`Ei, eu quero te agradecer pela sua gentileza, qual o seu nome?`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 27) {
             cabecaIntro.style.display = "none";
@@ -394,7 +395,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             linhaNome.style.display = "none";
             document.getElementById("caixa-dialogo").style.maxWidth = "450px";
 
-            digitarMensagemIntro(`É um prazer te conhecer, ${nomePlayer}.`, "falaHiitsumoIntro");
+            digitarMensagemFeliz(`É um prazer te conhecer, ${nomePlayer}.`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 29) {
             cabecaIntro.style.display = "none";
@@ -405,10 +406,10 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             somMaquina.currentTime = 0;
             somMaquina.play();
 
-            digitarMensagemParada(`(Você sente a máquina tremer e o espaço ao seu redor acelerar e distorcer, como uma turbulência.)`, "falaHiitsumoIntro");
+            digitarMensagemParadaFeliz(`(Você sente a máquina tremer e o espaço ao seu redor acelerar e distorcer, como uma turbulência.)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 30) {
-            digitarMensagemParada(`(É realmente um tanto assustador, mas ela parece estar acostumada, e com um sorriso, ela diz…)`, "falaHiitsumoIntro");
+            digitarMensagemParadaFeliz(`(É realmente um tanto assustador, mas ela parece estar acostumada, e com um sorriso, ela diz…)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 31) {
             cabecaIntro.style.display = "block";
@@ -420,13 +421,18 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             somMaquina.currentTime = 0;
 
             document.getElementById("caixa-dialogo").style.maxWidth = "360px";
-            digitarMensagemIntro(`O meu nome é Hiitsumo!`, "falaHiitsumoIntro");
+            digitarMensagemFeliz(`O meu nome é Hiitsumo!`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 32) {
             introducao.style.display = "none";
             carregar.style.display = "none";
-            fundo.style.display = "none";
-            HiitsumoEstado = 0;
+            titulo.style.display = "flex";
+
+            setTimeout(() => {
+                titulo.style.display = "none";
+                fundo.style.display = "none";
+                HiitsumoEstado = 0;
+            }, 4000);
         }
     }
 });
@@ -543,7 +549,7 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     audio.play().catch(() => { });
 
     if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
-    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria-falando.gif";
 
     let i = 0;
     intervaloDigitacaoAtual = setInterval(() => {
@@ -558,7 +564,7 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
-            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
             return;
         }
 
@@ -574,7 +580,7 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
-            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
         }
     }, velocidade);
 }
@@ -613,7 +619,7 @@ function digitarMensagemParada(texto, elementoId, velocidade = 40) {
     audio.play().catch(() => { });
 
     if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
-    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
 
     let i = 0;
     intervaloDigitacaoAtual = setInterval(() => {
@@ -628,7 +634,7 @@ function digitarMensagemParada(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
-            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
             return;
         }
 
@@ -644,7 +650,77 @@ function digitarMensagemParada(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
-            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
+        }
+    }, velocidade);
+}
+
+function digitarMensagemParadaFeliz(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
         }
     }, velocidade);
 }
@@ -855,6 +931,216 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
 
             if (cabeca) cabeca.src = "./src/img/cabeca.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V.gif";
+        }
+    }, velocidade);
+}
+
+function digitarMensagemMao(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-mao-falando.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-mao.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-mao.gif";
+        }
+    }, velocidade);
+}
+
+function digitarMensagemAnimada(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-animada-falando.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-animada.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-animada.gif";
+        }
+    }, velocidade);
+}
+
+function digitarMensagemFeliz(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz-falando.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
         }
     }, velocidade);
 }
