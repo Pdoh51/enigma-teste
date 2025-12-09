@@ -11,12 +11,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     z-index: 5;
 }
 
 .img-iniciar {
     width: 20%;
+    cursor: pointer;
 }
 
 .introducao {
