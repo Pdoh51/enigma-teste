@@ -1,3 +1,54 @@
+function obterIdUsuario() {
+    let id = localStorage.getItem("idUsuario");
+
+    if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem("idUsuario", id);
+    }
+
+    return id;
+}
+
+function salvarEstadoSite() {
+    const idUsuario = obterIdUsuario();
+
+    const estado = {
+        faseAtual,
+        HiitsumoEstado,
+        nomePlayer,
+
+        // Pode adicionar mais depois
+        // exemplo:
+        // HiitsumoEstado1,
+        // HiitsumoEstado2,
+    };
+
+    localStorage.setItem(
+        `save_${idUsuario}`,
+        JSON.stringify(estado)
+    );
+
+    console.log("✅ Estado salvo:", estado);
+}
+
+function carregarEstadoSite() {
+    const idUsuario = obterIdUsuario();
+    const save = localStorage.getItem(`save_${idUsuario}`);
+
+    if (!save) return false;
+
+    const estado = JSON.parse(save);
+
+    faseAtual = estado.faseAtual ?? 0;
+    HiitsumoEstado = estado.HiitsumoEstado ?? 0;
+    nomePlayer = estado.nomePlayer ?? "";
+
+    console.log("✅ Estado carregado:", estado);
+    return true;
+}
+
+
+
 const senhas = [
     "1",
     "1",
@@ -424,6 +475,8 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitarMensagemFeliz(`O meu nome é Hiitsumo!`, "falaHiitsumoIntro");
                 HiitsumoEstado += 1;
             } else if (HiitsumoEstado === 32) {
+                salvarEstadoSite();
+
                 introducao.style.display = "none";
                 carregar.style.display = "none";
                 titulo.style.display = "flex";
@@ -1393,5 +1446,13 @@ document.getElementById("Hiitsumo").addEventListener("click", () => {
             imagemMamaco.style.display = "none";
             mensagem.style.display = "none";
         }
+    }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    const carregou = carregarEstadoSite();
+
+    if (carregou) {
+        console.log("▶ Continuando do ponto salvo");
     }
 });
