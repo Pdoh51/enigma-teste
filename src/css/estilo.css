@@ -228,10 +228,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
     padding: 5px;
     width: 100%;
-    max-width: 400px;
+    max-width: 505px;
     background-color: #000000;
     border: 5px solid #c9780e;
     box-sizing: border-box;
@@ -282,7 +281,7 @@ input[type="text"]:focus {
 /* Botão */
 .enviar {
     padding: 6px 12px;
-    width: 80px;
+    width: 90px;
     height: 45px;
     font-size: 20px;
     background-color: #3d3d3d;
@@ -306,9 +305,8 @@ input[type="text"]:focus {
     cursor: pointer;
 }
 
-.confirmar:hover {
+.confirmar:active {
     background-color: #ff8000;
-    transform: scale(1.09);
 }
 
 .recompensa_final {
@@ -329,7 +327,7 @@ input[type="text"]:focus {
 }
 
 .boss {
-    width: 400px;
+    width: 600px;
 }
 
 @keyframes tremerDesfazer {
