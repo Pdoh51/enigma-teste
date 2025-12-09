@@ -1,4 +1,4 @@
-const SAVE_ATIVO = false;
+const SAVE_ATIVO = true;
 
 function obterIdUsuario() {
     let id = localStorage.getItem("idUsuario");
@@ -1518,4 +1518,5 @@ window.addEventListener("load", () => {
     caixaDialogo.style.display = "none";
     introducao.style.display = "none";
 });
+
 
