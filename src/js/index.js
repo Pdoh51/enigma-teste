@@ -1,3 +1,5 @@
+const SAVE_ATIVO = false;
+
 function obterIdUsuario() {
     let id = localStorage.getItem("idUsuario");
 
@@ -10,26 +12,30 @@ function obterIdUsuario() {
 }
 
 let introFinalizada = false;
+let veioDoSave01 = false;
 
 function salvarEstadoSite() {
+    if (!SAVE_ATIVO) return;
+
+    localStorage.setItem("save_hiitsumo", JSON.stringify(estado));
     const idUsuario = obterIdUsuario();
 
     const estado = {
         faseAtual,
         HiitsumoEstado,
         nomePlayer,
-        introFinalizada
+        jogoIniciado
     };
 
     localStorage.setItem(
         `save_${idUsuario}`,
         JSON.stringify(estado)
     );
-
-    console.log("✅ Estado salvo:", estado);
 }
 
 function carregarEstadoSite() {
+    if (!SAVE_ATIVO) return;
+
     const idUsuario = obterIdUsuario();
     const save = localStorage.getItem(`save_${idUsuario}`);
 
@@ -40,10 +46,41 @@ function carregarEstadoSite() {
     faseAtual = estado.faseAtual ?? 0;
     HiitsumoEstado = estado.HiitsumoEstado ?? 0;
     nomePlayer = estado.nomePlayer ?? "";
-    introFinalizada = estado.introFinalizada ?? false;
+    jogoIniciado = estado.jogoIniciado ?? false;
 
-    console.log("✅ Estado carregado:", estado);
+    veioDoSave01 = true;
+
+    // ✅ marca que veio de save
+    localStorage.setItem("veioDoSave", "true");
+
     return true;
+}
+
+function entrarTelaCheia() {
+    const el = document.documentElement;
+
+    if (el.requestFullscreen) {
+        el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen(); // Safari
+    } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen(); // IE antigo
+    }
+}
+
+function entradaPosSave01() {
+    const botao01 = document.getElementById("botaoIniciar");
+    const tela01 = document.getElementById("iniciar");
+    const fundo01 = document.getElementById("fundo");
+    const titulo01 = document.getElementById("titulo");
+
+    botao01.style.display = "none";
+    tela01.style.display = "none";
+    fundo01.style.display = "none";
+    titulo01.style.display = "none";
+
+    // limpa o flag pra não repetir
+    localStorage.removeItem("veioDoSave");
 }
 
 
@@ -183,6 +220,14 @@ let HiitsumoEstado = 0;
 let somMaquina = null;
 
 document.getElementById("botaoIniciar").addEventListener("click", () => {
+    entrarTelaCheia();
+
+    const veioDoSave01 = localStorage.getItem("veioDoSave") === "true";
+
+    // SE VEIO DE SAVE, executa só a lógica
+    if (veioDoSave01) {
+        entradaPosSave01();
+    }
 
     // RESET TOTAL AO INICIAR O JOGO
     if (intervaloDigitacaoAtual) {
@@ -216,7 +261,9 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
     cabecaIntro.style.display = "none";
 
-    blang.play();
+    if (!SAVE_ATIVO || !veioDoSave01) {
+        blang.play();
+    }
     // depois de 3.5s, mostra a caixa de diálogo e digita a fala
     setTimeout(() => {
         mensagem.style.display = "block";
@@ -481,7 +528,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             titulo.style.display = "flex";
             mensagem.style.display = "none";
 
-            introFinalizada = true;
+            jogoIniciado = true;
             salvarEstadoSite();
 
             setTimeout(() => {
@@ -603,7 +650,9 @@ function digitarMensagemIntro(texto, elementoId, velocidade = 40) {
     audio.pause();
     audio.currentTime = 0;
     audio.loop = true;
-    audio.play().catch(() => { });
+    if (!SAVE_ATIVO || !veioDoSave01) {
+        audio.play().catch(() => { });
+    }
 
     if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria-falando.gif";
@@ -1452,21 +1501,21 @@ document.getElementById("Hiitsumo").addEventListener("click", () => {
     }
 });
 
-window.addEventListener("DOMContentLoaded", () => {
-    const carregou = carregarEstadoSite();
+window.addEventListener("load", () => {
+    if (!SAVE_ATIVO) return;
 
-    if (!carregou) return;
+    carregarEstadoSite();
 
-    const mensagem = document.getElementById("caixa-dialogo");
-    const titulo = document.getElementById("titulo");
-    const iniciar = document.getElementById("iniciar");
+    const tela = document.getElementById("iniciar");
+    const fundo = document.getElementById("fundo");
+    const caixaDialogo = document.getElementById("caixa-dialogo");
     const introducao = document.getElementById("introducao");
 
-    if (introFinalizada) {
-        mensagem.style.display = "none";
-        introducao.style.display = "none";
-        titulo.style.display = "none";
-        iniciar.style.display = "none";
-        fundo.style.display = "none";
-    }
+    // ✅ sempre começa igual
+    tela.style.display = "flex";
+    fundo.style.display = "flex";
+
+    caixaDialogo.style.display = "none";
+    introducao.style.display = "none";
 });
+
