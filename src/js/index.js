@@ -174,6 +174,7 @@ const botao = document.getElementById("botaoIniciar");
 const tela = document.getElementById("iniciar");
 const mensagem = document.getElementById("caixa-dialogo");
 const blang = document.getElementById("blang");
+const somBotao = document.getElementById("somBotao");
 const hiitsumoInicial = document.getElementsByClassName("Hiitsumo-inicial")[0];
 const cabecaIntro = document.getElementById("cabecaIntro");
 const opcA = document.getElementById("opcaoA");
@@ -182,7 +183,9 @@ const carregar = document.getElementById("carregar");
 const linhaNome = document.getElementById("nome");
 const introducao = document.getElementById("introducao");
 const fundo = document.getElementById("fundo");
+const somFundo = document.getElementById("somFundo");
 const titulo = document.getElementById("titulo");
+
 
 document.getElementById("botaoIniciar").addEventListener("click", () => {
     entrarTelaCheia();
@@ -204,6 +207,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
     digitando = false;
 
     botao.src = "./src/img/iniciar-pressionado.webp";
+    somBotao.play();
 
     setTimeout(() => {
         tela.style.display = "none";
@@ -221,14 +225,21 @@ function fluxoMomento0() {
         cabecaIntro.style.display = "none";
 
         if (!SAVE_ATIVO || !veioDoSave01) {
-            blang.play();
+            setTimeout(() => {
+                blang.play();
+            }, 2000);
         }
+
+        setTimeout(() => {
+            somFundo.loop = true;
+            somFundo.play();
+        }, 2500);
 
         setTimeout(() => {
             mensagem.style.display = "block";
             introducao.style.display = "flex";
             digitarMensagemIntro("AAAHH! Isso é ruim! Ruim!", "falaHiitsumoIntro");
-        }, 3500);
+        }, 5000);
 
         return;
     }
@@ -1173,7 +1184,7 @@ function digitarMensagemParadaFeliz(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-feliz-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
 
     let i = 0;
@@ -1188,7 +1199,7 @@ function digitarMensagemParadaFeliz(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
             return;
         }
@@ -1204,7 +1215,7 @@ function digitarMensagemParadaFeliz(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
         }
     }, velocidade);
@@ -1243,7 +1254,7 @@ function digitarMensagemCorada(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-corada-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada-falando.gif";
 
     let i = 0;
@@ -1258,7 +1269,7 @@ function digitarMensagemCorada(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-corada.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
             return;
         }
@@ -1274,7 +1285,7 @@ function digitarMensagemCorada(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-corada.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-corada.gif";
         }
     }, velocidade);
@@ -1313,7 +1324,7 @@ function digitarMensagemNerd(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-nerd-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-nerd-falando.gif";
 
     let i = 0;
@@ -1328,7 +1339,7 @@ function digitarMensagemNerd(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-nerd.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-nerd.gif";
             return;
         }
@@ -1344,7 +1355,7 @@ function digitarMensagemNerd(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-nerd.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-nerd.gif";
         }
     }, velocidade);
@@ -1383,7 +1394,7 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-feliz-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V-falando.gif";
 
     let i = 0;
@@ -1398,7 +1409,7 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V.gif";
             return;
         }
@@ -1414,7 +1425,7 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V.gif";
         }
     }, velocidade);
@@ -1453,7 +1464,7 @@ function digitarMensagemMao(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-feliz-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-mao-falando.gif";
 
     let i = 0;
@@ -1468,7 +1479,7 @@ function digitarMensagemMao(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-mao.gif";
             return;
         }
@@ -1484,7 +1495,7 @@ function digitarMensagemMao(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-mao.gif";
         }
     }, velocidade);
@@ -1523,7 +1534,7 @@ function digitarMensagemAnimada(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-animada-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-animada-falando.gif";
 
     let i = 0;
@@ -1538,7 +1549,7 @@ function digitarMensagemAnimada(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-animada.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-animada.gif";
             return;
         }
@@ -1554,7 +1565,7 @@ function digitarMensagemAnimada(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-animada.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-animada.gif";
         }
     }, velocidade);
@@ -1593,7 +1604,7 @@ function digitarMensagemFeliz(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-feliz-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz-falando.gif";
 
     let i = 0;
@@ -1608,7 +1619,7 @@ function digitarMensagemFeliz(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
             return;
         }
@@ -1624,7 +1635,7 @@ function digitarMensagemFeliz(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
         }
     }, velocidade);
@@ -1663,7 +1674,7 @@ function digitarMensagemBeicinho(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-beicinho-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-beicinho-falando.gif";
 
     let i = 0;
@@ -1678,7 +1689,7 @@ function digitarMensagemBeicinho(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-beicinho.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-beicinho.gif";
             return;
         }
@@ -1694,7 +1705,7 @@ function digitarMensagemBeicinho(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-beicinho.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-beicinho.gif";
         }
     }, velocidade);
