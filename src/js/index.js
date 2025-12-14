@@ -511,7 +511,7 @@ function fluxoMomento0() {
             mensagem.style.maxWidth = "400px";
 
             digitarMensagemAnimada(
-                `Sério?! Você faria isso?! Pois então vamos! São 5 peças que eu perdi e com sua ajuda não deve demorar muito!`,
+                `Sério?! Você faria isso?! Pois então vamos! São cinco peças que eu perdi e com sua ajuda não deve demorar muito!`,
                 "falaHiitsumoIntro"
             );
 
@@ -766,7 +766,7 @@ function fluxoMomento1() {
             break;
 
         case 13:
-            cabecaIntro.style.display = "flex"
+            cabecaIntro.style.display = "flex";
             digitarMensagemBeicinho("Bem, já sei onde nós estamos, melhor acharmos a peça logo…", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
@@ -782,10 +782,146 @@ function fluxoMomento1() {
             break;
 
         case 16:
-            digitarMensagemFeliz("PAROU AQUI PQ TÁ COMPLICADO", "falaHiitsumoIntro");
+            cabecaIntro.style.display = "none";
+            digitarMensagemParadaFeliz("(Vocês andam ao redor da sala, vasculhando as prateleiras em busca de qualquer pista.)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 17:
+            cabecaIntro.style.display = "flex";
+            digitarMensagemAnimada(`Ei, ${nomePlayer}, olha ali!`, "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 18:
+            cabecaIntro.style.display = "none";
+            digitarMensagemParadaFeliz("(Tem uma engrenagem, amarela e grande o suficiente para que se destacasse do resto da sala.)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 19:
+            digitarMensagemParadaFeliz("(Ela é um tanto reluzente e o ambiente ao redor parece apontar para ela.)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
             break;
 
         case 20:
+            digitarMensagemParadaFeliz("(E tem um chapéu de bruxo muito legal)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 21:
+            opcoes.style.display = "block";
+            mensagem.style.display = "none";
+
+            opcA.style.display = "block";
+            digitarOpcao('(Pegar a engrenagem)', "opcaoA");
+
+            opcB.style.display = "block";
+            digitarOpcao('(Pegar o chapéu)', "opcaoB");
+
+            opcA.onclick = () => {
+                HiitsumoEstado += 5;
+            };
+
+            opcB.onclick = () => {
+                HiitsumoEstado++;
+            }
+            break;
+
+        case 22:
+            opcoes.style.display = "none";
+            mensagem.style.display = "flex";
+
+            digitarMensagemBeicinho("Não era bem isso, mas…", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 23:
+            digitarMensagemV("Belo chapéu!", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 24:
+            digitarMensagemIntro("Enfim, vamos pegar a engrenagem e dar o fora daqui.", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 25:
+            digitarMensagemParadaFeliz("(Hiitsumo pega a engrenagem e a entrega nas suas mãos, ela é um tanto leve apesar do tamanho.)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 26:
+            opcoes.style.display = "none";
+            mensagem.style.display = "flex";
+
+            digitarMensagemParadaFeliz("(A engrenagem é um pouco mais leve do que você imaginava.)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 27:
+            digitarMensagemMao("Foi bem mais rápido do que eu esperava! Ótimo!", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 28:
+            digitarMensagemIntro("Vamos voltar agora!", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 29:
+            digitarMensagemParada("(Hiitsumo parece um pouco inquieta)", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 30:
+            opcoes.style.display = "block";
+            mensagem.style.display = "none";
+
+            opcA.style.display = "block";
+            digitarOpcao('"O que foi? Que cara é essa?"', "opcaoA");
+
+            opcB.style.display = "none";
+
+            opcA.onclick = () => {
+                HiitsumoEstado++;
+            };
+            break;
+
+        case 31:
+            opcoes.style.display = "none";
+            mensagem.style.display = "flex";
+
+            digitarMensagemIntro("Bem… Eu já estive aqui antes e…", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 32:
+            digitarMensagemBeicinho("Os caras da era medieval conseguem ser muito chatos, sabe?", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 33:
+            digitarMensagemIntro("Na última vez que eu estive aqui, meio que…", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 34:
+            digitarMensagemParada("Hiitsumo é interrompida por uma voz aguda e sem sentido que vem do fundo do corredor", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 35:
+            digitarMensagemMago("※⁂⁜ VLORU! VLORU! MUCU XUKOC! ⁜⁂※", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 36:
+            digitarMensagemRaiva("Aí tá o problema…", "falaHiitsumoIntro");
+            HiitsumoEstado++;
+            break;
+
+        case 37:
             salvarEstadoSite();
 
             fluxoMomento1.iniciado = false;
@@ -1710,6 +1846,147 @@ function digitarMensagemBeicinho(texto, elementoId, velocidade = 40) {
         }
     }, velocidade);
 }
+
+function digitarMensagemMago(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-mago.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-mago.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-mago.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-frente-seria.gif";
+        }
+    }, velocidade);
+}
+
+function digitarMensagemRaiva(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabecaIntro");
+    const Hiitsumo = document.getElementById("HiitsumoIntro");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-raiva-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva-falando.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-raiva.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-raiva.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva.gif";
+        }
+    }, velocidade);
+}
+
 
 let HiitsumoEstado1 = 0;
 let HiitsumoEstado2 = 0;
