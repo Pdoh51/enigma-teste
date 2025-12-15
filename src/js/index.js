@@ -831,6 +831,7 @@ function fluxoMomento1() {
         case 22:
             opcoes.style.display = "none";
             mensagem.style.display = "flex";
+            cabecaIntro.style.display = "flex";
 
             digitarMensagemBeicinho("Não era bem isso, mas…", "falaHiitsumoIntro");
             HiitsumoEstado++;
@@ -847,6 +848,7 @@ function fluxoMomento1() {
             break;
 
         case 25:
+            cabecaIntro.style.display = "none";
             digitarMensagemParadaFeliz("(Hiitsumo pega a engrenagem e a entrega nas suas mãos, ela é um tanto leve apesar do tamanho.)", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
@@ -854,12 +856,14 @@ function fluxoMomento1() {
         case 26:
             opcoes.style.display = "none";
             mensagem.style.display = "flex";
+            cabecaIntro.style.display = "none";
 
             digitarMensagemParadaFeliz("(A engrenagem é um pouco mais leve do que você imaginava.)", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
 
         case 27:
+            cabecaIntro.style.display = "flex";
             digitarMensagemMao("Foi bem mais rápido do que eu esperava! Ótimo!", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
@@ -870,6 +874,7 @@ function fluxoMomento1() {
             break;
 
         case 29:
+            cabecaIntro.style.display = "none";
             digitarMensagemParada("(Hiitsumo parece um pouco inquieta)", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
@@ -891,6 +896,7 @@ function fluxoMomento1() {
         case 31:
             opcoes.style.display = "none";
             mensagem.style.display = "flex";
+            cabecaIntro.style.display = "flex";
 
             digitarMensagemIntro("Bem… Eu já estive aqui antes e…", "falaHiitsumoIntro");
             HiitsumoEstado++;
@@ -907,16 +913,22 @@ function fluxoMomento1() {
             break;
 
         case 34:
-            digitarMensagemParada("Hiitsumo é interrompida por uma voz aguda e sem sentido que vem do fundo do corredor", "falaHiitsumoIntro");
+            cabecaIntro.style.display = "none";
+            digitarMensagemParada("(Hiitsumo é interrompida por uma voz aguda e sem sentido que vem do fundo do corredor)", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
 
         case 35:
+            cabecaIntro.style.display = "flex";
+            mensagem.style.maxWidth = "600px";
+            cabecaIntro.style.width = "100px";
             digitarMensagemMago("※⁂⁜ VLORU! VLORU! MUCU XUKOC! ⁜⁂※", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
 
         case 36:
+            mensagem.style.maxWidth = "400px";
+            cabecaIntro.style.width = "80px";
             digitarMensagemRaiva("Aí tá o problema…", "falaHiitsumoIntro");
             HiitsumoEstado++;
             break;
@@ -924,8 +936,11 @@ function fluxoMomento1() {
         case 37:
             salvarEstadoSite();
 
-            fluxoMomento1.iniciado = false;
-            Momento = 2;  // OU o momento que você quiser
+            setTimeout(() => {
+                HiitsumoEstado = 0;
+                Momento = 2;
+                fluxoMomento1.iniciado = false;
+            }, 1000);
             break;
     }
 }
