@@ -487,13 +487,13 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 hiitsumoInicial.style.display = "flex";
                 hiitsumoInicial.style.opacity = "0";
                 cabecaIntro.style.display = "none";
-                digitarMensagemIntro("(Você sente a máquina do tempo se destorcendo, vibrando e deslocando vocês pelo espaço, até que...)", "falaHiitsumoIntro");
+                digitarMensagemIntro("(Os ruídos da máquina do tempo somem após um instante)", "falaHiitsumoIntro");
                 HiitsumoEstado1 = 1;
             }, 4000);
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 33) {
             titulo.style.display = "none";
-            digitarMensagemIntro("(...)", "falaHiitsumoIntro");
+            digitarMensagemIntro("(Sua visão começa a clarear e…)", "falaHiitsumoIntro");
         };
 
         if (HiitsumoEstado1 === 1) {
@@ -505,30 +505,24 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 }
 
                 if (HiitsumoEstado1 === 1) {
-                    digitarMensagemIntro("(Os ruídos da máquina do tempo somem após um instante)", "falaHiitsumoIntro");
-                    HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 2) {
-                    digitarMensagemIntro("(Sua visão começa a clarear e…)", "falaHiitsumoIntro");
-                    HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 3) {
                     carregar.style.display = "none";
                     hiitsumoInicial.style.opacity = "1";
                     digitarMensagemParadaFeliz("(Hiitsumo está bem a sua frente, olhando de um lado pro outro.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 4) {
+                } else if (HiitsumoEstado1 === 2) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemParadaFeliz("(Você se vê dentro de um salão muito grande, com várias estantes de livro e candelabros.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 5) {
+                } else if (HiitsumoEstado1 === 3) {
                     digitarMensagemParadaFeliz("(De um dos lados, você vê uma prateleira exibindo vassouras muito bem ornamentadas.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 6) {
+                } else if (HiitsumoEstado1 === 4) {
                     digitarMensagemParadaFeliz("(O chão é empoeirado, apesar da quantidade ridícula de vassouras.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 7) {
+                } else if (HiitsumoEstado1 === 5) {
                     digitarMensagemParadaFeliz("(O lugar cheira a gengibre e cinzas.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 8) {
+                } else if (HiitsumoEstado1 === 6) {
                     opcoes.style.display = "block";
                     mensagem.style.display = "none";
 
@@ -540,57 +534,57 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     opcA.onclick = () => {
                         HiitsumoEstado1 += 1;
                     };
-                } else if (HiitsumoEstado1 === 9) {
+                } else if (HiitsumoEstado1 === 7) {
                     opcoes.style.display = "none";
                     mensagem.style.display = "flex";
                     cabecaIntro.style.display = "flex";
 
                     digitarMensagemFeliz("No meu bolso.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 10) {
+                } else if (HiitsumoEstado1 === 8) {
                     mensagem.style.maxWidth = "450px";
                     digitarMensagemFeliz("Sim, isso mesmo. Literalmente.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 11) {
+                } else if (HiitsumoEstado1 === 9) {
                     digitarMensagemNerd("Por questões de conveniência, eu implementei uma versão miniatura da máquina para carregar ela por aí.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 12) {
+                } else if (HiitsumoEstado1 === 10) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemFeliz("Mas preciso de um espaço bom para usar ela.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 13) {
+                } else if (HiitsumoEstado1 === 11) {
                     cabecaIntro.style.display = "none";
                     digitarMensagemParadaFeliz("(Hiitsumo olha ao redor outra vez e lhe diz...)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 14) {
+                } else if (HiitsumoEstado1 === 12) {
                     cabecaIntro.style.display = "flex";
                     digitarMensagemBeicinho("Bem, já sei onde nós estamos, melhor acharmos a peça logo…", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 15) {
+                } else if (HiitsumoEstado1 === 13) {
                     digitarMensagemFeliz("Bom, ela não deve estar muito longe.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 16) {
+                } else if (HiitsumoEstado1 === 14) {
                     digitarMensagemFeliz("E pra esclarecer, estamos na era medieval se você não percebeu.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 17) {
+                } else if (HiitsumoEstado1 === 15) {
                     cabecaIntro.style.display = "none";
                     digitarMensagemParadaFeliz("(Vocês andam ao redor da sala, vasculhando as prateleiras em busca de qualquer pista.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 18) {
+                } else if (HiitsumoEstado1 === 16) {
                     cabecaIntro.style.display = "flex";
                     digitarMensagemAnimada(`Ei, ${nomePlayer}, olha ali!`, "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 19) {
+                } else if (HiitsumoEstado1 === 17) {
                     cabecaIntro.style.display = "none";
                     digitarMensagemParadaFeliz("(Tem uma engrenagem, amarela e grande o suficiente para que se destacasse do resto da sala.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 20) {
+                } else if (HiitsumoEstado1 === 18) {
                     digitarMensagemParadaFeliz("(Ela é um tanto reluzente e o ambiente ao redor parece apontar para ela.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 21) {
+                } else if (HiitsumoEstado1 === 19) {
                     digitarMensagemParadaFeliz("(E tem um chapéu de bruxo muito legal)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 22) {
+                } else if (HiitsumoEstado1 === 20) {
                     opcoes.style.display = "block";
                     mensagem.style.display = "none";
 
@@ -607,42 +601,42 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     opcB.onclick = () => {
                         HiitsumoEstado1 += 1;
                     };
-                } else if (HiitsumoEstado1 === 23) {
+                } else if (HiitsumoEstado1 === 21) {
                     opcoes.style.display = "none";
                     mensagem.style.display = "flex";
                     cabecaIntro.style.display = "flex";
 
                     digitarMensagemBeicinho("Não era bem isso, mas…", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 24) {
+                } else if (HiitsumoEstado1 === 22) {
                     digitarMensagemV("Belo chapéu!", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 25) {
+                } else if (HiitsumoEstado1 === 23) {
                     digitarMensagemIntro("Enfim, vamos pegar a engrenagem e dar o fora daqui.", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 26) {
+                } else if (HiitsumoEstado1 === 24) {
                     cabecaIntro.style.display = "none";
                     digitarMensagemParadaFeliz("(Hiitsumo pega a engrenagem e a entrega nas suas mão.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 27) {
+                } else if (HiitsumoEstado1 === 25) {
                     opcoes.style.display = "none";
                     mensagem.style.display = "flex";
                     cabecaIntro.style.display = "none";
 
                     digitarMensagemParadaFeliz("(A engrenagem é um pouco mais leve do que você imaginava.)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 28) {
+                } else if (HiitsumoEstado1 === 26) {
                     cabecaIntro.style.display = "flex";
                     digitarMensagemMao("Foi bem mais rápido do que eu esperava! Ótimo!", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 29) {
+                } else if (HiitsumoEstado1 === 27) {
                     digitarMensagemIntro("Vamos voltar agora!", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 30) {
+                } else if (HiitsumoEstado1 === 28) {
                     cabecaIntro.style.display = "none";
                     digitarMensagemParada("(Hiitsumo parece um pouco inquieta)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 31) {
+                } else if (HiitsumoEstado1 === 29) {
                     opcoes.style.display = "block";
                     mensagem.style.display = "none";
 
@@ -654,33 +648,33 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     opcA.onclick = () => {
                         HiitsumoEstado1 += 1;
                     };
-                } else if (HiitsumoEstado1 === 32) {
+                } else if (HiitsumoEstado1 === 30) {
                     opcoes.style.display = "none";
                     mensagem.style.display = "flex";
                     cabecaIntro.style.display = "flex";
 
                     digitarMensagemIntro("Bem… Eu já estive aqui antes e…", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 33) {
+                } else if (HiitsumoEstado1 === 31) {
                     digitarMensagemBeicinho("Os caras da era medieval conseguem ser muito chatos, sabe?", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 34) {
+                } else if (HiitsumoEstado1 === 32) {
                     digitarMensagemIntro("Na última vez que eu estive aqui, meio que…", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 35) {
+                } else if (HiitsumoEstado1 === 33) {
                     cabecaIntro.style.display = "none";
                     digitarMensagemParada("(Hiitsumo é interrompida por uma voz aguda e sem sentido que vem do fundo do corredor)", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 36) {
+                } else if (HiitsumoEstado1 === 34) {
                     cabecaIntro.style.display = "flex";
                     mensagem.style.maxWidth = "600px";
                     digitarMensagemMago("※⁂⁜ VLORU! VLORU! MUCU XUKOC! ⁜⁂※", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 37) {
+                } else if (HiitsumoEstado1 === 35) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemRaiva("Aí tá o problema…", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
-                } else if (HiitsumoEstado1 === 38) {
+                } else if (HiitsumoEstado1 === 36) {
                     fundo.style.display = "none";
                     introducao.style.display = "none";
                 }
