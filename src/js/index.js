@@ -231,7 +231,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
-            HiitsumoEstado += 1;
+            HiitsumoEstado += 31;
         } else if (HiitsumoEstado === 1) {
             digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -508,7 +508,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     carregar.style.display = "none";
                     hiitsumoInicial.style.opacity = "1";
                     digitarMensagemParadaFeliz("(Hiitsumo está bem a sua frente, olhando de um lado pro outro.)", "falaHiitsumoIntro");
-                    HiitsumoEstado1 += 1;
+                    HiitsumoEstado1 += 34;
                 } else if (HiitsumoEstado1 === 2) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemParadaFeliz("(Você se vê dentro de um salão muito grande, com várias estantes de livro e candelabros.)", "falaHiitsumoIntro");
@@ -1279,7 +1279,7 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
     audio.loop = true;
     audio.play().catch(() => { });
 
-    if (cabeca) cabeca.src = "./src/img/cabeca-feliz-falando.gif";
+    if (cabeca) cabeca.src = "./src/img/cabeca-V-falando.gif";
     if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V-falando.gif";
 
     let i = 0;
@@ -1294,7 +1294,7 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-V.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V.gif";
             return;
         }
@@ -1310,7 +1310,7 @@ function digitarMensagemV(texto, elementoId, velocidade = 40) {
             audio.pause();
             audio.currentTime = 0;
 
-            if (cabeca) cabeca.src = "./src/img/cabeca-feliz.gif";
+            if (cabeca) cabeca.src = "./src/img/cabeca-V.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-V.gif";
         }
     }, velocidade);
