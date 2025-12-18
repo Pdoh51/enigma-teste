@@ -237,7 +237,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
-            HiitsumoEstado += 31;
+            HiitsumoEstado += 25;
         } else if (HiitsumoEstado === 1) {
             digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -836,6 +836,16 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 29) {
                 digitarMensagem_Mago("Olha só você, não sabe nem falar direito!", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 30) {
+                cabeca1.style.display = "none";
+                digitarMensagem_Mago("(Hiitsumo olha de volta para você e sussurra.)", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 31) {
+                cabeca1.style.display = "flex";
+                mensagem2.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_Mensagem(`${nomePlayer}, você tem alguma ideia do que fazer?`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 40) {
                 document.querySelector(".linha-senha").style.opacity = "1";
