@@ -34,6 +34,7 @@ const carregar = document.getElementById("carregar");
 const linhaNome = document.getElementById("nome");
 const introducao = document.getElementById("introducao");
 const fundo = document.getElementById("fundo");
+const magia = document.getElementById("magia");
 const somFundo = document.getElementById("somFundo");
 const titulo = document.getElementById("titulo");
 
@@ -689,7 +690,6 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     mensagem2.style.display = "flex";
                     mensagem2.style.maxWidth = "600px";
                     hiitsumoInicial.style.display = "none";
-                    mensagem2.style.transform = "translateY(50%)";
                     cabeca1.style.display = "flex";
                     digitarMensagemMago("※⁂⁜ LIOVUL Y JLYHXYL!!! ⁜⁂※", "falaBoss");
                     HiitsumoEstado2 = 1;
@@ -714,7 +714,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (faseAtual === 0) {
             if (HiitsumoEstado2 === 1) {
                 cabeca1.style.display = "none";
-                mensagem2.style.maxWidth = "500px";
+                mensagem2.style.maxWidth = "600px";
                 mensagem2.style.display = "flex";
                 digitarMensagemParada("(Em um instante, a peça que estava em sua mão voa começa a levitar e ela voa até a direção do mago.)", "falaBoss");
                 HiitsumoEstado2 += 1;
@@ -726,6 +726,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 3) {
                 mensagem2.style.display = "flex";
                 mensagem1.style.display = "none";
+                magia.style.display = "flex";
                 digitar_MensagemSurpresaParada("(Um círculo amarelo surge ao redor de vocês dois e forma uma barreira mágica)", "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 4) {
@@ -740,20 +741,20 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 cabeca1.style.display = "flex";
                 mensagem2.style.display = "flex";
                 mensagem1.style.display = "none";
-                digitarMensagemMago("※⁂⁜ Vloru… y wigjuhbcu… ⁜⁂※", "falaBoss");
+                digitarMensagem_Mago("※⁂⁜ Vloru… y wigjuhbcu… ⁜⁂※", "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 7) {
-                digitarMensagemMago("※⁂⁜ Chnylymmuony ⁜⁂※", "falaBoss");
+                digitarMensagem_Mago("※⁂⁜ Chnylymmuony ⁜⁂※", "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 8) {
-                digitarMensagemMago("Vocês não conseguem me entender, não é mesmo?", "falaBoss");
+                digitarMensagem_Mago("Vocês não conseguem me entender, não é mesmo?", "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 9) {
-                digitarMensagemMago("Fufufu… Muahahaha", "falaBoss");
+                digitarMensagem_Mago("Fufufu… Muahahaha", "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 10) {
                 mensagem2.style.maxWidth = "400px";
-                digitarMensagemMago("※⁂⁜ Vloru, jymny. ⁜⁂※ Finalmente peguei você", "falaBoss");
+                digitarMensagem_Mago("※⁂⁜ Vloru, jymny. ⁜⁂※ Finalmente peguei você", "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 11) {
                 mensagem2.style.display = "none";
@@ -763,8 +764,80 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 12) {
                 mensagem2.style.display = "flex";
                 mensagem1.style.display = "none";
-                digitarMensagemMago("※⁂⁜ Não... ⁜⁂※", "falaBoss");
+                digitarMensagem_Mago("Bruxas que nem você não tem o direito de falar nada, peste! ※⁂⁜ Jymnym! ⁜⁂※", "falaBoss");
+                HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 13) {
+                mensagem2.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_MensagemRaiva("Bruxa?! Eu sou uma cientista!", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 14) {
+                digitar_MensagemRaiva("VOCÊ é um bruxo!", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 15) {
+                mensagem2.style.display = "flex";
+                mensagem1.style.display = "none";
+                digitarMensagem_Mago("Mas você me dá nojo, bruxa.", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 16) {
+                mensagem2.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_MensagemBeicinho("Cientista.", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 17) {
+                mensagem2.style.display = "flex";
+                mensagem1.style.display = "none";
+                digitarMensagem_Mago("Você não usa chapéus e nem nossas túnicas.", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 18) {
+                digitarMensagem_Mago("Não viaja com vassouras, só com estas…", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 19) {
+                digitarMensagem_Mago("Aberrações que você chama de “máquina”.", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 20) {
+                mensagem2.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_MensagemBeicinho("Do tempo. É uma máquina do tempo.", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 21) {
+                mensagem2.style.display = "flex";
+                mensagem1.style.display = "none";
+                digitarMensagem_Mago("E a alquimia? Onde está a sua pedra filosofal?", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 22) {
+                digitarMensagem_Mago("Que magias estranhas são essas?", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 23) {
+                digitarMensagem_Mago("Você é uma praticante das artes das trevas?", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 24) {
+                mensagem2.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_MensagemFeliz("Eu ganhei uma medalha dos “Grandes Pequenos inventores”, não serve?", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 25) {
+                digitar_MensagemFeliz("E uma da OBMEP, também.", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 26) {
+                mensagem2.style.display = "flex";
+                mensagem1.style.display = "none";
+                digitarMensagem_Mago("AH! ※⁂⁜ WUFUXU! ⁜⁂※ Você fala coisas sem nenhum sentido.", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 27) {
+                mensagem2.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_Mensagem("Vloru, só deixa a gente sair daqui logo.", "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 28) {
+                mensagem2.style.display = "flex";
+                mensagem1.style.display = "none";
+                digitarMensagem_Mago("Sou um ※⁂⁜ Vlori ⁜⁂※, não um ※⁂⁜ Vloru!! ⁜⁂※", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 29) {
+                digitarMensagem_Mago("Olha só você, não sabe nem falar direito!", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 40) {
                 document.querySelector(".linha-senha").style.opacity = "1";
                 document.querySelector(".engrenagens").style.opacity = "1";
                 mensagem1.style.display = "none";
