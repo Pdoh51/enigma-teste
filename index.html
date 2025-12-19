@@ -63,15 +63,15 @@
                 <p class="boss-dialogo" id="falaBoss"></p>
             </div>
             <div id="opcoes1" class="opcoes" style="display:none;">
-                <button id="opcaoA1" class="opcaoA" type="button"></button>
-                <button id="opcaoB1" class="opcaoB" type="button"></button>
+                <button id="opcaoA1" class="opcaoA1" type="button"></button>
+                <button id="opcaoB1" class="opcaoB1" type="button"></button>
             </div>
         </div>
 
         <p id="mensagem"></p>
 
         <div class="linha-senha">
-            <label for="senha">Senha:</label>
+            <label for="senha">Resposta:</label>
             <div class="campo-digitacao">
                 <input id="senha" type="text" onfocus="esconderCursor()" onblur="mostrarCursor()" autofocus />
             </div>
@@ -87,22 +87,13 @@
         </div>
     </div>
 
-    <div class="resposta-fase-container">
-        <div class="resposta-fase fase_1">
-            Não sei oq lá 1
-        </div>
-        <div class="resposta-fase fase_2">
-            Não sei oq lá 2
-        </div>
-        <div class="resposta-fase fase_3">
-            Não sei oq lá 3
-        </div>
-        <div class="resposta-fase fase_4">
-            Não sei oq lá 4
-        </div>
-        <div class="resposta-fase fase_5">
-            Não sei oq lá 5
-        </div>
+
+    <div id="dicas-fase" class="resposta-fase-container">
+        <p class="resposta-fase" id="dica-1"></p>
+        <p class="resposta-fase" id="dica-2"></p>
+        <p class="resposta-fase" id="dica-3"></p>
+        <p class="resposta-fase" id="dica-4"></p>
+        <p class="resposta-fase" id="dica-5"></p>
     </div>
 
 
