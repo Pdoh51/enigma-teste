@@ -18,6 +18,8 @@ let textoCompleto = "";
 let pulando = false;
 let digitando = false;
 
+let indiceEngrenagem = 1;
+
 const botao = document.getElementById("botaoIniciar");
 const tela = document.getElementById("iniciar");
 const mensagem = document.getElementById("caixa-dialogo");
@@ -51,32 +53,23 @@ const dica5 = document.getElementById("dica-5");
 
 
 const senhas = [
-    "1",
-    "1",
-    "1",
-    "1",
-    "1"];
+    ["Iyauck y zoack", "Iyauck zoack", "Iyauck y Zoack", "Iyauck Zoack"],
+    ["1"],
+    ["1"],
+    ["1"],
+    ["1"]
+];
+
 
 function verificarSenha() {
     const senhaDigitada = document.getElementById("senha").value;
-    const mensagem = document.getElementById("mensagem");
 
     // LIMPA QUALQUER TIMEOUT ANTERIOR
     clearTimeout(mensagemTimeout);
 
-    // FORÇA A MENSAGEM A APARECER
-    mensagem.style.opacity = "1";
-    mensagem.style.display = "block";
 
     if (senhaDigitada === senhas[faseAtual]) {
 
-        // abre engrenagem da fase atual
-        const engrenagem = document.getElementById(`engrenagem${faseAtual}`);
-        engrenagem.src = "./src/img/engrenagem-verde.png";
-        engrenagem.classList.add("verde");
-
-        mensagem.textContent = "Senha correta!";
-        mensagem.style.color = "green";
         document.getElementById("senha").value = "";
 
         derrotarBoss();
@@ -85,40 +78,22 @@ function verificarSenha() {
             faseAtual++; // AGORA sim avança a fase
             // 🟢 AINDA EXISTEM FASES
             if (faseAtual < senhas.length) {
-                atualizarBoss(); // aparece o próximo boss
+                atualizarBoss();
                 const boss = document.getElementById("boss");
                 boss.style.display = "block";
                 boss.classList.remove("boss-derrotado");
 
-                mensagemTimeout = setTimeout(() => {
-                    mensagem.style.opacity = "0";
-                    mensagem.style.visibility = "hidden";
-                    mensagem.style.display = "none";
-                }, 2000);
             } else {
-                mensagem.textContent = "Você completou o desafio!";
-                mensagem.style.color = "green";
                 document.querySelector(".linha-senha").style.display = "none";
-                mensagem.style.marginTop = "120px";
 
                 setTimeout(() => {
-                    mensagem.style.opacity = "0";
-                    mensagem.style.visibility = "hidden";
-                    mensagem.style.display = "none";
                     document.querySelector(".recompensa_final").style.display = "block";
                     // enviarMensagemDiscord();
                 }, 3000);
             }
         }, 1600); // TEMPO DA ANIMAÇÃO DO BOSS
     } else {
-        mensagem.textContent = "Senha incorreta!";
-        mensagem.style.color = "red";
 
-        mensagemTimeout = setTimeout(() => {
-            mensagem.style.opacity = "0";
-            mensagem.style.visibility = "hidden";
-            mensagem.style.display = "none";
-        }, 2000);
     }
 }
 
@@ -147,37 +122,6 @@ function enviarMensagemDiscord() {
         });
 }
 
-function derrotarBoss() {
-    const boss = document.getElementById("boss");
-
-    boss.classList.remove("boss-derrotado");
-    void boss.offsetWidth; // reinicia a animação
-    boss.classList.add("boss-derrotado");
-}
-
-function aparecerHiitsumo() {
-    const aparecer = document.getElementById("HiitsumoIntro");
-
-    aparecer.classList.remove("aparecer");
-    void aparecer.offsetWidth;
-    aparecer.classList.add("aparecer");
-}
-
-function desaparecerHiitsumo() {
-    const desaparecer = document.getElementById("HiitsumoIntro");
-
-    desaparecer.classList.remove("desaparecer");
-    void desaparecer.offsetWidth;
-    desaparecer.classList.add("desaparecer");
-}
-
-function aparecerMaquina() {
-    const aparecerMaquina = document.getElementById("maquina");
-
-    aparecerMaquina.classList.remove("aparecer-maquina");
-    void aparecerMaquina.offsetWidth;
-    aparecerMaquina.classList.add("aparecer-maquina");
-}
 
 function entrarTelaCheia() {
     const el = document.documentElement;
@@ -247,7 +191,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
-            HiitsumoEstado += 25;
+            HiitsumoEstado += 32;
         } else if (HiitsumoEstado === 1) {
             digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -727,7 +671,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.maxWidth = "600px";
                 mensagem2.style.display = "flex";
                 digitarMensagemParada("(Em um instante, a peça que estava em sua mão voa começa a levitar e ela voa até a direção do mago.)", "falaBoss");
-                HiitsumoEstado2 += 1;
+                HiitsumoEstado2 += 40;
             } else if (HiitsumoEstado2 === 2) {
                 mensagem2.style.display = "none";
                 mensagem1.style.display = "flex";
@@ -939,10 +883,6 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem1.style.display = "none";
                 dicasFase.style.display = "flex";
                 dica1.style.display = "flex";
-                dica2.style.display = "none";
-                dica3.style.display = "none";
-                dica4.style.display = "none";
-                dica5.style.display = "none";
                 digitarMensagemParada("Dica 1: Recitar o feitiço na língua do mago. Pegar é a prioridade.", "dica-1")
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 49) {
@@ -974,7 +914,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitar_Mensagem(`Como eu me lembrei delas perfeitamente?`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 57) {
-                digitar_MensagemNerd(`Minha memória é algo bem *interessante*, as vezes eu lembro bem, as vezes não.`, "falaHiitsumo");
+                digitar_MensagemNerd(`Minha memória é algo bem interessante, as vezes eu lembro bem, as vezes não.`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 58) {
                 mensagem1.style.display = "none";
@@ -1007,11 +947,66 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 65) {
                 mensagem1.style.display = "flex";
-                digitar_Mensagem(`Estou pensando..... hmmm.....`, "falaHiitsumo");
+                digitar_Mensagem(`Quer que eu repita o que eu falei? Tudo bem.`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 66) {
                 mensagem1.style.display = "none";
-                HiitsumoEstado2 = 65;
+                HiitsumoEstado2 = 43;
+            } else if (HiitsumoEstado2 === 67) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_Mensagem(`${senhaDigitada}? Hmmmm, acho que não é isso.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 68) {
+                document.querySelector(".linha-senha").style.opacity = "0";
+                document.querySelector(".engrenagens").style.opacity = "0";
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                cabeca1.style.display = "flex";
+                digitarMensagem_Mago(`Muahahahahahahahaha! Nunca conseguirão!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 69) {
+                document.querySelector(".linha-senha").style.opacity = "1";
+                document.querySelector(".engrenagens").style.opacity = "1";
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+            } else if (HiitsumoEstado2 === 70) {
+                dicasFase.style.display = "none";
+                dica1.style.display = "none";
+                dica2.style.display = "none";
+                dica3.style.display = "none";
+                dica4.style.display = "none";
+                dica5.style.display = "none";
+
+                document.querySelector(".linha-senha").style.opacity = "0";
+                document.querySelector(".engrenagens").style.opacity = "0";
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_Mensagem(`${senhaDigitada}... ${senhaDigitada}...`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 71) {
+                digitar_MensagemAnimada(`${nomePlayer}! Você é um gênio!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 72) {
+                digitar_MensagemAnimada(`Me passa aquele chapéu.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 73) {
+                digitar_MensagemChapeu(`Ei, Vlori! Olha aqui!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 74) {
+                cabeca1.style.display = "flex";
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Mago(`Você decidiu se revelar agora, bruxa.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 75) {
+                digitarMensagem_Mago(`Teremos um duelo lendário, finalmente!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 76) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemChapeu(`É isso que você pensa.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
             }
         } else if (faseAtual === 1) {
             if (HiitsumoEstado2 === 0) {
@@ -1087,3 +1082,55 @@ document.getElementById("confirmarNome").addEventListener("click", () => {
     document.getElementById("nome").style.display = "none";
     HiitsumoEstado += 1;
 });
+
+function atualizarEngrenagem() {
+    const engrenagem = document.getElementById(`engrenagem${indiceEngrenagem}`);
+
+    engrenagem.src = "./src/img/engrenagem-verde.png";
+    engrenagem.classList.add("verde");
+
+    indiceEngrenagem++;
+}
+
+
+
+
+
+let senhaDigitada = "";
+
+document.getElementById("botaoEnviar").addEventListener("click", () => {
+    senhaDigitada = document.getElementById("senha").value.trim();
+    const correta = senhas[faseAtual].includes(senhaDigitada);
+
+    if (correta) {
+        verificarSenhaCorreta();
+    } else {
+        verificarSenhaErrada();
+    }
+});
+
+function verificarSenhaCorreta() {
+    document.getElementById("senha").value = "";
+
+    if (faseAtual === 0) {
+        HiitsumoEstado2 = 70;
+
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        digitar_Mensagem(`Hmmmm....`, "falaHiitsumo");
+    } else {
+        // espaço para outras fases
+    }
+}
+
+function verificarSenhaErrada() {
+    if (faseAtual === 0) {
+        HiitsumoEstado2 = 67;
+
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        digitar_Mensagem(`Hmmmm....`, "falaHiitsumo");
+    } else {
+        // espaço para outras fases
+    }
+}
