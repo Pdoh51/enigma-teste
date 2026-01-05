@@ -636,7 +636,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.maxWidth = "600px";
                 mensagem2.style.display = "flex";
                 digitarMensagemParada("(Em um instante, a peça que estava em sua mão voa começa a levitar e ela voa até a direção do mago.)", "falaBoss");
-                HiitsumoEstado2 += 87;
+                HiitsumoEstado2 += 70;
             } else if (HiitsumoEstado2 === 2) {
                 mensagem2.style.display = "none";
                 mensagem1.style.display = "flex";
@@ -1428,4 +1428,5 @@ function verificarSenhaErrada() {
     } else {
         // espaço para outras fases
     }
+
 }
