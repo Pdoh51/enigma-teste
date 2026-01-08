@@ -1142,10 +1142,147 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitarMensagem_ShowPisca(`Vamos ter que atrasar a gravação dos convidados de hoje e faremos uma exceção especial para estes intrusos especiais.`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 9) {
-                digitarMensagem_ShowPisca(`É isso por enquanto, mas lembrem o show sempre deve continuar!`, "falaBoss");
-                HiitsumoEstado2 += 0;
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemAnimada(`Nós?! Participando do seu programa? Uma edição comigo?!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 10) {
-                
+                digitar_MensagemAnimada(`Meu Deus, eu vou desmaiar.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 11) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Se acalme, jovem! Que tal uma bebida gelada para que esse seu enjôo passe?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 12) {
+                digitarMensagem_Show(`Chá gelado, água com gás, sucos e refrigerantes, também sua graxa para meus companheiros robôs. Tudo gelado em pouco tempo e com gelo extra na minha porta.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 13) {
+                digitarMensagem_Show(`É a praticidade e a eficiência numa só amiga da sua cozinha, quem sou eu e como pode ser tudo isso?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 14) {
+                digitarMensagem_Show(`Graciane Eletroluz a sua disposição, a geladeira do futuro que uniu os humanos e os robôs, quem disse que óleo e água não poderiam estar juntos?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 15) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemAnimada(`AAAAAAAAAAAAAAAAAA Graciane, você é a melhor!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 16) {
+                digitar_MensagemCoradaDedo(`Eu ficava até tarde da noite assistindo seus programas quando eu era criança!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 17) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Quando você era criança, querida? O programa começou esse ano.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 18) {
+                digitarMensagem_Show(`A conversa sobre viajar no tempo não era brincadeira mesmo! Qual seu nome?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 19) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemCorada(`É Hiitsumo.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 20) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Ora, Hii, o que eu faço com você se você já sabe todas as respostas do jogo?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 21) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemFeliz(`O ${nomePlayer} é do passado, ele pode responder as perguntas.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 22) {
+                digitar_MensagemBeicinhoNormal(`E não é como se eu soubesse todas as respostas…`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 23) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+                opcA1.style.width = "500px";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"Nós estamos com pouco tempo, precisamos achar a engrenagem logo."', "opcaoA1");
+
+                opcB1.style.display = "none";
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 += 1;
+                }
+            } else if (HiitsumoEstado2 === 24) {
+                opcA1.style.width = "350px";
+                opcoes1.style.display = "none";
+                mensagem1.style.display = "flex";
+                digitar_MensagemCorada(`Ah, é verdade.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 25) {
+                digitar_MensagemFeliz(`Podemos voltar para cá logo depois que consertarmos a máquina, o que acha?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 26) {
+                digitar_MensagemV(`Vai para nossa lista de objetivos.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 27) {
+                digitar_Mensagem(`Mas bem… Graciane, precisamos ir.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 28) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_ShowTriste(`Awwn, que pena.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 29) {
+                digitarMensagem_Show(`Não querem nem dar uma olhada nos prêmios de hoje?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 30) {
+                digitarMensagem_ShowPremio1(`Uma air fryer.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 31) {
+                digitarMensagem_ShowPremio2(`Temos uma chave de fenda chiquérrima para presentear seus robôs preferidos.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 32) {
+                digitarMensagem_ShowPremio3(`Um travesseiro.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 33) {
+                digitarMensagem_ShowPremio4(`Uma pelúcia para lhe acompanhar na cozinha.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 34) {
+                digitarMensagem_ShowPremio4(`………`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 35) {
+                digitarMensagem_ShowPremio5(`E esse item não identificado que achamos nos bastidores.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 36) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_Mensagem(`Ei, isso é meu!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 37) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Não mais. Parece que o jogo vai ter que acontecer.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 38) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemFeliz(`Bom… Vamos jogar então, ${nomePlayer}, vamos ter que ganhar a engrenagem de volta!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 39) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Muito bem! Muito bem! Faremos as perguntas primeiro e depois teremos nosso evento de culinária!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 40) {
+                document.querySelector(".Hiitsumo").src = "./src/img/hiitsumo-corada-dedo.gif";
+                digitarMensagem_Show(`Estou muito animada para receber vocês! Senhoras e senhores, uma salva de palmas para Hii e ${nomePlayer}!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 41) {
+                document.querySelector(".Hiitsumo").src = "./src/img/hiitsumo.gif";
+                digitarMensagem_Show(`E para a primeira pergunta vamos ver um pouco de história!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 42) {
+                digitarMensagem_Show(`Por enquanto é isso.`, "falaBoss");
+                HiitsumoEstado2 += 0;
             }
         }
     });
