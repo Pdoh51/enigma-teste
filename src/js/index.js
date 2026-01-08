@@ -52,6 +52,7 @@ const dica5 = document.getElementById("dica-5");
 const maquina = document.getElementById("maquina");
 const bossImg = document.getElementById("boss");
 const Hiitsumo = document.getElementById("Hiitsumo");
+const clickLuz = document.getElementById("clickLuz");
 
 
 
@@ -1401,6 +1402,8 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 bossImg.style.display = "none";
                 bossImg.src = "./src/img/boss1-nada.png";
                 Hiitsumo.src = "./src/img/hiitsumo-surpresa.gif";
+
+                clickLuz.play();
 
                 digitarMensagem_ShowParado1("(As luzes são acesas.)", "falaBoss");
                 HiitsumoEstado2 += 1;
