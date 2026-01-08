@@ -1072,7 +1072,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                         digitarMensagemIntro("(Seu coração ainda está acelerado, assustado.)", "falaHiitsumoIntro");
                         HiitsumoEstado3 += 1;
                     } else if (HiitsumoEstado3 === 4) {
-                        digitarMensagemIntro("(E você escuta uma risada.)", "falaHiitsumoIntro");
+                        digitarMensagemChapeuRindo("(E você escuta uma risada.)", "falaHiitsumoIntro");
                         HiitsumoEstado3 += 1;
                     } else if (HiitsumoEstado3 === 5) {
                         hiitsumoInicial.style.opacity = "1";
