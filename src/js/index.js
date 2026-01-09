@@ -36,6 +36,8 @@ const opcB = document.getElementById("opcaoB");
 const opcoes1 = document.getElementById("opcoes1");
 const opcA1 = document.getElementById("opcaoA1");
 const opcB1 = document.getElementById("opcaoB1");
+const opcC1 = document.getElementById("opcaoC1");
+const opcD1 = document.getElementById("opcaoD1");
 const carregar = document.getElementById("carregar");
 const linhaNome = document.getElementById("nome");
 const introducao = document.getElementById("introducao");
@@ -53,6 +55,7 @@ const maquina = document.getElementById("maquina");
 const bossImg = document.getElementById("boss");
 const Hiitsumo = document.getElementById("Hiitsumo");
 const clickLuz = document.getElementById("clickLuz");
+const palmas = document.getElementById("palmas");
 
 
 
@@ -1276,13 +1279,145 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 40) {
                 document.querySelector(".Hiitsumo").src = "./src/img/hiitsumo-corada-dedo.gif";
                 digitarMensagem_Show(`Estou muito animada para receber vocês! Senhoras e senhores, uma salva de palmas para Hii e ${nomePlayer}!`, "falaBoss");
+
+                setTimeout(() => {
+                    palmas.play();
+                }, 3500);
+
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 41) {
                 document.querySelector(".Hiitsumo").src = "./src/img/hiitsumo.gif";
                 digitarMensagem_Show(`E para a primeira pergunta vamos ver um pouco de história!`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 42) {
-                digitarMensagem_Show(`Por enquanto é isso.`, "falaBoss");
+                digitarMensagem_Show(`Em que ano aconteceu a primeira revolução dos robôs?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 43) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"2017."', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"2020."', "opcaoB1");
+
+                opcC1.style.display = "block";
+                digitarOpcao('"2026."', "opcaoC1");
+
+                opcD1.style.display = "block";
+                digitarOpcao('"2012."', "opcaoD1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 = 47;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 = 47;
+                }
+
+                opcC1.onclick = () => {
+                    HiitsumoEstado2 = 53;
+                }
+
+                opcD1.onclick = () => {
+                    HiitsumoEstado2 = 47;
+                }
+
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 44) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_Mensagem(`Você está em 2026, não é? Sinto muito por você, mas não tem jeito.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 45) {
+                digitar_Mensagem(`Fica seguro e tome cuidado com o que posta na internet.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 46) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                HiitsumoEstado2 = 44;
+            } else if (HiitsumoEstado2 === 47) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Mas que pena! A resposta correta era 2026!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 48) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemRaiva(`Como você errou isso, ${nomePlayer}?!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 49) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Vocês ganham…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 50) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemBeicinhoNormal(`Nada?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 51) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Seria nada, mas ninguém quer essa chave de fenda aqui, então fiquem com ela!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 52) {
+                cabeca1.style.display = "none";
+                digitarMensagem_ShowPremio2(`(Vocês obtiveram uma chave de fenda, inevitavelmente.)`, "falaBoss");
+                HiitsumoEstado2 += 6;
+            } else if (HiitsumoEstado2 === 53) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                cabeca1.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Correta a resposta! Vocês acabaram de ganhar uma…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 54) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemAnimada(`Uma air fryer?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 55) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`A air fryer era o primeiro prêmio, mas como essa pergunta é ridícula, vocês vão ganhar uma chave de fenda.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 56) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                digitar_MensagemFeliz(`Isso é meio injusto, mas eu tô animada demais pra reclamar!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 57) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                cabeca1.style.display = "none";
+                digitarMensagem_ShowPremio2(`(Vocês obtiveram uma chave de fenda.)`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 58) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Agora para a pergunta da air fryer! Essa especialmente para os gamers dos mais clássicos!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 59) {
+                digitarMensagem_Show(`Qual animal melhor se associa a essa personagem?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 60) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_ShowTriste(`Ah desculpe, eu deveria mostrar a imagem dele aqui, mas o meu desenhista não fez ainda.`, "falaBoss");
                 HiitsumoEstado2 += 0;
             }
         }
