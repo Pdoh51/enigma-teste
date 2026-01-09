@@ -128,10 +128,6 @@
     transform: scale(1.05);
 }
 
-.opcaoB1 {
-    margin-left: 20px;
-}
-
 .opcoes1 button {
     display: none;
     width: 350px;
@@ -146,6 +142,14 @@
 .opcoes1 button:hover {
     background-color: #c2950d;
     transform: scale(1.05);
+}
+
+.opcoes1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .carregar{
