@@ -1505,7 +1505,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitar_MensagemBeicinhoNormal(`Vamos pra próxima pergunta logo, perdi minha air fryer…`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 72) {
-                digitar_Mensagem(`Nada de coxinhas, batatas, salgadinhos…`, "falaHiitsumo");
+                digitar_MensagemTriste(`Nada de coxinhas, batatas, salgadinhos…`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 73) {
                 mensagem1.style.display = "none";
@@ -1545,7 +1545,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitarMensagem_Show(`Ela é magnífica mesmo, uma das maiores qualidades.`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 81) {
-                digitarMensagem_Show(`Não tanto ao ponto de ser capaz de falar e exibir seus vídeos favoritos da semana, mas…`, "falaBoss");
+                digitarMensagem_ShowSiume(`Não tanto ao ponto de ser capaz de falar e exibir seus vídeos favoritos da semana, mas…`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 82) {
                 digitarMensagem_Show(`Enfim, vamos não fazer delongas e passar para o próximo prêmio.`, "falaBoss");

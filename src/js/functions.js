@@ -2452,6 +2452,76 @@ function digitar_MensagemV(texto, elementoId, velocidade = 40) {
     }, velocidade);
 }
 
+function digitar_MensagemTriste(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabeca");
+    const Hiitsumo = document.getElementById("Hiitsumo");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-triste-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-triste-falando.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-triste.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-triste.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-triste.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-triste.gif";
+        }
+    }, velocidade);
+}
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Funções da parte de falas da caixa-boss
 
@@ -3361,6 +3431,76 @@ function digitarMensagem_ShowPersonagem(texto, elementoId, velocidade = 40) {
 
             if (cabeca) cabeca.src = "./src/img/cabeca-show.gif";
             if (Hiitsumo) Hiitsumo.src = "./src/img/boss1-p2.png";
+        }
+    }, velocidade);
+}
+
+function digitarMensagem_ShowSiume(texto, elementoId, velocidade = 40) {
+    const elemento = document.getElementById(elementoId);
+    const audio = document.getElementById("audioHiitsumo");
+    const cabeca = document.getElementById("cabeca1");
+    const Hiitsumo = document.getElementById("boss");
+
+    if (!elemento) return;
+
+    // Se já estiver digitando, apenas COMPLETA o texto
+    if (digitando) {
+        pulando = true;
+        return;
+    }
+
+    // Cancela qualquer intervalo antigo
+    if (intervaloDigitacaoAtual) {
+        clearInterval(intervaloDigitacaoAtual);
+        intervaloDigitacaoAtual = null;
+    }
+
+    textoCompleto = texto;
+    pulando = false;
+    digitando = true;
+
+    elemento.textContent = "";
+    elemento.style.display = "block";
+
+    // Áudio
+    audio.pause();
+    audio.currentTime = 0;
+    audio.loop = true;
+    audio.play().catch(() => { });
+
+    if (cabeca) cabeca.src = "./src/img/cabeca-show-siume-falando.gif";
+    if (Hiitsumo) Hiitsumo.src = "./src/img/boss1-siume-falando.gif";
+
+    let i = 0;
+    intervaloDigitacaoAtual = setInterval(() => {
+        if (pulando) {
+            elemento.textContent = textoCompleto;
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+            pulando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-show-siume.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/boss1-siume.gif";
+            return;
+        }
+
+        if (i < texto.length) {
+            elemento.textContent += texto.charAt(i);
+            i++;
+        } else {
+            clearInterval(intervaloDigitacaoAtual);
+            intervaloDigitacaoAtual = null;
+            digitando = false;
+
+            audio.pause();
+            audio.currentTime = 0;
+
+            if (cabeca) cabeca.src = "./src/img/cabeca-show-siume.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/boss1-siume.gif";
         }
     }, velocidade);
 }
