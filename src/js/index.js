@@ -157,7 +157,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
-            HiitsumoEstado += 32; //apagar depois
+            HiitsumoEstado += 1; //apagar depois
         } else if (HiitsumoEstado === 1) {
             digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -436,7 +436,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     hiitsumoInicial.style.opacity = "1";
                     hiitsumoInicial.style.visibility = "visible";
                     digitarMensagemParadaFeliz("(Hiitsumo está bem a sua frente, olhando de um lado pro outro.)", "falaHiitsumoIntro");
-                    HiitsumoEstado1 += 34; //apagar depois
+                    HiitsumoEstado1 += 1; //apagar depois
                 } else if (HiitsumoEstado1 === 2) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemParadaFeliz("(Você se vê dentro de um salão muito grande, com várias estantes de livro e candelabros.)", "falaHiitsumoIntro");
@@ -637,7 +637,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.maxWidth = "600px";
                 mensagem2.style.display = "flex";
                 digitarMensagemParada("(Em um instante, a peça que estava em sua mão voa começa a levitar e ela voa até a direção do mago.)", "falaBoss");
-                HiitsumoEstado2 += 87; // apagar depois
+                HiitsumoEstado2 += 1; //apagar depois
             } else if (HiitsumoEstado2 === 2) {
                 mensagem2.style.display = "none";
                 mensagem1.style.display = "flex";
@@ -1060,7 +1060,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
                     if (HiitsumoEstado3 === 1) {
                         digitarMensagemIntro("(E nesse instante…)", "falaHiitsumoIntro");
-                        HiitsumoEstado3 += 8; //apagar depois
+                        HiitsumoEstado3 += 1; //apagar depois
                     } else if (HiitsumoEstado3 === 2) {
                         carregar.style.display = "flex";
                         maquina.src = "./src/img/maquina-tempo1.gif";
@@ -1141,7 +1141,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.display = "flex";
                 cabeca1.style.display = "flex";
                 digitarMensagem_Show(`Parece que temos uma grande fã no palco hoje hahaha.`, "falaBoss");
-                HiitsumoEstado2 += 34; //apagar depois
+                HiitsumoEstado2 += 1; //apagar depois
             } else if (HiitsumoEstado2 === 8) {
                 digitarMensagem_ShowPisca(`Vamos ter que atrasar a gravação dos convidados de hoje e faremos uma exceção especial para estes intrusos especiais.`, "falaBoss");
                 HiitsumoEstado2 += 1;
@@ -1580,7 +1580,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 hiitsumoInicial.style.visibility = "visible";
 
                 digitarMensagemParadaFeliz("(Vocês estão num lugar escuro de novo.)", "falaHiitsumoIntro");
-                HiitsumoEstado3 += 20; //apagar depois
+                HiitsumoEstado3 += 1; //apagar depois
             } else if (HiitsumoEstado3 === 1) {
                 digitarMensagemParadaFeliz("(Hiitsumo olha diretamente para você e diz)", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
@@ -1761,4 +1761,5 @@ function verificarSenhaErrada() {
     } else {
         // espaço para outras fases
     }
+
 }
