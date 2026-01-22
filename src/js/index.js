@@ -56,6 +56,7 @@ const bossImg = document.getElementById("boss");
 const Hiitsumo = document.getElementById("Hiitsumo");
 const clickLuz = document.getElementById("clickLuz");
 const palmas = document.getElementById("palmas");
+const musicaLol = document.getElementById("musicaLol");
 
 
 
@@ -157,7 +158,8 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
-            HiitsumoEstado += 1; //apagar depois
+            HiitsumoEstado += 32; //apagar depois
+            salvarEstadoSite();
         } else if (HiitsumoEstado === 1) {
             digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -403,7 +405,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             mensagem.style.display = "none";
 
             jogoIniciado = true;
-            salvarEstadoSite();
+
 
             setTimeout(() => {
                 titulo.style.display = "none";
@@ -436,7 +438,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     hiitsumoInicial.style.opacity = "1";
                     hiitsumoInicial.style.visibility = "visible";
                     digitarMensagemParadaFeliz("(Hiitsumo está bem a sua frente, olhando de um lado pro outro.)", "falaHiitsumoIntro");
-                    HiitsumoEstado1 += 1; //apagar depois
+                    HiitsumoEstado1 += 34; //apagar depois
                 } else if (HiitsumoEstado1 === 2) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemParadaFeliz("(Você se vê dentro de um salão muito grande, com várias estantes de livro e candelabros.)", "falaHiitsumoIntro");
@@ -637,7 +639,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.maxWidth = "600px";
                 mensagem2.style.display = "flex";
                 digitarMensagemParada("(Em um instante, a peça que estava em sua mão voa começa a levitar e ela voa até a direção do mago.)", "falaBoss");
-                HiitsumoEstado2 += 1; //apagar depois
+                HiitsumoEstado2 += 87; //apagar depois
             } else if (HiitsumoEstado2 === 2) {
                 mensagem2.style.display = "none";
                 mensagem1.style.display = "flex";
@@ -1058,7 +1060,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
                     if (HiitsumoEstado3 === 1) {
                         digitarMensagemIntro("(E nesse instante…)", "falaHiitsumoIntro");
-                        HiitsumoEstado3 += 1; //apagar depois
+                        HiitsumoEstado3 += 8; //apagar depois
                     } else if (HiitsumoEstado3 === 2) {
                         carregar.style.display = "flex";
                         maquina.src = "./src/img/maquina-tempo1.gif";
@@ -1139,7 +1141,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.display = "flex";
                 cabeca1.style.display = "flex";
                 digitarMensagem_Show(`Parece que temos uma grande fã no palco hoje hahaha.`, "falaBoss");
-                HiitsumoEstado2 += 1; //apagar depois
+                HiitsumoEstado2 += 34; //apagar depois
             } else if (HiitsumoEstado2 === 8) {
                 digitarMensagem_ShowPisca(`Vamos ter que atrasar a gravação dos convidados de hoje e faremos uma exceção especial para estes intrusos especiais.`, "falaBoss");
                 HiitsumoEstado2 += 1;
@@ -1556,9 +1558,258 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem1.style.display = "none";
                 mensagem2.style.display = "flex";
                 cabeca1.style.display = "flex";
-                digitarMensagem_Show(`E para a próxima pergunta é…`, "falaBoss");
-                HiitsumoEstado2 += 0;
-            }
+                digitarMensagem_Show(`E para a próxima pergunta…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 85) {
+                digitarMensagem_Show(`Vamos embarcar em memórias de tirar o fôlego!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 86) {
+                digitarMensagem_Show(`Então peguem seus controles, um balde de pipoca e um microfone meus queridos!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 87) {
+                digitarMensagem_Show(`Pois vamos misturar os conteúdos de um jogo que virou absolutamente cinema e uma de suas melhores músicas!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 88) {
+                digitarMensagem_ShowPremio3("Valendo uma almofada cheia de sensualidade e um sorriso que conquista corações:", "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 89) {
+                digitarMensagem_Show(`Em Arcane, qual música Heimmerdinger canta quando está em outra linha temporal?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 90) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"The Line."', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Wasteland."', "opcaoB1");
+
+                opcC1.style.display = "block";
+                digitarOpcao('"Spin the wheel."', "opcaoC1");
+
+                opcD1.style.display = "block";
+                digitarOpcao('"Paint The town blue."', "opcaoD1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 = 102;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 = 102;
+                }
+
+                opcC1.onclick = () => {
+                    HiitsumoEstado2 = 108;
+                }
+
+                opcD1.onclick = () => {
+                    HiitsumoEstado2 = 102;
+                }
+            
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 91) {
+                mensagem1.style.display = "Flex";
+                mensagem2.style.display = "none";
+                
+                digitar_Mensagem(`Bem… olhando aqui… deve ser…`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 92) {
+                digitar_MensagemFeliz(`Já parou pra pensar que você é tipo, muito ancião pra mim, ${nomePlayer}?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 93) {
+                digitar_MensagemCoradaDedo(`Não conheço nada dessas séries e jogos, sabe?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 94) {
+                mensagem1.style.display = "none"; 
+                mensagem2.style.display = "flex";
+                Hiitsumo.src = "./src/img/hiitsumo-feliz.gif";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Ora, fico com pena de vocês assim, meus amores.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 95) {
+                digitarMensagem_Show(`Vamos lá, vou agraciar vocês com um pouco da minha voz de canto.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 96) {
+                digitarMensagem_Show(`A plateia, não se acostumem com isso, vou dar essa cortesia para vocês hoje.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 97) {
+                digitarMensagem_ShowPisca(`Ou vocês gostariam de escutá-la todos os dias na própria casa? A decisão é de vocês.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 98) {
+                digitarMensagem_Show(`Vamos lá…`, "falaBoss");
+
+                setTimeout(() => {
+                    musicaLol.play();
+                }, 1000);
+
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 99) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemMao(`Sua voz estava um pouco mais… máscula, eu acho. Mas tudo bem, Graciane, você foi ótima!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 100) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                digitarMensagem_Show(`Muito obrigada, Hii! E o show continua com vocês!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 101) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemFeliz(`${nomePlayer}, agora você tem ideia da música? Confio em você.`, "falaHiitsumo");
+                HiitsumoEstado2 = 90;
+            } else if (HiitsumoEstado2 === 102) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`AHH! Que pena! A resposta correta era “Spin the wheel”!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 103) {
+                digitarMensagem_Show(`A pergunta era difícil mesmo, nem todo fã acertaria essa.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 104) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemV(`${nomePlayer}, acertamos a próxima com certeza, não há problema!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 105) {
+                digitar_MensagemSeria(`Mas aí, Graciane, não tem nenhum prêmio de consolação no final não?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 106) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_ShowPremio2(`Eu tenho outra chave de fenda aqui.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 107) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemBeicinhoNormal(`Estamos bem, então…`, "falaHiitsumo");
+                HiitsumoEstado2 = 112;
+            } else if (HiitsumoEstado2 === 108) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Alguém terá uma ótima noite de sono, meus queridos!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 109) {
+                digitarMensagem_ShowPremio3(`“Exatamente! A resposta era “Spin the Wheel”, apenas os verdadeiros fãs de Arcane sabem desta!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 110) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemAnimada(`${nomePlayer}, você salvou muito agora!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 111) {
+                digitar_MensagemV(`Eu vou aceitar que você leve a almofada para a sua linha do tempo, você deve aproveitar ela melhor que eu…`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 112) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_ShowPremio3(`Agora, para a próxima pergunta!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 113) {
+                digitarMensagem_Show(`Temos mais cinema, sim, cinema do mais alto nível!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 114) {
+                digitarMensagem_Show(`Para vocês que se apaixonaram pela fofa atendente da cafeteria próxima da casa de vocês.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 115) {
+                digitarMensagem_Show(`E para os que tiveram o coração partido pelas circunstâncias, apresento a vocês o prêmio que vai te livrar desse amargor!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 116) {
+                digitarMensagem_ShowPremio4(`Uma pelúcia vindo do aclamado clássico anime chainsawman, a queridíssima Reze.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 117) {
+                digitarMensagem_Show(`O autor de chainsawman era um grande fã de cinema e constantemente faz referência a outros em sua obra.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 118) {
+                digitarMensagem_Show(`No arco da Reze, qual destes outros filmes ele fez uma referência diretamente na história?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 119) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"Pulp Fiction."', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Sharknado."', "opcaoB1");
+                
+                opcC1.style.display = "block";
+                digitarOpcao('"O ataque dos tomates assassinos."', "opcaoC1");
+
+                opcD1.style.display = "block";
+                digitarOpcao('"A divina comédia."', "opcaoD1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 = 119;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 = 119;
+                }
+
+                opcC1.onclick = () => {
+                    HiitsumoEstado2 = 119;
+                }
+
+                opcD1.onclick = () => {
+                    HiitsumoEstado2 = 119;
+                }
+
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 120) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`Aí, Graciane, não tem nenhuma ajuda pra essa pergunta não?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 121) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Não posso dar muito ajuda a vocês, queridos, mas para não causar nenhuma confusão vou esclarecer uma coisa.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 122) {
+                digitarMensagem_Show(`A referência é feita diretamente pelas personagens do filme, não vamos contar referências feitas nas aberturas e encerramentos.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 123) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemFeliz(`${nomePlayer}, é com você agora`, "falaHiitsumo");
+                HiitsumoEstado2 = 119;
+            } 
         }
     });
 })
@@ -1578,7 +1829,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 hiitsumoInicial.style.visibility = "visible";
 
                 digitarMensagemParadaFeliz("(Vocês estão num lugar escuro de novo.)", "falaHiitsumoIntro");
-                HiitsumoEstado3 += 1; //apagar depois
+                HiitsumoEstado3 += 20; //apagar depois
             } else if (HiitsumoEstado3 === 1) {
                 digitarMensagemParadaFeliz("(Hiitsumo olha diretamente para você e diz)", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
@@ -1759,5 +2010,4 @@ function verificarSenhaErrada() {
     } else {
         // espaço para outras fases
     }
-
 }
