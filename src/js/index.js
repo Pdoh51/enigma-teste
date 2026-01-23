@@ -1624,7 +1624,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 94) {
                 mensagem1.style.display = "none"; 
                 mensagem2.style.display = "flex";
-                Hiitsumo.src = "./src/img/hiitsumo-feliz.gif";
+                Hiitsumo.src = "./src/img/hiitsumo-frente-feliz.gif";
                 opcoes1.style.display = "none";
                 opcA1.style.display = "none";
                 opcB1.style.display = "none";
