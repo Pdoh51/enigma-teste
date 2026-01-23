@@ -1497,7 +1497,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 70) {
                 mensagem1.style.display = "none";
                 mensagem2.style.display = "flex";
-                digitarMensagem_Show(`Pelo Google ou o Chat GPT!`, "falaBoss");
+                digitarMensagem_Show(`Com seus poderes de viajante do tempo, ou algo do tipo. Bom, fico feliz de saber que vocês não pesquisaram nada e jogaram justo!`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 71) {
                 mensagem1.style.display = "flex";
