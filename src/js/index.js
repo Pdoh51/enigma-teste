@@ -1729,7 +1729,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem1.style.display = "none";
                 mensagem2.style.display = "flex";
 
-                digitarMensagem_ShowPremio3(`Agora, para a próxima pergunta!`, "falaBoss");
+                digitarMensagem_Show(`Agora, para a próxima pergunta!`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 113) {
                 digitarMensagem_Show(`Temos mais cinema, sim, cinema do mais alto nível!`, "falaBoss");

@@ -1661,7 +1661,7 @@ function digitar_MensagemRaivaNormal(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             if (cabeca) cabeca.src = "./src/img/cabeca-raiva.gif";
-            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva1.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva.gif";
             return;
         }
 
@@ -1677,7 +1677,7 @@ function digitar_MensagemRaivaNormal(texto, elementoId, velocidade = 40) {
             audio.currentTime = 0;
 
             if (cabeca) cabeca.src = "./src/img/cabeca-raiva.gif";
-            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva1.gif";
+            if (Hiitsumo) Hiitsumo.src = "./src/img/hiitsumo-raiva.gif";
         }
     }, velocidade);
 }
