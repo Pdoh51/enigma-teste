@@ -2252,7 +2252,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 209) {
                 document.querySelector(".engrenagens").style.opacity = "1";
-                atualizarEngrenagem();
+                atualizarEngrenagem(1);
                 mensagem1.style.display = "none";
                 mensagem2.style.display = "flex";
                 cabeca1.style.display = "none";
@@ -2483,3 +2483,4 @@ function verificarSenhaErrada() {
         // espaço para outras fases
     }
 }
+
