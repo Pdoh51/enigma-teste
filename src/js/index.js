@@ -1914,7 +1914,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 144) {
                 mensagem1.style.display = "none";
-                mensagem2.style.display = "flex";   
+                mensagem2.style.display = "flex";
 
                 digitarMensagem_Show(`Bem, falando em filmes, seria interessante ver suas reações.`, "falaBoss");
                 HiitsumoEstado2 += 1;
@@ -1938,7 +1938,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 149) {
                 digitarMensagem_ShowPremio4(`E agora a recompensa de vocês, a Reze!`, "falaBoss");
-                HiitsumoEstado2 = 150;
+                HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 150) {
                 mensagem1.style.display = "flex";
                 mensagem2.style.display = "none";
@@ -1950,11 +1950,209 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.display = "flex";
 
                 digitarMensagem_ShowPisca(`Agora, para a última pergunta do quadro, vamos para algo um pouco mais filosófico.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 152) {
+                digitarMensagem_ShowPremio5(`Valendo uma engrenagem bem bonita…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 153) {
+                digitarMensagem_Show(`O que precisamos para sermos unidos?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 154) {
+                digitarMensagem_Show(`Humm… que pergunta estranha essa…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 155) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`Não é você que decide as perguntas do show, Graci?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 156) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Show(`Tenho uma equipe que desenvolve elas, ser uma apresentadora é mais difícil do que parece.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 157) {
+                digitarMensagem_Show(`Se não fosse minha equipe, o programa não poderia acontecer, afinal, sou apenas uma geladeira que fala.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 158) {
+                digitarMensagem_ShowFechada(`Creio ter passado por um devaneio agora, enfim, jogadores…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 159) {
+                digitarMensagem_Show(`Hii e ${nomePlayer}, vocês estão a uma pergunta de se tornarem estrelas, façam o jogo de vocês agora!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 160) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"Amizade."', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Honestidade."', "opcaoB1");
+
+                opcC1.style.display = "block";
+                digitarOpcao('"Cooperação."', "opcaoC1");
+
+                opcD1.style.display = "block";
+                digitarOpcao('"Uma Graciane."', "opcaoD1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 = 163;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 = 163;
+                }
+
+                opcC1.onclick = () => {
+                    HiitsumoEstado2 = 163;
+                }
+
+                opcD1.onclick = () => {
+                    HiitsumoEstado2 = 173;
+                }
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 161) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`Eu sei qual é a resposta dessa, eu já vi ela fazendo em outras edições.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 162) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_ShowSiume(`Que rude!`, "falaBoss");
+                HiitsumoEstado2 = 160;
+            } else if (HiitsumoEstado2 === 163) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Poxa vida, parece que a resposta está…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 164) {
+                digitarMensagem_Show(`Errada.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 165) {
+                digitarMensagem_ShowSiume(`...`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 166) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemPreocupada(`Humm… Tá tudo bem?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 167) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Show(`Vamos pra um comercial agora, voltamos no próximo bloco!”`, "falaBoss");
+                HiitsumoEstado2 += 1;
+
+                setTimeout(() => {
+                    palmas.play();
+                }, 2500);
+            } else if (HiitsumoEstado2 === 168) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemPreocupada(`Graciane?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 169) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_ShowFechada(`Bom, que estranho.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 170) {
+                digitarMensagem_Show(`A dificuldade que eu tinha de dizer que aquela era a resposta errada ficou maior.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 171) {
+                digitarMensagem_ShowFechada(`Sim, sim. A resposta correta era “uma Graciane”, mas…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 172) {
+                digitarMensagem_Show(`Vocês deram a resposta correta.`, "falaBoss");
+                HiitsumoEstado2 = 184;
+            } else if (HiitsumoEstado2 === 173) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+                opcA1.style.display = "none";
+                opcB1.style.display = "none";
+                opcC1.style.display = "none";
+                opcD1.style.display = "none";
+
+                digitarMensagem_Show(`Correta a resposta! Parabéns, jogadores!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 174) {
+                digitarMensagem_Show(`Com essa, entramos para um intervalo e depois voltamos com mais desafios divertidíssimos!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+
+                setTimeout(() => {
+                    palmas.play();
+                }, 3500);
+            } else if (HiitsumoEstado2 === 175) {
+                digitarMensagem_Show(`Bom, agora posso falar o que eu quiser pra vocês sem me preocupar com os patrocinadores.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 176) {
+                digitarMensagem_Show(`Não que eu estivesse mentindo antes, é claro.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 177) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`Hum… o que é? Alguma coisa de errado, Graci?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 178) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_ShowFechada(`Eu aprecio essa intimidade e já me dar um apelido, Hiitsumo.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 179) {
+                digitarMensagem_Show(`Mas por que aquela resposta?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 180) {
+                digitarMensagem_ShowFechada(`Vocês sabem que essa pergunta só foi uma forma de vender mais, não sabem?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 181) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`Bom, a gente sabia que era a resposta correta, e querendo ou não, precisamos urgente da engrenagem`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 182) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_ShowFechada(`Entendo plenamente…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 183) {
+                digitarMensagem_ShowFechada(`Muito bem, jogadores, vocês ganharam a engrenagem!Creio que a resposta correta seria qualquer uma das outras três.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 184) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Show(`As três opções são muito infantis, são respostas muito simples e que não significam nada sério. Amizade, honestidade e cooperação.`, "falaBoss");
                 HiitsumoEstado2 += 0;
             }
         }
-    });
-})
+    }
+);
+});
 
 document.querySelector(".apertar").addEventListener("click", () => {
     if (digitando) {
