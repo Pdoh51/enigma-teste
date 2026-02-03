@@ -1141,7 +1141,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.display = "flex";
                 cabeca1.style.display = "flex";
                 digitarMensagem_Show(`Parece que temos uma grande fã no palco hoje hahaha.`, "falaBoss");
-                HiitsumoEstado2 += 34; //apagar depois
+                HiitsumoEstado2 = 200; //apagar depois
             } else if (HiitsumoEstado2 === 8) {
                 digitarMensagem_ShowPisca(`Vamos ter que atrasar a gravação dos convidados de hoje e faremos uma exceção especial para estes intrusos especiais.`, "falaBoss");
                 HiitsumoEstado2 += 1;
@@ -2252,7 +2252,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 209) {
                 document.querySelector(".engrenagens").style.opacity = "1";
-                atualizarEngrenagem(1);
+                atualizarEngrenagem();
                 mensagem1.style.display = "none";
                 mensagem2.style.display = "flex";
                 cabeca1.style.display = "none";
@@ -2483,4 +2483,3 @@ function verificarSenhaErrada() {
         // espaço para outras fases
     }
 }
-
