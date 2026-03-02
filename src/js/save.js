@@ -1,8 +1,54 @@
-const SAVE_ATIVO = false; // Ativar save
+// Persistência de progresso
+const SAVE_ATIVO = false;                 // ativa/desativa completamente as funções de save
+const CLEAR_SAVES_ON_LOAD = false;       // reapaga todos os saves quando a página é carregada
 
+/**
+ * remove todas as chaves que começam com "save_" no armazenamento local.
+ * útil para testes com usuário zerado; só funciona se CLEAR_SAVES_ON_LOAD estiver true.
+ */
+function limparTodosSaves() {
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+        const key = localStorage.key(i);
+        if (key && key.startsWith('save_')) {
+            localStorage.removeItem(key);
+        }
+    }
+}
+
+// executa limpeza se solicitada
+if (SAVE_ATIVO && CLEAR_SAVES_ON_LOAD) {
+    limparTodosSaves();
+}
+
+/**
+ * salva somente o estado inicial na primeira vez que é chamado.
+ * não sobrescreve caso já exista um save para esse usuário.
+ */
+function salvarInicio() {
+    if (!SAVE_ATIVO) return;
+    const chave = nomePlayer ? `save_${nomePlayer}` : 'save_guest';
+    if (localStorage.getItem(chave)) return; // já existe
+
+    const estado = {
+        faseAtual,
+        HiitsumoEstado,
+        HiitsumoEstado1,
+        HiitsumoEstado2,
+        HiitsumoEstado3,
+        HiitsumoEstado4,
+        HiitsumoEstado5,
+        nomePlayer,
+        jogoIniciado,
+        indiceEngrenagem
+    };
+    localStorage.setItem(chave, JSON.stringify(estado));
+}
+
+/**
+ * grava manualmente o estado atual (pode ser chamado nos pontos desejados).
+ */
 function salvarEstadoSite() {
     if (!SAVE_ATIVO) return;
-
     const chave = nomePlayer ? `save_${nomePlayer}` : 'save_guest';
     const estado = {
         faseAtual,
@@ -16,33 +62,33 @@ function salvarEstadoSite() {
         jogoIniciado,
         indiceEngrenagem
     };
-
     localStorage.setItem(chave, JSON.stringify(estado));
 }
 
+/**
+ * carrega o save existente, se houver.
+ * primeiro tenta buscar por nomePlayer; caso não haja nome, carrega o primeiro save encontrado.
+ */
 function carregarEstadoSite() {
     if (!SAVE_ATIVO) return false;
 
     let chave = nomePlayer ? `save_${nomePlayer}` : null;
     let save = null;
-
     if (chave) {
         save = localStorage.getItem(chave);
-    } else {
-        // Se nomePlayer vazio, procurar por qualquer save existente
+    }
+    if (!save) {
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
-            if (key.startsWith('save_')) {
+            if (key && key.startsWith('save_')) {
                 save = localStorage.getItem(key);
-                break; // Carrega o primeiro encontrado
+                break;
             }
         }
     }
-
     if (!save) return false;
 
     const estado = JSON.parse(save);
-
     faseAtual = estado.faseAtual ?? 0;
     HiitsumoEstado = estado.HiitsumoEstado ?? 0;
     HiitsumoEstado1 = estado.HiitsumoEstado1 ?? 0;
