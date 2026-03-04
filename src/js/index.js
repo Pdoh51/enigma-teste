@@ -60,6 +60,7 @@ const musicaLol = document.getElementById("musicaLol");
 
 
 
+
 const senhas = [
     ["Iyauck y zoack", "Iyauck zoack", "Iyauck y Zoack", "Iyauck Zoack"],
     ["1"],
@@ -2507,6 +2508,202 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 cabecaIntro.style.display = "flex";
 
                 digitarMensagemRefri("Quer um pouco de refri?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 2) {
+                mensagem.style.display = "none";
+                opcoes.style.display = "block";
+
+                opcA.style.display = "block";
+                digitarOpcao('"Tô bem."', "opcaoA");
+
+                opcB.style.display = "block";
+                digitarOpcao('"Aceito."', "opcaoB");
+
+                opcA.onclick = () => {
+                    HiitsumoEstado3 += 1;
+                };
+
+                opcB.onclick = () => {
+                    HiitsumoEstado3 += 13;
+                }
+            } else if (HiitsumoEstado3 === 3) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagem("Em algum momento você vai ter que tomar pelo menos um copo. Não consigo tomar tudo sozinha.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 4) {
+                digitarMensagemBeicinhoNormal("Pensei que ela ia me dar uma latinha, mas ela me deu 2L de Frutuba.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 5) {
+                digitarMensagem("Bom, fazer o que, o que vale é a intenção. Ela parece ter gostado da gente de verdade.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 6) {
+                digitarMensagemRefri("Mas você tem certeza?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 7) {
+                mensagem.style.display = "none";
+                opcoes.style.display = "block";
+
+                opcA.style.display = "block";
+                digitarOpcao('"Sim."', "opcaoA");
+
+                opcB.style.display = "block";
+                digitarOpcao('"Aceito o refri."', "opcaoB");
+
+                opcA.onclick = () => {
+                    HiitsumoEstado3 += 4;
+                };
+
+                opcB.onclick = () => {
+                    HiitsumoEstado3 += 1;
+                };
+            } else if (HiitsumoEstado3 === 8) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagemRefri("Me dá a engrenagem e pode aproveitar seu refri, vou arrumando as coisas aqui.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 9) {
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Você faz como ela manda e depois dá um gole no refri. Ele é mais doce do que você se lembra.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 10) {
+                digitarMensagemParadaFeliz("(Mas pelo menos sua sede acabou.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 12;
+            } else if (HiitsumoEstado3 === 11) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagem("Bom, entendo. Também não quero nada agora. Vou deixar ele em algum canto.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 12) {
+                digitarMensagem("Mas preciso da engrenagem para arrumar as coisas logo.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 13) {
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Você entrega a engrenagem para ela.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 14) {
+                digitarMensagemParadaFeliz("(Você percebe estar com sede. Talvez água ajudasse. Mas não há nada que se possa fazer agora.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 8;
+            } else if (HiitsumoEstado3 === 15) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagemRefri("Que ótimo, deixa eu colocar num copo pra você.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 16) {
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Após receber o copo, você dá um gole bem pequeno. Ele é mais doce do que você esperava.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 17) {
+                cabecaIntro.style.display = "flex";
+
+                digitarMensagemFeliz("Espero que seja bom, porque ela deu 2L pra gente.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 18) {
+                digitarMensagemBeicinhoNormal("Cara, pensei que ela ia me dar só uma latinha, mas né…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 19) {
+                digitarMensagem("Deve ser a forma dela de agradar às pessoas. O que vale é a intenção, né?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 20) {
+                digitarMensagem("E ela parece ter gostado da gente de verdade…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 21) {
+                digitarMensagemFeliz("Bom, de volta ao trabalho.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 22) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Hiitsumo encaixa as engrenagens de volta no lugar, tanto a primeira quanto a segunda.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 23) {
+                digitarMensagemParadaFeliz("(Como foi necessário fugir do mago com urgência, Hiitsumo não conseguiu averiguar a situação da máquina até esse instante.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 24) {
+                digitarMensagemParadaFeliz("(Foi uma sorte tremenda que a outra engrenagem estava numa época e num ambiente amigável e que a máquina os levou para esta mesma.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 25) {
+                digitarMensagemParadaFeliz("(Afinal, pelo o que Hiitsumo tinha dito, a máquina ainda está instável.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 26) {
+                cabecaIntro.style.display = "flex";
+
+                digitarMensagemFeliz("E pronto!", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 27) {
+                digitarMensagemFeliz(`Vem ver como ela está, ${nomePlayer}.`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 28) {
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Hiitsumo toca nas paredes da máquina e olha para você com um sorriso.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 29) {
+                cabecaIntro.style.display = "flex";
+
+                digitarMensagemFeliz("Eu queria deixar a máquina mais bonita, pra ser sincera.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 30) {
+                digitarMensagemFeliz("Vamos mostrar para a Graci depois, aposto que ela-", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 31) {
+                cabecaIntro.style.display = "none";
+                mensagem.classList.add("tremer");
+                carregar.classList.add("tremer");
+
+                const somMaquina = document.getElementById("somMaquina");
+                somMaquina.play();
+                somMaquina.loop = true;
+                somMaquina.currentTime = 0;
+
+                digitarMensagemSurpresaParada("(De repente, algo ruim acontece. Acontece sem nenhum aviso prévio.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 32) {
+                cabecaIntro.style.display = "flex";
+
+                digitarMensagemSurpresa(`Ah, não. Não, não, não. ${nomePlayer}.`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 33) {
+                digitarMensagemSurpresa("Por favor, máquina. Onde eu errei? Eu errei o lugar? O que foi dessa vez?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 34) {
+                digitarMensagemSurpresa(`${nomePlayer}, ajuda. Por que isso está acontecendo?!`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 35) {
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemSurpresaParada("(Ela chamou por você nesse instante por puro instinto, você sabe disso.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 36) {
+                digitarMensagemSurpresaParada(`(E você sabe que também não pode fazer nada. Mas com pressa, se aproxima de Hiitsumo.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 37) {
+                digitarMensagemSurpresaParada(`(Você não consegue ver a expressão dela, mas em meio a falas enroladas. Ela entra na máquina do tempo e tenta desligá-la.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 38) {
+                digitarMensagemSurpresaParada(`(E no exato instante em que você pisa dentro dela…)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 39) {
+                digitarMensagemSurpresaParada(`(O som da ativação dispara.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 40) {
+                mensagem.classList.remove("tremer");
+                carregar.classList.remove("tremer");
+
+                const somMaquina = document.getElementById("somMaquina");
+                somMaquina.pause();
+                somMaquina.currentTime = 0;
+                somMaquina.loop = false;
+
+                digitarMensagemSurpresaParada(`(E é mais um salto no tempo.)`, "falaHiitsumoIntro");
                 HiitsumoEstado3 += 0;
             }
         }
