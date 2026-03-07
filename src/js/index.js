@@ -2508,7 +2508,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 cabecaIntro.style.display = "flex";
 
                 digitarMensagemRefri("Quer um pouco de refri?", "falaHiitsumoIntro");
-                HiitsumoEstado3 += 1;
+                HiitsumoEstado3 += 33; //apagar depois
             } else if (HiitsumoEstado3 === 2) {
                 mensagem.style.display = "none";
                 opcoes.style.display = "block";
@@ -2533,7 +2533,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 digitarMensagem("Em algum momento você vai ter que tomar pelo menos um copo. Não consigo tomar tudo sozinha.", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 4) {
-                digitarMensagemBeicinhoNormal("Pensei que ela ia me dar uma latinha, mas ela me deu 2L de Frutuba.", "falaHiitsumoIntro");
+                digitarMensagemBeicinhoNormal("Pensei que ela ia me dar uma latinha, mas ela me deu esse garrafão de Frutuba.", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 5) {
                 digitarMensagem("Bom, fazer o que, o que vale é a intenção. Ela parece ter gostado da gente de verdade.", "falaHiitsumoIntro");
@@ -2686,12 +2686,14 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 digitarMensagemSurpresaParada(`(E você sabe que também não pode fazer nada. Mas com pressa, se aproxima de Hiitsumo.)`, "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 37) {
+                hiitsumoInicial.style.display = "none";
                 digitarMensagemSurpresaParada(`(Você não consegue ver a expressão dela, mas em meio a falas enroladas. Ela entra na máquina do tempo e tenta desligá-la.)`, "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 38) {
                 digitarMensagemSurpresaParada(`(E no exato instante em que você pisa dentro dela…)`, "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 39) {
+                carregar.style.display = "none";
                 digitarMensagemSurpresaParada(`(O som da ativação dispara.)`, "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 40) {
@@ -2704,6 +2706,146 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 somMaquina.loop = false;
 
                 digitarMensagemSurpresaParada(`(E é mais um salto no tempo.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 41) {
+                digitarMensagemSurpresaParada(`(Você sente uma pequena dor de cabeça.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 42) {
+                digitarMensagemSurpresaParada(`(O tempo pareceu cortar dentro da máquina, mas dessa vez você se manteve consciente.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 43) {
+                digitarMensagemSurpresaParada(`(O salto no tempo era como estar dentro de um tanque no oceano. E as ondas ao redor conseguem mover a estrutura, dando um efeito estranho.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 44) {
+                digitarMensagemSurpresaParada(`(As luzes piscavam, mas estavam muito fracas.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 45) {
+                digitarMensagemSurpresaParada(`(Você suporta um pouco deste enjoo e depois tudo parou de uma vez.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 46) {
+                digitarMensagemSurpresaParada(`(As luzes voltaram.)`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 47) {
+                hiitsumoInicial.style.display = "flex";
+                digitarMensagemRaiva("Ai… Que droga…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 48) {
+                digitarMensagemRaiva("Ela ainda tá toda zoada…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 49) {
+                mensagem.style.display = "none";
+                opcoes.style.display = "block";
+
+                opcA.style.display = "block";
+                digitarOpcao('"Você está bem?"', "opcaoA");
+
+                opcB.style.display = "block";
+                digitarOpcao('"Por que ela está assim?"', "opcaoB");
+
+                opcA.onclick = () => {
+                    HiitsumoEstado3 += 1;
+                }
+
+                opcB.onclick = () => {
+                    HiitsumoEstado3 += 0;
+                }
+            } else if (HiitsumoEstado3 === 50) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagemTriste("Estou… estou bem sim…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 51) {
+                digitarMensagemSuspiro(".......", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 52) {
+                digitarMensagemFeliz(`Obrigada pela preocupação, ${nomePlayer}. Estou bem.`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 53) {
+                digitarMensagemFeliz("Você está bem?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 54) {
+                mensagem.style.display = "none";
+                opcoes.style.display = "block";
+
+                opcA.style.display = "block";
+                digitarOpcao('"Sim."', "opcaoA");
+
+                opcB.style.display = "block";
+                digitarOpcao('"Não."', "opcaoB");
+
+                opcA.onclick = () => {
+                    HiitsumoEstado3 += 1;
+                }
+
+                opcB.onclick = () => {
+                    HiitsumoEstado3 += 2;
+                }
+            } else if (HiitsumoEstado3 === 55) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagemFeliz("Entendo. Que bom…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 2;
+            } else if (HiitsumoEstado3 === 56) {
+                mensagem.style.display = "flex";
+                opcoes.style.display = "none";
+
+                digitarMensagemEmpatica("Nós vamos ficar bem, não se preocupa, tá certo?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 57) {
+                digitarMensagemSeria("Bem, nossa situação…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 58) {
+                digitarMensagem("Ela está funcionando “melhor” que antes. Mas tem um efeito estranho agora.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 59) {
+                digitarMensagem("Nós deveríamos poder viajar no tempo de forma bem suave, vendo exatamente o que está acontecendo e sem dar aqueles “apagões” em que você fecha o olho e quando acorda está em outro lugar.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 60) {
+                digitarMensagem("Inclusive, eu queria ir pro futuro quando te encontrei e quando nós nos encontramos com o Mago, mas a máquina ignorou o comando.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 61) {
+                digitarMensagemFeliz("E ela fez isso de novo, mas dessa vez ela quis se ativar sozinha. Por sorte, consegui estabilizar ela por dentro, mas ainda deu aquele enjoo todo.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 62) {
+                digitarMensagemFeliz("Deve ser porque faltam três engrenagens, então espere que o próximo salto temporal não seja tão agradável.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 63) {
+                digitarMensagemNerd("Por outro lado, parece que é só isso que falta, então ela deve funcionar perfeitamente e incrivelmente como a incrível bugiganga que ela é depois que a gente conseguir todas.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 64) {
+                digitarMensagem("Eu deveria parar de chamar ela de bugiganga, talvez ela tenha sentimentos e só está dando uma de birrenta.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 65) {
+                digitarMensagem("Talvez a bonitona comece a funcionar bem se eu elogiar ela…", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 66) {
+                digitarMensagemMao(`Enfim, estamos ainda mais no futuro, então pode abrir essa porta, ${nomePlayer}.`, "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 67) {
+                cabecaIntro.style.display = "none";
+                hiitsumoInicial.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Você coloca a mão na maçaneta.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 68) {
+                digitarMensagemParadaFeliz("(Você abre a porta gentilmente.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 69) {
+                digitarMensagemParadaFeliz("(E você é bem vindo com um matagal imenso.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 70) {
+                digitarMensagemParadaFeliz("(Todas as árvores parecem maiores e o ambiente é úmido. É uma floresta tropical gigante.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 71) {
+                digitarMensagemParadaFeliz("(Tem uma bananeira a alguns metros de distância. Cada banana individualmente poderia alimentar uma família. É um tanto intimidador.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 72) {
+                hiitsumoInicial.style.display = "flex";
+                cabecaIntro.style.display = "flex";
+
+                digitarMensagemFeliz("Hahahaha você só pode estar de brincadeira comigo.", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 0;
             }
         }
