@@ -2845,7 +2845,44 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 hiitsumoInicial.style.display = "flex";
                 cabecaIntro.style.display = "flex";
 
-                digitarMensagemFeliz("Hahahaha você só pode estar de brincadeira comigo.", "falaHiitsumoIntro");
+                digitarMensagemRindo("Hahahaha você só pode estar de brincadeira comigo.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 0;
+            } else if (HiitsumoEstado3 === 73) {
+                digitarMensagemBeicinho("Só pode ser brincadeira.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 74) {
+                digitarMensagemFeliz("Nós devemos estar numa reserva florestal. Isso. Era o papo do momento no meu ensino médio.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 75) {
+                digitarMensagemNerd("Devem ter várias dessas agora para preservar o meio ambiente.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 76) {
+                digitarMensagemNerd("Que bom que eu tenho um GPS importado que nunca falha e vai nos dizer exatamente ond-", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 77) {
+                digitarMensagemBeicinho("Texas. Estamos no meio do Texas.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 78) {
+                cabecaIntro.style.display = "none";
+
+                digitarMensagemParadaFeliz("(Hiitsumo vai até a porta da máquina, bem ao seu lado.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 79) {
+                digitarMensagemParadaFeliz("(Ela parece estar segurando um grito.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 80) {
+                cabecaIntro.style.display = "flex";
+
+                digitarMensagemRaiva("A vegetação do Texas é desértica! Como a floresta amazônica veio parar aqui?!", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 81) {
+                digitarMensagemTriste("Nós nunca vamos achar a engrenagem no meio dessa coisa. Acho melhor procurar em outro período antes.", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 82) {
+                digitarMensagemFeliz("Vamos priorizar nossa segurança e sair daqui, não é?", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 83) {
+                digitarMensagemSurpresaParada("......", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 0;
             }
         }
