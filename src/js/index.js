@@ -57,6 +57,7 @@ const Hiitsumo = document.getElementById("Hiitsumo");
 const clickLuz = document.getElementById("clickLuz");
 const palmas = document.getElementById("palmas");
 const musicaLol = document.getElementById("musicaLol");
+const dinossauroPerto = document.getElementById("dinossauroPerto");
 
 
 
@@ -2361,6 +2362,14 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 224) {
 
             }
+        } else if (faseAtual === 2) {
+            if (HiitsumoEstado2 === 1) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`Howdy, folks. What y’all doing down around here?`, "falaBoss");
+                HiitsumoEstado2 += 0;
+            }
         }
     }
     );
@@ -2846,7 +2855,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 cabecaIntro.style.display = "flex";
 
                 digitarMensagemRindo("Hahahaha você só pode estar de brincadeira comigo.", "falaHiitsumoIntro");
-                HiitsumoEstado3 += 0;
+                HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 73) {
                 digitarMensagemBeicinho("Só pode ser brincadeira.", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
@@ -2882,9 +2891,36 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 digitarMensagemFeliz("Vamos priorizar nossa segurança e sair daqui, não é?", "falaHiitsumoIntro");
                 HiitsumoEstado3 += 1;
             } else if (HiitsumoEstado3 === 83) {
+                dinossauroPerto.play();
+
                 digitarMensagemSurpresaParada("......", "falaHiitsumoIntro");
-                HiitsumoEstado3 += 0;
-            }
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 84) {
+                cabecaIntro.style.display = "none";
+                bossImg.src = "./src/img/boss2.gif";
+
+                digitarMensagemSurpresaParada("(Algo está se movendo nas folhas, e muito mais perto do que vocês esperavam.)", "falaHiitsumoIntro");
+                HiitsumoEstado3 += 1;
+            } else if (HiitsumoEstado3 === 85) {
+                // Executar o bloco para HiitsumoEstado2 === 1
+                mensagem.style.display = "none";
+                fundo.style.display = "none";
+                introducao.style.pointerEvents = "none";
+                mensagem2.style.pointerEvents = "auto";
+                mensagem2.style.display = "none";
+                mensagem2.style.maxWidth = "600px";
+                mensagem1.style.display = "flex";
+                hiitsumoInicial.style.display = "none";
+                cabeca1.style.display = "flex";
+                bossImg.style.display = "flex";
+                bossImg.src = "./src/img/boss2.gif";
+                Hiitsumo.src = "./src/img/hiitsumo-surpresa.gif";
+
+
+                digitar_MensagemSurpresa(`A-a-a—a-a–aaa—... ${nomePlayer}-`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+                HiitsumoEstado3 = 0;
+            } 
         }
     }
 });
