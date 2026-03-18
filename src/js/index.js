@@ -2368,6 +2368,65 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.display = "flex";
 
                 digitarMensagem_Dinossauro(`Howdy, folks. What y’all doing down around here?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 2) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemSurpresaClassico(`Nossa senhorinha das-`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 3) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`Oh sweet darling, what happened to you? Hey, buddy, do something for your friend, she’s pale as all-git out.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 4) {
+                digitarMensagem_Dinossauro(`Maybe, pardon me… (huff huff)`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 5) {
+                digitarMensagem_Dinossauro(`Cê num tá vendo sua amiga toda borocoxô aí não? Faz alguma coisa, sô.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 6) {
+                opcoes1.style.display = "flex";
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"(Cutucando) Hiitsumo, se recomponha…"', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Ela só precisa de um ar."', "opcaoB1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 += 1;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 += 2;
+                }
+            } else if (HiitsumoEstado2 === 7) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "none";
+                
+                digitar_MensagemSurpresaClassico(`${nomePlayer}... acho que…`, "falaHiitsumo");   
+                HiitsumoEstado2 += 2;
+            } else if (HiitsumoEstado2 === 8) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`Pois ela me parece bem mal…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 9) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`Mas aí, me diz o que vocês tão fazendo aqui? Quem cês são?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 10) {
+                digitarMensagem_Dinossauro(`Por hj é só pq o patrão viu que tem opção dentro de opção e o caba é preguiçoso e quer estourar balão com mamacos.`, "falaBoss");
                 HiitsumoEstado2 += 0;
             }
         }
