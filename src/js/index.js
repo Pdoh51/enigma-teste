@@ -58,6 +58,7 @@ const clickLuz = document.getElementById("clickLuz");
 const palmas = document.getElementById("palmas");
 const musicaLol = document.getElementById("musicaLol");
 const dinossauroPerto = document.getElementById("dinossauroPerto");
+const dinossauroRugido = document.getElementById("dinossauroRugido");
 
 
 
@@ -2409,8 +2410,8 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem1.style.display = "flex";
                 mensagem2.style.display = "none";
                 opcoes1.style.display = "none";
-                
-                digitar_MensagemSurpresaClassico(`${nomePlayer}... acho que…`, "falaHiitsumo");   
+
+                digitar_MensagemSurpresaClassico(`${nomePlayer}... acho que…`, "falaHiitsumo");
                 HiitsumoEstado2 += 2;
             } else if (HiitsumoEstado2 === 8) {
                 mensagem1.style.display = "none";
@@ -2426,7 +2427,265 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitarMensagem_Dinossauro(`Mas aí, me diz o que vocês tão fazendo aqui? Quem cês são?`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 10) {
-                digitarMensagem_Dinossauro(`Por hj é só pq o patrão viu que tem opção dentro de opção e o caba é preguiçoso e quer estourar balão com mamacos.`, "falaBoss");
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"Somos viajantes do tempo."', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Estamos apenas de passagem."', "opcaoB1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 += 1;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 += 5;
+                }
+            } else if (HiitsumoEstado2 === 11) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`Viajantes do tempo?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 12) {
+                digitarMensagem_Dinossauro(`HA! Rapaz, conta otra aí pra mim agora.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 13) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemSurpresaClassico(`Os pioneiros da viagem do tempo, aliás…`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 14) {
+                digitar_MensagemSurpresaClassico(`C-com a melhor máquina que…`, "falaHiitsumo");
+                HiitsumoEstado2 += 13;
+            } else if (HiitsumoEstado2 === 15) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`E o que é essa coisa aí que vocês trouxeram?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 16) {
+                digitarMensagem_Dinossauro(`Não me lembro de ter colocado esse trambolho aí não…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 17) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"É uma máquina do tempo."', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Um banheiro químico?"', "opcaoB1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 += 1;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 += 5;
+                }
+            } else if (HiitsumoEstado2 === 18) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`Uma máquina do tempo? Cês tão de brincadeira comigo, num é?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 19) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemSurpresaClassico(`É-é uma autêntica…`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 20) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`Ha! Essa é boa.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 21) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitar_MensagemSurpresaClassico(`É sério… ela é…`, "falaHiitsumo");
+                HiitsumoEstado2 += 6;
+            } else if (HiitsumoEstado2 === 22) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "none";
+
+                digitar_MensagemRaiva1(`Não, ${nomePlayer}. Não. Um banheiro químico é demais.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 23) {
+                digitar_MensagemRaiva1(`Inventa alguma outra coisa… sei lá. Mas um banheiro químico é um nível muito sujo de comparação.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 24) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+
+                dinossauroRugido.play();
+                Hiitsumo.src = "./src/img/hiitsumo-surpresa-classico.gif";
+
+                self.setTimeout(() => {
+                    mensagem2.style.display = "flex";
+                    digitarMensagem_Dinossauro(`E o que é então, garota? Já que tem alguém mentindo aqui, me diga com sinceridade. O que é que vocês fazem aqui?`, "falaBoss");
+                }, 3000);
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 25) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemSurpresaClassico(`N-nós somos… v-viajantes… do tempo.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 26) {
+                digitar_MensagemSurpresaClassico(`É a nossa m-máquina e…`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 27) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "none";
+
+                dinossauroRugido.play();
+                Hiitsumo.src = "./src/img/hiitsumo-surpresa-classico.gif";
+
+                self.setTimeout(() => {
+                    mensagem2.style.display = "flex";
+                    digitarMensagem_Dinossauro(`Os humanos no ápice da civilização deles chegaram perto de desenvolver essa invenção com sucesso, mas não conseguiram, e aí você tá me dizendo que dois…`, "falaBoss");
+                }, 3000);
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 28) {
+                digitarMensagem_Dinossauro(`Dumb-looking and chopped like a baboon, tryna tell me they DID IT?!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 29) {
+                digitarMensagem_Dinossauro(`Cês tão mentindo pra mim, num nasci ontem.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 30) {
+                digitarMensagem_Dinossauro(`O que cês querem na minha área? Seus invasores.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 31) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                cabeca1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`(A cor de pele de Hiitsumo parece deixar o pálido de medo e volta ao normal)`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 32) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+                cabeca1.style.display = "flex";
+
+                digitar_MensagemRaiva(`Minha máquina do tempo funciona SIM!`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 33) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`Não importa, fia! Eu quero saber o que vocês querem fazer aqui!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 34) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "none";
+                opcoes1.style.display = "flex";
+
+                opcA1.style.display = "block";
+                digitarOpcao('"Por que você consegue falar?"', "opcaoA1");
+
+                opcB1.style.display = "block";
+                digitarOpcao('"Uma peça da nossa máquina do tempo está aqui."', "opcaoB1");
+
+                opcA1.onclick = () => {
+                    HiitsumoEstado2 += 1;
+                }
+
+                opcB1.onclick = () => {
+                    HiitsumoEstado2 += 13;
+                }
+            } else if (HiitsumoEstado2 === 35) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`.....`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 36) {
+                digitarMensagem_Dinossauro(`Ora, rapaz, por que eu não conseguiria?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 37) {  
+                digitarMensagem_Dinossauro(`Meus antepassados eram bem inteligentes, visse? Claro que eu também saberia falar`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 38) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`Você é natural do Texas ou você é imigrante?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 39) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`Sou natural daqui mesmo.`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 40) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_Mensagem(`E por que fala português?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 41) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`.....`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 42) {
+                digitarMensagem_Dinossauro(`Deixem de ser ignorantes, e isso não é dá conta de vocês não!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 43) {
+                digitarMensagem_Dinossauro(`Eu vou perguntar de novo, o que vocês querem aqui?`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 44) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemBeicinho(`Não tem jeito com esse cara, ${nomePlayer}, distrair ele não vai dar certo.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 45) {
+                digitar_Mensagem(`Nossa máquina do tempo quebrou e uma das peças veio para aqui, é isso.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 46) {
+                digitar_Mensagem(`Só queremos recuperar ela.`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 47) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+                opcoes1.style.display = "none";
+
+                digitarMensagem_Dinossauro(`Ah, entendi. Se vocês são viajantes do tempo reais, isso faz sentido`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 48) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemCoradaDedoNormal(`Então, Senhor Dinossauro, o senhor pode ajudar a gente?`, "falaHiitsumo");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 49) {
+                mensagem1.style.display = "none";
+                mensagem2.style.display = "flex";
+
+                digitarMensagem_Dinossauro(`NUNCA! JAMAIS FARIA ISSO! NÃO NO *MEU* TERRITÓRIO!`, "falaBoss");
+                HiitsumoEstado2 += 1;
+            } else if (HiitsumoEstado2 === 50) {
+                mensagem1.style.display = "flex";
+                mensagem2.style.display = "none";
+
+                digitar_MensagemRaiva(`O que?! Por que isso, agora? Que obsessão é essa com o seu território?`, "falaHiitsumo");
                 HiitsumoEstado2 += 0;
             }
         }
@@ -2815,7 +3074,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 }
 
                 opcB.onclick = () => {
-                    HiitsumoEstado3 += 0;
+                    HiitsumoEstado3 += 8;
                 }
             } else if (HiitsumoEstado3 === 50) {
                 mensagem.style.display = "flex";
@@ -2979,7 +3238,7 @@ document.querySelector(".apertar").addEventListener("click", () => {
                 digitar_MensagemSurpresa(`A-a-a—a-a–aaa—... ${nomePlayer}-`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
                 HiitsumoEstado3 = 0;
-            } 
+            }
         }
     }
 });
