@@ -42,6 +42,7 @@ const carregar = document.getElementById("carregar");
 const linhaNome = document.getElementById("nome");
 const introducao = document.getElementById("introducao");
 const fundo = document.getElementById("fundo");
+const fundoImg = document.getElementById("fundoImg");
 const magia = document.getElementById("magia");
 const somFundo = document.getElementById("somFundo");
 const titulo = document.getElementById("titulo");
@@ -59,6 +60,9 @@ const palmas = document.getElementById("palmas");
 const musicaLol = document.getElementById("musicaLol");
 const dinossauroPerto = document.getElementById("dinossauroPerto");
 const dinossauroRugido = document.getElementById("dinossauroRugido");
+const hiitsumoMusica = document.getElementById("hiitsumoMusica");
+const antesMago = document.getElementById("antesMago");
+const duranteMago = document.getElementById("duranteMago");
 
 
 
@@ -161,7 +165,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         if (HiitsumoEstado === 0) {
             mensagem.style.display = "flex";
             digitarMensagemIntro("(Você não se lembra exatamente como ou quando foi parar aí.)", "falaHiitsumoIntro");
-            HiitsumoEstado += 32; //apagar depois
+            HiitsumoEstado += 1; //apagar depois (colocar 32 ou 1)
             salvarEstadoSite();
         } else if (HiitsumoEstado === 1) {
             digitarMensagemIntro("(Um lugar vazio e escuro, onde nada parece existir ou mudar)", "falaHiitsumoIntro");
@@ -182,6 +186,10 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             digitarMensagemIntro("Foi mal! Acho que você veio parar aqui por acidente!", "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 7) {
+            somFundo.pause();
+            hiitsumoMusica.loop = true;
+            hiitsumoMusica.volume = 0.05;
+            hiitsumoMusica.play();
             hiitsumoInicial.style.display = "block";
             cabecaIntro.style.display = "block";
             digitarMensagemCorada("Foi mal mesmo! Minha máquina do tempo deve ter te pegado.", "falaHiitsumoIntro");
@@ -411,6 +419,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
 
 
             setTimeout(() => {
+                hiitsumoMusica.pause();
                 titulo.style.display = "none";
                 introducao.style.display = "flex";
                 carregar.style.display = "flex";
@@ -437,11 +446,15 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 }
 
                 if (HiitsumoEstado1 === 1) {
+                    antesMago.loop = true;
+                    antesMago.volume = 0.05;
+                    antesMago.play();
+                    fundoImg.style.display = "flex";
                     carregar.style.display = "none";
                     hiitsumoInicial.style.opacity = "1";
                     hiitsumoInicial.style.visibility = "visible";
                     digitarMensagemParadaFeliz("(Hiitsumo está bem a sua frente, olhando de um lado pro outro.)", "falaHiitsumoIntro");
-                    HiitsumoEstado1 += 34; //apagar depois
+                    HiitsumoEstado1 += 31; //apagar depois (colocar 34 ou 1)
                 } else if (HiitsumoEstado1 === 2) {
                     mensagem.style.maxWidth = "400px";
                     digitarMensagemParadaFeliz("(Você se vê dentro de um salão muito grande, com várias estantes de livro e candelabros.)", "falaHiitsumoIntro");
@@ -608,6 +621,10 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                     digitarMensagemRaiva("Aí tá o problema…", "falaHiitsumoIntro");
                     HiitsumoEstado1 += 1;
                 } else if (HiitsumoEstado1 === 36) {
+                    antesMago.pause();
+                    duranteMago.loop = true;
+                    duranteMago.volume = 0.05;
+                    duranteMago.play();
                     mensagem.style.display = "none";
                     fundo.style.display = "none";
                     introducao.style.pointerEvents = "none";
@@ -2617,7 +2634,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             } else if (HiitsumoEstado2 === 36) {
                 digitarMensagem_Dinossauro(`Ora, rapaz, por que eu não conseguiria?`, "falaBoss");
                 HiitsumoEstado2 += 1;
-            } else if (HiitsumoEstado2 === 37) {  
+            } else if (HiitsumoEstado2 === 37) {
                 digitarMensagem_Dinossauro(`Meus antepassados eram bem inteligentes, visse? Claro que eu também saberia falar`, "falaBoss");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 38) {

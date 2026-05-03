@@ -759,7 +759,6 @@ function digitarMensagemFeliz(texto, elementoId, velocidade = 40) {
     }, velocidade);
 }
 
-
 function digitarMensagemRindo(texto, elementoId, velocidade = 40) {
     const elemento = document.getElementById(elementoId);
     const audio = document.getElementById("audioHiitsumo");
