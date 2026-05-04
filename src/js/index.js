@@ -63,6 +63,8 @@ const dinossauroRugido = document.getElementById("dinossauroRugido");
 const hiitsumoMusica = document.getElementById("hiitsumoMusica");
 const antesMago = document.getElementById("antesMago");
 const duranteMago = document.getElementById("duranteMago");
+const depoisMago = document.getElementById("depoisMago");
+const finalNada = document.getElementById("finalNada");
 
 
 
@@ -320,6 +322,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 HiitsumoEstado += 5;
             };
         } else if (HiitsumoEstado === 19) {
+            hiitsumoMusica.pause();
             opcoes.style.display = "none";
             mensagem.style.display = "flex";
             mensagem.style.maxWidth = "500px";
@@ -334,6 +337,8 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
             digitarMensagemIntro(`(Você está de pé no seu quarto, como se nada tivesse acontecido)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
         } else if (HiitsumoEstado === 21) {
+            finalNada.volume = 1;
+            finalNada.play();
             mensagem.style.border = "4px solid #fff8a8"
             digitarMensagemIntro(`(Final alternativo: “O que foi isso?”)`, "falaHiitsumoIntro");
             HiitsumoEstado += 1;
@@ -659,7 +664,7 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 mensagem2.style.maxWidth = "600px";
                 mensagem2.style.display = "flex";
                 digitarMensagemParada("(Em um instante, a peça que estava em sua mão começa a levitar e ela voa até a direção do mago.)", "falaBoss");
-                HiitsumoEstado2 += 87; //apagar depois
+                HiitsumoEstado2 += 40; //apagar depois (colocar 87 ou 1)
             } else if (HiitsumoEstado2 === 2) {
                 mensagem2.style.display = "none";
                 mensagem1.style.display = "flex";
@@ -971,6 +976,10 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
                 digitar_Mensagem(`${senhaDigitada}... ${senhaDigitada}...`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 71) {
+                duranteMago.pause();
+                depoisMago.loop = true;
+                depoisMago.volume = 0.05;
+                depoisMago.play();
                 digitar_MensagemAnimada(`${nomePlayer}! Você é um gênio!`, "falaHiitsumo");
                 HiitsumoEstado2 += 1;
             } else if (HiitsumoEstado2 === 72) {

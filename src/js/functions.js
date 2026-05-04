@@ -24,11 +24,15 @@ function digitarOpcao(texto, elementoId, velocidade = 40) {
     elemento._pulando = false;
 
     // permitir pular a digitação clicando na própria opção
+    // e impedir que o clique dispare a ação antes do texto terminar.
     const handleSkip = (e) => {
+        if (!elemento._interval) return;
+        e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
         elemento._pulando = true;
     };
-    elemento.addEventListener("click", handleSkip, { once: false });
+    elemento.addEventListener("click", handleSkip, true);
 
     let i = 0;
     elemento._interval = setInterval(() => {
