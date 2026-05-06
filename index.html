@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiitsumo will do it</title>
+
+    <link rel="stylesheet" href="./src/css/estilo.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="fundo" class="fundo">
+        <img src="./src/img/Senha.png" alt="" id="fundoImg">
+    </div>
+    <div id="magia" class="magia"></div>
+
+    <div id="titulo" class="titulo">
+        <img class="img-titulo" src="./src/img/titulo.png" alt="">
+    </div>
+
+    <div id="carregar" class="carregar">
+        <img id="maquina" class="maquina" src="./src/img/maquina-tempo0.png" alt="">
+    </div>
+
+    <div id="iniciar" class="iniciar">
+        <img class="img-iniciar" src="./src/img/iniciar.png" id="botaoIniciar" />
+    </div>
+
+    <img id="Hiitsumo" class="Hiitsumo" src="./src/img/hiitsumo.gif" alt="">
+
+    <img class="recompensa_final" src="./src/img/camisa.png" alt="">
+
+    <div class="introducao" id="introducao">
+        <img id="HiitsumoIntro" class="Hiitsumo-inicial" src="./src/img/hiitsumo.gif" alt="">
+        <div class="apertar">
+            <div class="caixa-dialogo" id="caixa-dialogo">
+                <img id="cabecaIntro" class="cabeca" src="./src/img/cabeca-falando.gif" alt="">
+                <p class="introducao_Hiitsumo" id="falaHiitsumoIntro"></p>
+            </div>
+            <div class="linha-nome" id="nome">
+                <div class="campo-digitacao">
+                    <input type="text" id="nomeJogador" placeholder="Digite seu nome">
+                </div>
+                <button type="button" class="confirmar" id="confirmarNome">Confirmar</button>
+            </div>
+            <div id="opcoes" class="opcoes" style="display:none;">
+                <button id="opcaoA" class="opcaoA" type="button"></button>
+                <button id="opcaoB" class="opcaoB" type="button"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="caixa-boss" id="caixa-boss">
+            <img class="boss" id="boss" src="./src/img/boss0.gif" alt="">
+            <div class="caixa-dialogo-boss" id="caixa-dialogo-boss">
+                <img id="cabeca1" class="cabeca" src="./src/img/cabeca-mago.gif" alt="">
+                <p class="boss-dialogo" id="falaBoss"></p>
+            </div>
+            <div id="opcoes1" class="opcoes1" style="display:none;">
+                <button id="opcaoA1" class="opcaoA1" type="button"></button>
+                <button id="opcaoB1" class="opcaoB1" type="button"></button>
+                <button id="opcaoC1" class="opcaoC1" type="button"></button>
+                <button id="opcaoD1" class="opcaoD1" type="button"></button>
+            </div>
+        </div>
+
+        <div class="linha-senha">
+            <label for="senha">Resposta:</label>
+            <div class="campo-digitacao">
+                <input id="senha" type="text" onfocus="esconderCursor()" onblur="mostrarCursor()" autofocus />
+            </div>
+            <button id="botaoEnviar" class="enviar" type="button">Enviar</button>
+        </div>
+
+        <div class="engrenagens" id="engrenagens">
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem0" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem1" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem2" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem3" />
+            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem4" />
+        </div>
+    </div>
+
+
+    <div id="dicas-fase" class="resposta-fase-container">
+        <p class="resposta-fase" id="dica-1"></p>
+        <p class="resposta-fase" id="dica-2"></p>
+        <p class="resposta-fase" id="dica-3"></p>
+        <p class="resposta-fase" id="dica-4"></p>
+        <p class="resposta-fase" id="dica-5"></p>
+    </div>
+
+
+    <div class="dica" id="dica">
+        <img id="cabeca" class="cabeca" src="./src/img/cabeca-falando.gif" alt="">
+        <p class="fala_Hiitsumo" id="falaHiitsumo"></p>
+    </div>
+
+    <audio id="audioHiitsumo" src="./src/audio/fala.mp3"></audio>
+    <audio id="blang" src="./src/audio/blang.mp3"></audio>
+    <audio id="somMaquina" src="./src/audio/maquina.mp3"></audio>
+    <audio id="somBotao" src="./src/audio/botao.mp3"></audio>
+    <audio id="somFundo" src="./src/audio/somFundo.mp3"></audio>
+    <audio id="clickLuz" src="./src/audio/click.mp3"></audio>
+    <audio id="palmas" src="./src/audio/palmas.mp3"></audio>
+    <audio id="musicaLol" src="./src/audio/musicaLol.mp3"></audio>
+    <audio id="dinossauroPerto" src="./src/audio/dinossauro-perto.mp3"></audio>
+    <audio id="dinossauroRugido" src="./src/audio/dinossauro-rugido.mp3"></audio>
+    <audio id="hiitsumoMusica" src="./src/audio/hiitsumo-intro.mp3"></audio>
+    <audio id="antesMago" src="./src/audio/antes-mago.mp3"></audio>
+    <audio id="duranteMago" src="./src/audio/durante-mago.mp3"></audio>
+    <audio id="finalNada" src="./src/audio/final-nada.mp3"></audio>
+    <audio id="depoisMago" src="./src/audio/depois-mago.mp3"></audio>
+    <audio id="duranteShow" src="./src/audio/durante-show.mp3"></audio>
+    <audio id="depoisShow" src="./src/audio/depois-show.mp3"></audio>
+
+    <script src="./src/js/save.js"></script>
+    <script src="./src/js/functions.js"></script>
+    <script src="./src/js/index.js"></script>
+</body>
+
+</html>
