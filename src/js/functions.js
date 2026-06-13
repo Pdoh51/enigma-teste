@@ -277,11 +277,9 @@ const digitar_MensagemMago             = (t, id, v) => digitar_Mensagem(t, id, "
 // ================================================================================================================
 // BOSS  (cabeca1 / boss — caixa de diálogo do boss)
 // ================================================================================================================
-
-// Formato: estado → { cabFalando, cabIdle, hFalando, hIdle }
-// hFalando e hIdle usam o ID "boss" exceto onde indicado
 const _BOSS_GIFS = {
     mago:          { cabFalando: "cabeca-mago.gif",                  cabIdle: "cabeca-mago.gif",              hFalando: "hiitsumo-frente-seria.gif",    hIdle: "hiitsumo-frente-seria.gif",  hiitsumoId: "HiitsumoIntro" },
+    
     introShow:     { cabFalando: "cabeca-show-falando.gif",          cabIdle: "cabeca-show.gif",              hFalando: "boss1-falando.gif",            hIdle: "boss1.gif"                   },
     showParado:    { cabFalando: "cabeca-show.gif",                  cabIdle: "cabeca-show.gif",              hFalando: "boss1.gif",                    hIdle: "boss1.gif"                   },
     showParado1:   { cabFalando: "cabeca-show.gif",                  cabIdle: "cabeca-show.gif",              hFalando: "boss1-nada.png",               hIdle: "boss1-nada.png"              },
@@ -296,6 +294,7 @@ const _BOSS_GIFS = {
     showPersonagem:{ cabFalando: "cabeca-show-falando.gif",          cabIdle: "cabeca-show.gif",              hFalando: "boss1-p2.png",                 hIdle: "boss1-p2.png"                },
     showSiume:     { cabFalando: "cabeca-show-siume-falando.gif",    cabIdle: "cabeca-show-siume.gif",        hFalando: "boss1-siume-falando.gif",      hIdle: "boss1-siume.gif"             },
     showFechada:   { cabFalando: "cabeca-show-fechada-falando.gif",  cabIdle: "cabeca-show-fechada.gif",      hFalando: "boss1-fechada-falando.gif",    hIdle: "boss1-fechada.gif"           },
+    
     dinossauro:    { cabFalando: "cabeca-dino-falando.gif",          cabIdle: "cabeca-dino.gif",              hFalando: "boss2-falando.gif",            hIdle: "boss2.gif"                   },
     dinossauroParado:  { cabFalando: "cabeca-dino.gif",              cabIdle: "cabeca-dino.gif",              hFalando: "boss2.gif",                    hIdle: "boss2.gif"                   },
     dinossauroRugindo: { cabFalando: "cabeca-dino-rugindo.gif",      cabIdle: "cabeca-dino-rugindo.gif",      hFalando: "boss2-rugindo.gif",            hIdle: "boss2-rugindo.gif"           },
