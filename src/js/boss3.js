@@ -417,7 +417,7 @@ function tickBoss3() {
 
         dinossauroRugido.play();
         Hiitsumo.src = "./src/img/hiitsumo-assustada.gif";
-        bossImg.src = "./src/img/boss2-rugindo.gif";
+        bossImg.src = "./src/img/boss2-surpresa.gif";
 
         setTimeout(() => { 
             mensagem2.style.display = "flex";
@@ -555,6 +555,12 @@ function tickBoss3() {
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 95) {
         digitar_Mensagem(`Confio em você!`, "falaHiitsumo", "V");
-        HiitsumoEstado2 += 0;
-    }
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 96) {
+        document.querySelector(".linha-senha").style.opacity  = "1";
+        document.querySelector(".engrenagens").style.opacity  = "1";
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "none";
+        HiitsumoEstado2 += 1;
+    } 
 }
