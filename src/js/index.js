@@ -1,4 +1,4 @@
-const TESTE = { ativo: true, fase: 2, estado2: 1, estado3: 0 };
+const TESTE = { ativo: true, fase: 2, estado2: 90, estado3: 0 };
 
 // ================================================================================================================
 // VARIÁVEIS GLOBAIS
@@ -29,7 +29,7 @@ let emTransicao = false; // bloqueia o listener durante troca de fase
 
 const senhas = [
     ["Iyauck y zoack", "Iyauck zoack", "Iyauck y Zoack", "Iyauck Zoack"],
-    ["1"],
+    ["Yutyrannus huali", "Yutyrannus Huali", "yutyrannus huali", "yutyrannus Huali"],
     ["1"],
     ["1"],
     ["1"]
