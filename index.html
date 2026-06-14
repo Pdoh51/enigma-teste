@@ -32,7 +32,13 @@
         <img class="img-iniciar" src="./src/img/iniciar.png" id="botaoIniciar" />
     </div>
 
-    <img id="Hiitsumo" class="Hiitsumo" src="./src/img/hiitsumo.gif" alt="">
+    <div class="hiitsumo-wrapper">
+        <div class="dica" id="dica">
+            <img id="cabeca" class="cabeca" src="./src/img/cabeca-falando.gif" alt="">
+            <p class="fala_Hiitsumo" id="falaHiitsumo"></p>
+        </div>
+        <img id="Hiitsumo" class="Hiitsumo" src="./src/img/hiitsumo.gif" alt="">
+    </div>
 
     <img class="recompensa_final" src="./src/img/camisa.png" alt="">
 
@@ -59,33 +65,37 @@
     <div class="container">
 
         <div class="caixa-boss" id="caixa-boss">
-            <img class="boss" id="boss" src="./src/img/boss0.gif" alt="">
-            <div class="caixa-dialogo-boss" id="caixa-dialogo-boss">
-                <img id="cabeca1" class="cabeca" src="./src/img/cabeca-mago.gif" alt="">
-                <p class="boss-dialogo" id="falaBoss"></p>
-            </div>
-            <div id="opcoes1" class="opcoes1" style="display:none;">
-                <button id="opcaoA1" class="opcaoA1" type="button"></button>
-                <button id="opcaoB1" class="opcaoB1" type="button"></button>
-                <button id="opcaoC1" class="opcaoC1" type="button"></button>
-                <button id="opcaoD1" class="opcaoD1" type="button"></button>
+            <div class="boss-wrapper">
+                <img class="boss" id="boss" src="./src/img/boss0.gif" alt="">
+                <div class="caixa-dialogo-boss" id="caixa-dialogo-boss">
+                    <img id="cabeca1" class="cabeca" src="./src/img/cabeca-mago.gif" alt="">
+                    <p class="boss-dialogo" id="falaBoss"></p>
+                </div>
+                <div id="opcoes1" class="opcoes1" style="display:none;">
+                    <button id="opcaoA1" class="opcaoA1" type="button"></button>
+                    <button id="opcaoB1" class="opcaoB1" type="button"></button>
+                    <button id="opcaoC1" class="opcaoC1" type="button"></button>
+                    <button id="opcaoD1" class="opcaoD1" type="button"></button>
+                </div>
             </div>
         </div>
 
-        <div class="linha-senha">
-            <label for="senha">Resposta:</label>
-            <div class="campo-digitacao">
-                <input id="senha" type="text" onfocus="esconderCursor()" onblur="mostrarCursor()" autofocus />
+        <div class="painel-senha">
+            <div class="linha-senha">
+                <label for="senha">Resposta:</label>
+                <div class="campo-digitacao">
+                    <input id="senha" type="text" onfocus="esconderCursor()" onblur="mostrarCursor()" autofocus />
+                </div>
+                <button id="botaoEnviar" class="enviar" type="button">Enviar</button>
             </div>
-            <button id="botaoEnviar" class="enviar" type="button">Enviar</button>
-        </div>
 
-        <div class="engrenagens" id="engrenagens">
-            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem0" />
-            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem1" />
-            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem2" />
-            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem3" />
-            <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem4" />
+            <div class="engrenagens" id="engrenagens">
+                <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem0" />
+                <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem1" />
+                <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem2" />
+                <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem3" />
+                <img src="./src/img/engranagem-vermelha.png" class="engrenagem" id="engrenagem4" />
+            </div>
         </div>
     </div>
 
@@ -98,11 +108,6 @@
         <p class="resposta-fase" id="dica-5"></p>
     </div>
 
-
-    <div class="dica" id="dica">
-        <img id="cabeca" class="cabeca" src="./src/img/cabeca-falando.gif" alt="">
-        <p class="fala_Hiitsumo" id="falaHiitsumo"></p>
-    </div>
 
     <audio id="audioHiitsumo" src="./src/audio/fala.mp3"></audio>
     <audio id="blang" src="./src/audio/blang.mp3"></audio>

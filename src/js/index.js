@@ -31,7 +31,6 @@ const senhas = [
     ["Iyauck y zoack", "Iyauck zoack", "Iyauck y Zoack", "Iyauck Zoack"],
     ["Yutyrannus huali", "Yutyrannus Huali", "yutyrannus huali", "yutyrannus Huali"],
     ["1"],
-    ["1"],
     ["1"]
 ];
 
@@ -246,7 +245,6 @@ document.getElementById("botaoIniciar").addEventListener("click", () => {
         return;
     }
 
-    // Passa o controle para intro.js
     iniciarIntro();
 });
 
@@ -269,8 +267,11 @@ document.getElementById("confirmarNome").addEventListener("click", () => {
 document.getElementById("botaoEnviar").addEventListener("click", () => {
     senhaDigitada = document.getElementById("senha").value.trim();
     const correta = senhas[faseAtual].includes(senhaDigitada);
-    if (correta) verificarSenhaCorreta();
-    else verificarSenhaErrada();
+    if (correta) {
+        verificarSenhaCorreta();
+    } else {
+        verificarSenhaErrada();
+    }
 });
 
 function verificarSenhaCorreta() {
@@ -280,8 +281,8 @@ function verificarSenhaCorreta() {
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
         digitar_Mensagem(`Hmmmm....`, "falaHiitsumo");
-    } else {
-        // espaço para outras fases
+    } else if (faseAtual === 2) {
+
     }
 }
 
@@ -291,7 +292,7 @@ function verificarSenhaErrada() {
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
         digitar_Mensagem(`Hmmmm....`, "falaHiitsumo");
-    } else {
-        // espaço para outras fases
+    } else if (faseAtual === 2) {
+        
     }
 }

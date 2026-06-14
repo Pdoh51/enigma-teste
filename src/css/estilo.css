@@ -100,6 +100,12 @@
 }
 
 .caixa-dialogo-boss {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    /* distância fixa abaixo do boss */
     display: none;
     align-items: flex-start;
     align-content: center;
@@ -111,6 +117,7 @@
     background-color: black;
     color: white;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .opcaoB {
@@ -150,11 +157,18 @@
 }
 
 .opcoes1 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    /* mesma distância da caixa de diálogo */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    width: max-content;
 }
 
 .carregar{
@@ -230,17 +244,25 @@ body {
 
 .Hiitsumo {
     width: 300px;
-    position: absolute;
-    bottom: 0;
-    left: 5%;
     cursor: pointer;
-    z-index: 1;
+    display: block;
+}
+
+/* Agrupa a caixa de fala da Hiitsumo (.dica) com a sprite dela.
+   A caixa fica acima da sprite com uma distância fixa (margin-bottom
+   em .dica) e, como o wrapper está ancorado em bottom:0, ela cresce
+   PARA CIMA quando o texto aumenta — a sprite nunca se move. */
+.hiitsumo-wrapper {
+    position: fixed;
+    left: 3%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 2;
 }
 
 .dica {
-    position: fixed;
-    left: 20px;
-    top: 55%;
     min-width: 1px;
     max-width: 330px;
     min-height: 85px;
@@ -249,13 +271,12 @@ body {
     padding-left: 5px;
     padding-right: 5px;
     color: white;
-    transform: translateY(-100%);
+    margin-bottom: 20px;
     display: none;
     align-items: flex-start;
     align-content: center;
     flex-direction: row;
     cursor: pointer;
-    z-index: 2;
 }
 
 .cabeca {
@@ -296,7 +317,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 20px;
     transition: opacity 1s ease;
     opacity: 0;
 }
@@ -313,6 +333,18 @@ body {
 }
 
 
+
+/* Agrupa a linha de senha e as engrenagens como um único bloco,
+   criando uma distância fixa entre essa área e a área do boss acima
+   (.caixa-boss), evitando que fiquem sobrepostas. */
+.painel-senha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 60px;
+    width: 100%;
+}
 
 .linha-senha {
     display: flex;
@@ -425,6 +457,7 @@ input[type="text"]:focus {
     align-content: center;
     flex-direction: column;
     justify-content: center;
+    gap: 15px;
     z-index: 2;
 }
 
@@ -439,12 +472,21 @@ input[type="text"]:focus {
     background-color: black;
     color: white;
     padding: 10px;
-    margin-top: 30px;
+}
+
+/* Agrupa o boss com sua caixa de diálogo e opções.
+   .caixa-dialogo-boss e .opcoes1 ficam em position:absolute presos
+   a este wrapper — assim crescem para baixo sem empurrar o .boss,
+   que permanece sempre centralizado pelo .caixa-boss. */
+.boss-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
 .boss {
     width: 650px;
     cursor: pointer;
+    display: block;
 }
 
 @keyframes tremerDesfazer {
