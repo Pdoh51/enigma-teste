@@ -743,8 +743,8 @@ function tickBoss3() {
         mensagem2.style.display = "flex";
 
         digitarMensagem_Boss(`Num me lembro de mais nada…`, "falaBoss", "dinossauro");
-        HiitsumoEstado2 += 126;
+        HiitsumoEstado2 = 126;
     } else if (HiitsumoEstado2 === 129) {
-        
+
     }
 }
