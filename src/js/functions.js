@@ -137,35 +137,6 @@ function digitarMensagemIntro(texto, elementoId, estado = "normal", velocidade =
     }, velocidade);
 }
 
-// Aliases que mantêm os nomes antigos funcionando
-const digitarMensagem            = (t, id, v) => digitarMensagemIntro(t, id, "normal",         v);
-const digitarMensagemIntroAlias  = (t, id, v) => digitarMensagemIntro(t, id, "intro",          v);
-const digitarMensagemParada      = (t, id, v) => digitarMensagemIntro(t, id, "parada",         v);
-const digitarMensagemParadaFeliz = (t, id, v) => digitarMensagemIntro(t, id, "paradaFeliz",    v);
-const digitarMensagemCorada      = (t, id, v) => digitarMensagemIntro(t, id, "corada",         v);
-const digitarMensagemNerd        = (t, id, v) => digitarMensagemIntro(t, id, "nerd",           v);
-const digitarMensagemV           = (t, id, v) => digitarMensagemIntro(t, id, "V",              v);
-const digitarMensagemMao         = (t, id, v) => digitarMensagemIntro(t, id, "mao",            v);
-const digitarMensagemAnimada     = (t, id, v) => digitarMensagemIntro(t, id, "animada",        v);
-const digitarMensagemFeliz       = (t, id, v) => digitarMensagemIntro(t, id, "feliz",          v);
-const digitarMensagemRindo       = (t, id, v) => digitarMensagemIntro(t, id, "rindo",          v);
-const digitarMensagemBeicinho    = (t, id, v) => digitarMensagemIntro(t, id, "beicinho",       v);
-const digitarMensagemBeicinhoNormal = (t, id, v) => digitarMensagemIntro(t, id, "beicinhoNormal", v);
-const digitarMensagemMago        = (t, id, v) => digitarMensagemIntro(t, id, "mago",           v);
-const digitarMensagemRaiva       = (t, id, v) => digitarMensagemIntro(t, id, "raiva",          v);
-const digitarMensagemRaiva1      = (t, id, v) => digitarMensagemIntro(t, id, "raiva1",         v);
-const digitarMensagemChapeuRindo  = (t, id, v) => digitarMensagemIntro(t, id, "chapeuRindo",   v);
-const digitarMensagemChapeuCorada = (t, id, v) => digitarMensagemIntro(t, id, "chapeuCorada",  v);
-const digitarMensagemChapeuV      = (t, id, v) => digitarMensagemIntro(t, id, "chapeuV",       v);
-const digitarMensagemSurpresa     = (t, id, v) => digitarMensagemIntro(t, id, "surpresa",      v);
-const digitarMensagemSurpresaParada    = (t, id, v) => digitarMensagemIntro(t, id, "surpresaParada", v);
-const digitarMensagemSurpresaParada2   = (t, id, v) => digitarMensagemIntro(t, id, "surpresaParada", v);
-const digitarMensagemRefri       = (t, id, v) => digitarMensagemIntro(t, id, "refri",          v);
-const digitarMensagemTriste      = (t, id, v) => digitarMensagemIntro(t, id, "triste",         v);
-const digitarMensagemSuspiro     = (t, id, v) => digitarMensagemIntro(t, id, "suspiro",        v);
-const digitarMensagemEmpatica    = (t, id, v) => digitarMensagemIntro(t, id, "empatica",       v);
-const digitarMensagemSeria       = (t, id, v) => digitarMensagemIntro(t, id, "seria",          v);
-const digitarMensagem_IntroShow  = (t, id, v) => digitarMensagemIntro(t, id, "introShow",      v);
 
 
 // ================================================================================================================
@@ -245,33 +216,6 @@ function digitar_Mensagem(texto, elementoId, estado = "normal", velocidade = 40)
     }, velocidade);
 }
 
-// Aliases que mantêm os nomes antigos funcionando
-const digitar_MensagemSurpresa         = (t, id, v) => digitar_Mensagem(t, id, "surpresa",         v);
-const digitar_MensagemSurpresaClassico = (t, id, v) => digitar_Mensagem(t, id, "surpresaClassico", v);
-const digitar_MensagemSurpresaParada   = (t, id, v) => digitar_Mensagem(t, id, "surpresaParada",   v);
-const digitar_MensagemRaiva            = (t, id, v) => digitar_Mensagem(t, id, "raiva",            v);
-const digitar_MensagemRaivaNormal      = (t, id, v) => digitar_Mensagem(t, id, "raivaNormal",      v);
-const digitar_MensagemRaiva1           = (t, id, v) => digitar_Mensagem(t, id, "raiva1",           v);
-const digitar_MensagemBeicinho         = (t, id, v) => digitar_Mensagem(t, id, "beicinho",         v);
-const digitar_MensagemBeicinhoNormal   = (t, id, v) => digitar_Mensagem(t, id, "beicinhoNormal",   v);
-const digitar_MensagemFeliz            = (t, id, v) => digitar_Mensagem(t, id, "feliz",            v);
-const digitar_MensagemNerd             = (t, id, v) => digitar_Mensagem(t, id, "nerd",             v);
-const digitar_MensagemAnimada          = (t, id, v) => digitar_Mensagem(t, id, "animada",          v);
-const digitar_MensagemChapeu           = (t, id, v) => digitar_Mensagem(t, id, "chapeu",           v);
-const digitar_MensagemChapeuNerd       = (t, id, v) => digitar_Mensagem(t, id, "chapeuNerd",       v);
-const digitar_MensagemChapeuOlhoFechado= (t, id, v) => digitar_Mensagem(t, id, "chapeuOlhoFechado",v);
-const digitar_MensagemChapeuMagia      = (t, id, v) => digitar_Mensagem(t, id, "chapeuMagia",      v);
-const digitar_MensagemCoradaDedoNormal = (t, id, v) => digitar_Mensagem(t, id, "coradaDedoNormal", v);
-const digitar_MensagemCoradaDedo       = (t, id, v) => digitar_Mensagem(t, id, "coradaDedo",       v);
-const digitar_MensagemCorada           = (t, id, v) => digitar_Mensagem(t, id, "corada",           v);
-const digitar_MensagemV                = (t, id, v) => digitar_Mensagem(t, id, "V",                v);
-const digitar_MensagemTriste           = (t, id, v) => digitar_Mensagem(t, id, "triste",           v);
-const digitar_MensagemMao              = (t, id, v) => digitar_Mensagem(t, id, "mao",              v);
-const digitar_MensagemSeria            = (t, id, v) => digitar_Mensagem(t, id, "seria",            v);
-const digitar_MensagemPreocupada       = (t, id, v) => digitar_Mensagem(t, id, "preocupada",       v);
-const digitar_MensagemChorando         = (t, id, v) => digitar_Mensagem(t, id, "chorando",         v);
-const digitar_MensagemNervosa          = (t, id, v) => digitar_Mensagem(t, id, "nervosa",          v);
-const digitar_MensagemMago             = (t, id, v) => digitar_Mensagem(t, id, "mago",             v);
 
 
 // ================================================================================================================
@@ -342,26 +286,6 @@ function digitarMensagem_Boss(texto, elementoId, estado = "show", velocidade = 4
         else { parar(); }
     }, velocidade);
 }
-
-// Aliases que mantêm os nomes antigos funcionando
-const digitarMensagem_Mago           = (t, id, v) => digitarMensagem_Boss(t, id, "mago",              v);
-const digitarMensagem_ShowParado     = (t, id, v) => digitarMensagem_Boss(t, id, "showParado",         v);
-const digitarMensagem_ShowParado1    = (t, id, v) => digitarMensagem_Boss(t, id, "showParado1",        v);
-const digitarMensagem_Show           = (t, id, v) => digitarMensagem_Boss(t, id, "show",               v);
-const digitarMensagem_ShowPisca      = (t, id, v) => digitarMensagem_Boss(t, id, "showPisca",          v);
-const digitarMensagem_ShowTriste     = (t, id, v) => digitarMensagem_Boss(t, id, "showTriste",         v);
-const digitarMensagem_ShowPremio1    = (t, id, v) => digitarMensagem_Boss(t, id, "showPremio1",        v);
-const digitarMensagem_ShowPremio2    = (t, id, v) => digitarMensagem_Boss(t, id, "showPremio2",        v);
-const digitarMensagem_ShowPremio3    = (t, id, v) => digitarMensagem_Boss(t, id, "showPremio3",        v);
-const digitarMensagem_ShowPremio4    = (t, id, v) => digitarMensagem_Boss(t, id, "showPremio4",        v);
-const digitarMensagem_ShowPremio5    = (t, id, v) => digitarMensagem_Boss(t, id, "showPremio5",        v);
-const digitarMensagem_ShowPersonagem = (t, id, v) => digitarMensagem_Boss(t, id, "showPersonagem",     v);
-const digitarMensagem_ShowSiume      = (t, id, v) => digitarMensagem_Boss(t, id, "showSiume",          v);
-const digitarMensagem_ShowFechada    = (t, id, v) => digitarMensagem_Boss(t, id, "showFechada",        v);
-const digitarMensagem_Dinossauro     = (t, id, v) => digitarMensagem_Boss(t, id, "dinossauro",         v);
-const digitarMensagem_DinossauroParado  = (t, id, v) => digitarMensagem_Boss(t, id, "dinossauroParado",  v);
-const digitarMensagem_DinossauroRugindo = (t, id, v) => digitarMensagem_Boss(t, id, "dinossauroRugindo", v);
-
 
 // ================================================================================================================
 // ANIMAÇÕES
