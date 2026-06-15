@@ -160,7 +160,7 @@ function tickBoss3() {
 
         setTimeout(() => {
             mensagem2.style.display = "flex";
-            digitarMensagem_Boss(`E o que é então, garota? Já que tem alguém mentindo aqui, me diga com sinceridade. O que é que vocês fazem aqui?`, "falaBoss", "dinossauro");
+            digitarMensagem_Boss(`E o que é então, garota? Já que tem alguém mentindo aqui, me diga com sinceridade. O que é que vocês fazem aqui?`, "falaBoss", "dinossauroBravo");
         }, 3000);
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 25) {
@@ -182,17 +182,17 @@ function tickBoss3() {
 
         setTimeout(() => {
             mensagem2.style.display = "flex";
-            digitarMensagem_Boss(`Os humanos no ápice da civilização deles chegaram perto de desenvolver essa invenção com sucesso, mas não conseguiram, e aí você tá me dizendo que dois…`, "falaBoss", "dinossauro");
+            digitarMensagem_Boss(`Os humanos no ápice da civilização deles chegaram perto de desenvolver essa invenção com sucesso, mas não conseguiram, e aí você tá me dizendo que dois…`, "falaBoss", "dinossauroBravo");
         }, 3000);
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 28) {
-        digitarMensagem_Boss(`Dumb-looking and chopped like a baboon, tryna tell me they DID IT?!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Dumb-looking and chopped like a baboon, tryna tell me they DID IT?!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 29) {
-        digitarMensagem_Boss(`Cês tão mentindo pra mim, num nasci ontem.`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Cês tão mentindo pra mim, num nasci ontem.`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 30) {
-        digitarMensagem_Boss(`O que cês querem na minha área? Seus invasores.`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`O que cês querem na minha área? Seus invasores.`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 31) {
         mensagem1.style.display = "none";
@@ -214,7 +214,7 @@ function tickBoss3() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
 
-        digitarMensagem_Boss(`Não importa, fia! Eu quero saber o que vocês querem fazer aqui!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Não importa, fia! Eu quero saber o que vocês querem fazer aqui!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 34) {
         mensagem1.style.display = "none";
@@ -237,7 +237,7 @@ function tickBoss3() {
         digitarMensagem_Boss(`.....`, "falaBoss", "dinossauro");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 36) {
-        digitarMensagem_Boss(`Ora, rapaz, por que eu não conseguiria?`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Ora, rapaz, por que eu não conseguiria?`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 37) {
         digitarMensagem_Boss(`Meus antepassados eram bem inteligentes, visse? Claro que eu também saberia falar`, "falaBoss", "dinossauro");
@@ -267,10 +267,10 @@ function tickBoss3() {
         digitarMensagem_Boss(`.....`, "falaBoss", "dinossauro");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 42) {
-        digitarMensagem_Boss(`Deixem de ser ignorantes, e isso não é dá conta de vocês não!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Deixem de ser ignorantes, e isso não é dá conta de vocês não!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 43) {
-        digitarMensagem_Boss(`Eu vou perguntar de novo, o que vocês querem aqui?`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Eu vou perguntar de novo, o que vocês querem aqui?`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 44) {
         mensagem1.style.display = "flex";
@@ -301,7 +301,7 @@ function tickBoss3() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
 
-        digitarMensagem_Boss(`NUNCA! JAMAIS FARIA ISSO! NÃO NO *MEU* TERRITÓRIO!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`NUNCA! JAMAIS FARIA ISSO! NÃO NO *MEU* TERRITÓRIO!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 50) {
         mensagem1.style.display = "flex";
@@ -327,7 +327,7 @@ function tickBoss3() {
         digitarMensagem_Boss(`Nós somos os maiores do mundo, os mais fortes!`, "falaBoss", "dinossauro");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 55) {
-        digitarMensagem_Boss(`Não vou deixar meros humanos ganharem vantagem em cima de mim e do meu território.`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Não vou deixar meros humanos ganharem vantagem em cima de mim e do meu território.`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 56) {
         mensagem1.style.display = "flex";
@@ -340,7 +340,7 @@ function tickBoss3() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
 
-        digitarMensagem_Boss(`.....`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`.....`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 58) {
         digitarMensagem_Boss(`Ele não importa, nós revivemos. É passado demais.`, "falaBoss", "dinossauro");
@@ -421,14 +421,14 @@ function tickBoss3() {
 
         setTimeout(() => {
             mensagem2.style.display = "flex";
-            digitarMensagem_Boss(`CALADA!`, "falaBoss", "dinossauro");
+            digitarMensagem_Boss(`CALADA!`, "falaBoss", "dinossauroBravo");
         }, 3000);
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 73) {
-        digitarMensagem_Boss(`Eu tô tentando me lembrar! Mas ocê fica me atrapalhando!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Eu tô tentando me lembrar! Mas ocê fica me atrapalhando!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 74) {
-        digitarMensagem_Boss(`Eu sei o nome deles mas eu não consigo me lembrar! É uma questão de honra agora que cê me desafiou!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Eu sei o nome deles mas eu não consigo me lembrar! É uma questão de honra agora que cê me desafiou!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 75) {
         mensagem1.style.display = "none";
@@ -503,7 +503,7 @@ function tickBoss3() {
         mensagem2.style.display = "flex";
         cabeca1.style.display = "flex";
 
-        digitarMensagem_Boss(`Que audácia! Vocês vem pra cá com a maior cara de pau e ainda tentam me fazer de besta?!`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Que audácia! Vocês vem pra cá com a maior cara de pau e ainda tentam me fazer de besta?!`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 84) {
         mensagem1.style.display = "flex";
@@ -515,10 +515,10 @@ function tickBoss3() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
 
-        digitarMensagem_Boss(`I have never seen such bullshi’ in all my years out in the wild.`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`I have never seen such bullshi’ in all my years out in the wild.`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 86) {
-        digitarMensagem_Boss(`Ya never ask about somebody mamma like that.`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Ya never ask about somebody mamma like that.`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 87) {
         digitarMensagem_Boss(`Vou deixar essa passar, contanto que cês me ajudem a lembrar da raça dos meus ancestrais, visse?`, "falaBoss", "dinossauro");
@@ -536,7 +536,7 @@ function tickBoss3() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
 
-        digitarMensagem_Boss(`Esquece as desculpas, só me ajuda e isso é o suficiente.`, "falaBoss", "dinossauro");
+        digitarMensagem_Boss(`Esquece as desculpas, só me ajuda e isso é o suficiente.`, "falaBoss", "dinossauroBravo");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 91) {
         digitarMensagem_Boss(`Meu sou um T-Rex, o nome completo é Tyrannosaurus rex!`, "falaBoss", "dinossauro");
