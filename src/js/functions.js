@@ -243,6 +243,7 @@ const _BOSS_GIFS = {
     dinossauroParado:  { cabFalando: "cabeca-dino.gif",              cabIdle: "cabeca-dino.gif",              hFalando: "boss2.gif",                    hIdle: "boss2.gif"                   },
     dinossauroRugindo: { cabFalando: "cabeca-dino-rugindo.gif",      cabIdle: "cabeca-dino-rugindo.gif",      hFalando: "boss2-rugindo.gif",            hIdle: "boss2-rugindo.gif"           },
     dinossauroBravo:   { cabFalando: "cabeca-dino-bravo-falando.gif",        cabIdle: "cabeca-dino-bravo.gif",        hFalando: "boss2-bravo-falando.gif",              hIdle: "boss2-bravo.gif"             },
+    dinossauroChines:  { cabFalando: "cabeca-dino-chines-falando.gif",      cabIdle: "cabeca-dino-chines.gif",        hFalando: "boss2-chines-falando.gif",            hIdle: "boss2-chines.gif"           },
 };
 
 function digitarMensagem_Boss(texto, elementoId, estado = "show", velocidade = 40) {

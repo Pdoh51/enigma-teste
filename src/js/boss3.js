@@ -745,6 +745,152 @@ function tickBoss3() {
         digitarMensagem_Boss(`Num me lembro de mais nada…`, "falaBoss", "dinossauro");
         HiitsumoEstado2 = 126;
     } else if (HiitsumoEstado2 === 129) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
 
+        digitarMensagem_Boss(`Não... ainda não é isso...`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 = 96;
+    } else if (HiitsumoEstado2 === 130) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+
+        digitarMensagem_Boss(`É isso! É isso!`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 131) {
+        digitarMensagem_Boss(`Como que eu fui me esquecer? Yutyrannus huali!`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 132) {
+        digitarMensagem_Boss(`Antes d’eu ser um T-rex, eu era isso!`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 133) {
+        digitarMensagem_Boss(`Rapaz, parece que eu me lembrei de um monte de coisa importante! Eu tenho que agradecer a vocês, invasores.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 134) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+
+        digitar_Mensagem(`Seria de grande ajuda se você ajudar a gente a achar a nossa engrenagem perdida.`, "falaHiitsumo", "feliz");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 135) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+
+        digitarMensagem_Boss(`Mas é claro! Eu sou o maior desse lugar, comigo por perto cês não precisa ter medo de nada!`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 136) {
+        cabeca1.style.display = "none";
+        digitarMensagem_Boss(`(Vocês rapidamente seguem, procurando a engrenagem no meio da enorme floresta.)`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 137) {
+        digitarMensagem_Boss(`(Hiitsumo, no entanto, não contém sua curiosidade e pergunta para o mais recente aliado de vocês.)`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 138) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        cabeca1.style.display = "flex";
+
+        digitar_Mensagem(`Ei, os seus antepassados não caçavam em bando? Por que você está sozinho?`, "falaHiitsumo", "normal");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 139) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+
+        digitarMensagem_Boss(`Deve ser porque virou costume.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 140) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+
+        digitar_Mensagem(`Deve ser? Você também não sabe?`, "falaHiitsumo", "normal");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 141) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+
+        digitarMensagem_Boss(`A verdade é que as coisas são muito diferentes do que uma humana entenderia.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 142) {
+        digitarMensagem_Boss(`Meus pais me abandonaram quando eu ainda era um fiotinho.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 143) {
+        digitarMensagem_Boss(`Eu era forte desde aquela época, e eu só precisava disso nesse faroeste.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 144) {
+        digitarMensagem_Boss(`Num sei se ele me deixou assim porque ele achava que era o melhor, que assim eu seria mais honrado.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 145) {
+        digitarMensagem_Boss(`E eu nunca decepcionei painho quando se tratou disso, nunquinha. Eu virei tudo que ele queria, até mais!`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 146) {
+        digitarMensagem_Boss(`Mas eu ainda fico pensando por que eles fizeram isso.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 147) {
+        digitarMensagem_Boss(`Vai ver eles foram abandonados quando eram filhotes e tiveram a sorte de não precisar de ninguém.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 148) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+
+        digitar_Mensagem(`Eu te entendo completamente…`, "falaHiitsumo", "triste");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 149) {
+        digitar_Mensagem(`Mesmo sendo só uma humana haha.`, "falaHiitsumo", "empatica");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 150) {
+        digitar_Mensagem(`Eu não entendo um monte de coisa que as outras pessoas fazem, e eu tento fazer as pessoas entenderem o meu lado, mas elas não me entendem.`, "falaHiitsumo", "triste");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 151) {
+        digitar_Mensagem(`E eu fico chateada porque as outras pessoas não me entendem e chateada porque eu não entendo o que as outras pessoas fazem.`, "falaHiitsumo", "triste");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 152) {
+        digitar_Mensagem(`Eu nunca, nunca vou entender como alguém pode abandonar outra pessoa assim!`, "falaHiitsumo", "raiva");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 153) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+
+        digitarMensagem_Boss(`Mas ó, vou te falar ein. Ter um bando não parece a pior das coisas agora.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 154) {
+        digitarMensagem_Boss(`Já é hora de mudar um pouco as coisas.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 155) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+
+        digitar_Mensagem(`Isso, isso! Agora a gente tá falando a mesma língua!`, "falaHiitsumo", "feliz");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 156) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+        cabeca1.style.display = "none";
+
+        digitarMensagem_Boss(`(Vocês continuam procurando a engrenagem no meio da floresta grande, até encontrar ela presa entre um cacho de bananas.)`, "falaBoss", "dinossauroParado");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 157) {
+        digitarMensagem_Boss(`(Após recuperar a peça, vocês voltam até a máquina do tempo.)`, "falaBoss", "dinossauroParado");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 158) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        cabeca1.style.display = "flex";
+
+        digitar_Mensagem(`Obrigada pela ajuda, Senhor Dinossauro! Agora estamos mais perto de voltar pra casa!`, "falaHiitsumo", "V");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 159) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+        
+        digitarMensagem_Boss(`E eu vou voltar pra minha casa também.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 160) {
+        digitarMensagem_Boss(`Minha antiga casa, pelo menos.`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 161) {
+        digitarMensagem_Boss(`Vejam bem só, look at the new me, folks!`, "falaBoss", "dinossauro");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 162) {
+        digitarMensagem_Boss(`我将永远感激前人为我指明方向。`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
     }
 }
