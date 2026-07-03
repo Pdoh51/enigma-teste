@@ -29,8 +29,8 @@ let emTransicao = false; // bloqueia o listener durante troca de fase
 
 const senhas = [
     ["Iyauck y zoack", "Iyauck zoack", "Iyauck y Zoack", "Iyauck Zoack"],
-    ["Yutyrannus huali", "Yutyrannus Huali", "yutyrannus huali", "yutyrannus Huali"],
     ["1"],
+    ["Yutyrannus huali", "Yutyrannus Huali", "yutyrannus huali", "yutyrannus Huali"],
     ["1"]
 ];
 
