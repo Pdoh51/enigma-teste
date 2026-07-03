@@ -171,6 +171,7 @@ const _FALAS_GIFS = {
     chorando:            { cabFalando: "cabeca-chorando-falando.gif",              cabIdle: "cabeca-chorando.gif",                 hFalando: "hiitsumo-chorando-falando.gif",              hIdle: "hiitsumo-chorando.gif",               salvarAudio: false },
     nervosa:             { cabFalando: "cabeca-nervosa-falando.gif",               cabIdle: "cabeca-nervosa.gif",                  hFalando: "hiitsumo-nervosa-falando.gif",               hIdle: "hiitsumo-nervosa.gif",                salvarAudio: false },
     mago:                { cabFalando: "cabeca-mago.gif",                          cabIdle: "cabeca-mago.gif",                     hFalando: "hiitsumo-frente-seria.gif",                  hIdle: "hiitsumo-frente-seria.gif",           salvarAudio: false },
+    franzida:            { cabFalando: "cabeca-franzida-falando.gif",              cabIdle: "cabeca-franzida.gif",                 hFalando: "hiitsumo-franzida-falando.gif",              hIdle: "hiitsumo-franzida.gif",               salvarAudio: false },
 };
 
 function digitar_Mensagem(texto, elementoId, estado = "normal", velocidade = 40) {
@@ -244,6 +245,7 @@ const _BOSS_GIFS = {
     dinossauroRugindo: { cabFalando: "cabeca-dino-rugindo.gif",      cabIdle: "cabeca-dino-rugindo.gif",      hFalando: "boss2-rugindo.gif",            hIdle: "boss2-rugindo.gif"           },
     dinossauroBravo:   { cabFalando: "cabeca-dino-bravo-falando.gif",        cabIdle: "cabeca-dino-bravo.gif",        hFalando: "boss2-bravo-falando.gif",              hIdle: "boss2-bravo.gif"             },
     dinossauroChines:  { cabFalando: "cabeca-dino-chines-falando.gif",      cabIdle: "cabeca-dino-chines.gif",        hFalando: "boss2-chines-falando.gif",            hIdle: "boss2-chines.gif"           },
+    dinossauroChinesParado: { cabFalando: "cabeca-dino-chines.gif",      cabIdle: "cabeca-dino-chines.gif",        hFalando: "boss2-chines.gif",            hIdle: "boss2-chines.gif"           }
 };
 
 function digitarMensagem_Boss(texto, elementoId, estado = "show", velocidade = 40) {
