@@ -892,5 +892,91 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 162) {
         digitarMensagem_Boss(`我将永远感激前人为我指明方向。`, "falaBoss", "dinossauroChines");
         HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 163) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        
+        digitar_Mensagem(`Senhor…`, "falaHiitsumo", "franzida");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 164) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+        
+        digitarMensagem_Boss(`不要叫我恐龙先生，是 “Dinossauro nín”!`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 165) {
+        digitarMensagem_Boss(`这只是形式上的问题。`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 166) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        
+        digitar_Mensagem(`É… precisamos ir, não é, ${nomePlayer}?`, "falaHiitsumo", "franzida");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 167) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+        
+        digitarMensagem_Boss(`Eu vô pra China, também, Péngyǒumen, não se preocupem, podem ficar tranquilos!`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 168) {
+        digitarMensagem_Boss(`Eu consigo ver que vocês são capazes de coisas muito grandes, não vou mais ficar no caminho.`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 169) {
+        digitarMensagem_Boss(`E eu preciso montar meu bando rápido, então vou saindo agora mesmo!`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 170) {
+        digitarMensagem_Boss(`Não vou me esquecer de vocês, venham me visitar depois, visse?`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 171) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        
+        digitar_Mensagem(`Eu não te entendo nem um pouco, pra falar a verdade!`, "falaHiitsumo", "assustada");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 172) {
+        digitar_Mensagem(`Desde quando você sabe chinês?`, "falaHiitsumo", "assustada");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 173) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+        
+        digitarMensagem_Boss(`你脸上为什么露出惊讶的表情？`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 174) {
+        digitarMensagem_Boss(`理解之前，心必须先倾听，人类小姐，你走在正确的道路上。`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 175) {
+        digitarMensagem_Boss(`“Antes do entender, o coração precisa primeiro escutar, senhorita humana, você está no caminho certo”`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 176) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        
+        digitar_Mensagem(`... Obrigada?`, "falaHiitsumo", "preocupada");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 177) {
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "flex";
+        
+        digitarMensagem_Boss(`再见! Goodbye! Adeus!`, "falaBoss", "dinossauroChines");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 178) {
+        cabeca1.style.display = "none";
+
+        digitarMensagem_Boss(`(Hiitsumo acena, pois era a única coisa que restou a se fazer.)`, "falaBoss", "dinossauroChinesParado");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 179) {
+        derrotarBoss();
+
+        digitarMensagem_Boss(`(Depois de ele sumir no meio das enormes árvores, você, com a terceira engrenagem em mãos, volta pra máquina do tempo.)`, "falaBoss", "dinossauroChinesParado");
+        HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 180) {
+        mensagem1.style.display = "flex";
+        mensagem2.style.display = "none";
+        cabeca1.style.display = "flex";
+
+        digitar_Mensagem(`${nomePlayer}, vamos pra próxima, ok?`, "falaHiitsumo", "feliz");
+        HiitsumoEstado2 += 1;
     }
 }
