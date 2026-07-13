@@ -754,6 +754,9 @@ function tickBoss3() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
 
+        document.querySelector(".linha-senha").style.opacity = "0";
+        document.querySelector(".engrenagens").style.opacity = "0";
+
         digitarMensagem_Boss(`É isso! É isso!`, "falaBoss", "dinossauro");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 131) {
