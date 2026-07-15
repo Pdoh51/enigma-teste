@@ -1,4 +1,4 @@
-const TESTE = { ativo: true, fase: 2, estado2: 178, estado3: 0 };
+const TESTE = { ativo: false, fase: 2, estado2: 178, estado3: 0 };
 
 // ================================================================================================================
 // VARIÁVEIS GLOBAIS
