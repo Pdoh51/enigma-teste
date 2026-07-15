@@ -1,4 +1,4 @@
-const TESTE = { ativo: true, fase: 2, estado2: 90, estado3: 0 };
+const TESTE = { ativo: true, fase: 2, estado2: 178, estado3: 0 };
 
 // ================================================================================================================
 // VARIÁVEIS GLOBAIS
@@ -147,8 +147,6 @@ function avancarOpcao(novoEstado) {
 // ================================================================================================================
 
 document.addEventListener("click", (e) => {
-    // ignora cliques em botões de opção, inputs e botões de UI
-    if (e.target.closest(".apertar")) return; // intro controla o próprio clique
     if (e.target.closest("#opcoes1")) return;
     if (e.target.closest("#opcoes")) return;
     if (e.target.closest(".linha-nome")) return;
@@ -156,7 +154,12 @@ document.addEventListener("click", (e) => {
     if (e.target.closest("#iniciar")) return;
 
     if (digitando) { pulando = true; return; }
-    if (emTransicao) { emTransicao = false; return; }
+    if (emTransicao) {
+        emTransicao = false;
+        if (faseAtual === 2 && HiitsumoEstado2 === 0) { tickConexao2(); return; }
+        if (faseAtual === 3 && HiitsumoEstado2 === 0) { tickConexao3(); return; }
+        return;
+    }
 
     if (emConexao1) { tickConexao1(); return; }
     if (faseAtual === 0 && HiitsumoEstado2 > 0) { tickBoss1(); return; }
@@ -164,6 +167,7 @@ document.addEventListener("click", (e) => {
     if (faseAtual === 1 && HiitsumoEstado2 > 0) { tickBoss2(); return; }
     if (faseAtual === 2 && HiitsumoEstado2 === 0) { tickConexao2(); return; }
     if (faseAtual === 2 && HiitsumoEstado2 > 0) { tickBoss3(); return; }
+    if (faseAtual === 3 && HiitsumoEstado2 === 0) { tickConexao3(); return; }
 });
 
 // ================================================================================================================

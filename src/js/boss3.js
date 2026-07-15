@@ -672,7 +672,7 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 116) {
         document.querySelector(".linha-senha").style.opacity = "0";
         document.querySelector(".engrenagens").style.opacity = "0";
-        
+
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
 
@@ -883,7 +883,7 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 159) {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
-        
+
         digitarMensagem_Boss(`E eu vou voltar pra minha casa também.`, "falaBoss", "dinossauro");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 160) {
@@ -898,13 +898,13 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 163) {
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
-        
+
         digitar_Mensagem(`Senhor…`, "falaHiitsumo", "franzida");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 164) {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
-        
+
         digitarMensagem_Boss(`不要叫我恐龙先生，是 “Dinossauro nín”!`, "falaBoss", "dinossauroChines");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 165) {
@@ -913,13 +913,13 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 166) {
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
-        
+
         digitar_Mensagem(`É… precisamos ir, não é, ${nomePlayer}?`, "falaHiitsumo", "franzida");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 167) {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
-        
+
         digitarMensagem_Boss(`Eu vô pra China, também, Péngyǒumen, não se preocupem, podem ficar tranquilos!`, "falaBoss", "dinossauroChines");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 168) {
@@ -934,7 +934,7 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 171) {
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
-        
+
         digitar_Mensagem(`Eu não te entendo nem um pouco, pra falar a verdade!`, "falaHiitsumo", "assustada");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 172) {
@@ -943,7 +943,7 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 173) {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
-        
+
         digitarMensagem_Boss(`你脸上为什么露出惊讶的表情？`, "falaBoss", "dinossauroChines");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 174) {
@@ -955,13 +955,13 @@ function tickBoss3() {
     } else if (HiitsumoEstado2 === 176) {
         mensagem1.style.display = "flex";
         mensagem2.style.display = "none";
-        
+
         digitar_Mensagem(`... Obrigada?`, "falaHiitsumo", "preocupada");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 177) {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
-        
+
         digitarMensagem_Boss(`再见! Goodbye! Adeus!`, "falaBoss", "dinossauroChines");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 178) {
@@ -981,5 +981,28 @@ function tickBoss3() {
 
         digitar_Mensagem(`${nomePlayer}, vamos pra próxima, ok?`, "falaHiitsumo", "feliz");
         HiitsumoEstado2 += 1;
+    } else if (HiitsumoEstado2 === 181) {
+        console.log("Fase 2 finalizada");
+        // a mensagem de transição agora é exibida na conexão 3, para poder ser avançada por clique
+        cabeca1.style.display = "none";
+        mensagem1.style.display = "none";
+        mensagem2.style.display = "none";
+        fundo.style.display = "flex";
+        introducao.style.display = "flex";
+        mensagem.style.display = "flex";
+        fundo.style.pointerEvents = "none";
+        introducao.style.pointerEvents = "auto";
+        mensagem.style.pointerEvents = "auto";
+        carregar.style.display = "none";
+        digitarMensagemIntro("(Vocês se afastam um pouco da cozinha e vão para um lugar espaçoso.)", "falaHiitsumoIntro");
+        HiitsumoEstado2 += 1;
+
+    } else if (HiitsumoEstado2 === 182) {
+        // troca de fase e já mostra a primeira mensagem da conexão 3 no mesmo clique
+        console.log("Fase 3");
+        faseAtual = 3;
+        HiitsumoEstado2 = 0;
+        HiitsumoEstado3 = 0;
+        tickConexao3();
     }
 }

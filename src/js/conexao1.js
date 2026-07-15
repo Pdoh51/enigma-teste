@@ -11,12 +11,12 @@ function tickConexao1() {
         HiitsumoEstado3 += 1; // apagar depois (colocar 1)
 
     } else if (HiitsumoEstado3 === 2) {
-        carregar.style.display            = "flex";
-        maquina.src                       = "./src/img/maquina-tempo1.gif";
+        carregar.style.display = "flex";
+        maquina.src = "./src/img/maquina-tempo1.gif";
         aparecerMaquina();
-        hiitsumoInicial.style.display     = "flex";
-        hiitsumoInicial.style.opacity     = "0";
-        hiitsumoInicial.style.visibility  = "hidden";
+        hiitsumoInicial.style.display = "flex";
+        hiitsumoInicial.style.opacity = "0";
+        hiitsumoInicial.style.visibility = "hidden";
         digitarMensagemIntro("(Você está dentro da máquina do tempo, viajando de novo.)", "falaHiitsumoIntro");
         HiitsumoEstado3 += 1;
 
@@ -29,9 +29,9 @@ function tickConexao1() {
         HiitsumoEstado3 += 1;
 
     } else if (HiitsumoEstado3 === 5) {
-        hiitsumoInicial.style.opacity    = "1";
+        hiitsumoInicial.style.opacity = "1";
         hiitsumoInicial.style.visibility = "visible";
-        cabecaIntro.style.display        = "flex";
+        cabecaIntro.style.display = "flex";
         digitarMensagemIntro("Haha… Hahahaha!", "falaHiitsumoIntro", "chapeuRindo");
         HiitsumoEstado3 += 1;
 
@@ -44,9 +44,9 @@ function tickConexao1() {
         HiitsumoEstado3 += 1;
 
     } else if (HiitsumoEstado3 === 8) {
-        carregar.style.display        = "none";
+        carregar.style.display = "none";
         hiitsumoInicial.style.display = "none";
-        cabecaIntro.style.display     = "none";
+        cabecaIntro.style.display = "none";
         digitarMensagemIntro("(Sua visão fica clara de novo, e sem que você pudesse processar, seguem para o próximo passo.)", "falaHiitsumoIntro");
         HiitsumoEstado3 += 1;
 
@@ -54,12 +54,13 @@ function tickConexao1() {
         digitarMensagemIntro("(Um passo muito longo no tempo.)", "falaHiitsumoIntro");
         HiitsumoEstado3 += 1;
 
-    } else if (HiitsumoEstado3 === 10) {
-        // troca de fase — emTransicao impede tickBoss2Pre de disparar nesse mesmo clique
-        emTransicao     = true;
-        faseAtual       = 1;
+    }
+    else if (HiitsumoEstado3 === 10) {
+        // troca de fase e já mostra a primeira mensagem do boss2Pre no mesmo clique
+        faseAtual = 1;
         HiitsumoEstado2 = 0;
         HiitsumoEstado3 = 0;
-        emConexao1      = false;
+        emConexao1 = false;
+        tickBoss2Pre();
     }
 }

@@ -1341,9 +1341,9 @@ function tickBoss2() {
 
     } else if (HiitsumoEstado2 === 224) {
         // troca de fase — emTransicao impede tickConexao2 de disparar nesse mesmo clique
-        emTransicao     = true;
         faseAtual       = 2;
         HiitsumoEstado2 = 0;
         HiitsumoEstado3 = 0;
+        tickConexao2();
     }
 }
