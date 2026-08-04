@@ -448,6 +448,7 @@ function iniciarBoss1Pre() {
 
         } else if (HiitsumoEstado1 === 33) {
             cabecaIntro.style.display = "none";
+            mensagem.style.maxWidth   = "500px";
             digitarMensagemIntro("(Hiitsumo é interrompida por uma voz aguda e sem sentido que vem do fundo do corredor)", "falaHiitsumoIntro", "parada");
             HiitsumoEstado1 += 1;
 

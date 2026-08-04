@@ -1,4 +1,4 @@
-const TESTE = { ativo: false, fase: 2, estado2: 178, estado3: 0 };
+const TESTE = { ativo: false, fase: 2, estado2: 181, estado3: 0 };
 
 // ================================================================================================================
 // VARIÁVEIS GLOBAIS
@@ -89,7 +89,8 @@ const duranteMago = document.getElementById("duranteMago");
 const depoisMago = document.getElementById("depoisMago");
 const duranteShow = document.getElementById("duranteShow");
 const depoisShow = document.getElementById("depoisShow");
-
+const antesEspaco = document.getElementById("antesEspaco");
+const duranteEspaco = document.getElementById("duranteEspaco");
 // ================================================================================================================
 // UTILITÁRIOS
 // ================================================================================================================
@@ -140,6 +141,7 @@ function avancarOpcao(novoEstado) {
         if (faseAtual === 0) tickBoss1();
         else if (faseAtual === 1 && HiitsumoEstado2 > 0) tickBoss2();
         else if (faseAtual === 2 && HiitsumoEstado2 > 0) tickBoss3();
+        else if (faseAtual === 3 && HiitsumoEstado2 > 0) tickBoss4();
     }, 0);
 }
 // ================================================================================================================
@@ -154,12 +156,6 @@ document.addEventListener("click", (e) => {
     if (e.target.closest("#iniciar")) return;
 
     if (digitando) { pulando = true; return; }
-    if (emTransicao) {
-        emTransicao = false;
-        if (faseAtual === 2 && HiitsumoEstado2 === 0) { tickConexao2(); return; }
-        if (faseAtual === 3 && HiitsumoEstado2 === 0) { tickConexao3(); return; }
-        return;
-    }
 
     if (emConexao1) { tickConexao1(); return; }
     if (faseAtual === 0 && HiitsumoEstado2 > 0) { tickBoss1(); return; }
@@ -168,7 +164,10 @@ document.addEventListener("click", (e) => {
     if (faseAtual === 2 && HiitsumoEstado2 === 0) { tickConexao2(); return; }
     if (faseAtual === 2 && HiitsumoEstado2 > 0) { tickBoss3(); return; }
     if (faseAtual === 3 && HiitsumoEstado2 === 0) { tickConexao3(); return; }
+    if (faseAtual === 3 && HiitsumoEstado2 > 0) { tickBoss4(); return; }
+    if (faseAtual === 4 && HiitsumoEstado2 === 0) { tickConexao4(); return; }
 });
+
 
 // ================================================================================================================
 // BOTÃO INICIAR

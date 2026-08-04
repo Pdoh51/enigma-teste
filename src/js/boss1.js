@@ -5,8 +5,8 @@
 function tickBoss1() {
     if (HiitsumoEstado2 === 1) {
         cabeca1.style.display   = "none";
-        mensagem2.style.maxWidth = "600px";
-        mensagem2.style.display = "flex";
+        mensagem2.style.maxWidth = "550px";
+        mensagem2.style.display = "flex"; 
         digitarMensagem_Boss("(Em um instante, a peça que estava em sua mão começa a levitar e ela voa até a direção do mago.)", "falaBoss", "mago");
         HiitsumoEstado2 += 1; // apagar depois (colocar 1)
 
@@ -20,6 +20,8 @@ function tickBoss1() {
         mensagem2.style.display = "flex";
         mensagem1.style.display = "none";
         magia.style.display     = "flex";
+        cabeca1.style.display   = "none";
+        mensagem2.style.maxWidth = "450px";
         digitar_Mensagem(`(Um círculo amarelo surge ao redor de vocês dois e forma uma barreira mágica)`, "falaBoss", "surpresaParada");
         HiitsumoEstado2 += 1;
 
@@ -59,12 +61,14 @@ function tickBoss1() {
     } else if (HiitsumoEstado2 === 11) {
         mensagem2.style.display = "none";
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "328px";
         digitar_Mensagem(`Pode ir parando com esse negócio de "Vloru", tá legal?`, "falaHiitsumo", "raiva");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 12) {
         mensagem2.style.display = "flex";
         mensagem1.style.display = "none";
+        mensagem2.style.maxWidth = "520px";
         digitarMensagem_Boss(`Bruxas que nem você não tem o direito de falar nada, peste! ※⁂⁜ Jymnym! ⁜⁂※`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
@@ -101,12 +105,14 @@ function tickBoss1() {
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 19) {
+        mensagem2.style.maxWidth = "580px";
         digitarMensagem_Boss(`Aberrações que você chama de "máquina".`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 20) {
         mensagem2.style.display = "none";
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "327px";
         digitar_Mensagem(`Do tempo. É uma máquina do tempo.`, "falaHiitsumo", "beicinho");
         HiitsumoEstado2 += 1;
 
@@ -137,18 +143,21 @@ function tickBoss1() {
     } else if (HiitsumoEstado2 === 26) {
         mensagem2.style.display = "flex";
         mensagem1.style.display = "none";
+        mensagem2.style.maxWidth = "440px";
         digitarMensagem_Boss(`AH! ※⁂⁜ WUFUXU! ⁜⁂※ Você fala coisas sem nenhum sentido.`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 27) {
         mensagem2.style.display = "none";
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "326px";
         digitar_Mensagem(`Vloru, só deixa a gente sair daqui logo.`, "falaHiitsumo", "raiva");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 28) {
         mensagem2.style.display = "flex";
         mensagem1.style.display = "none";
+        mensagem2.style.maxWidth = "350px";
         digitarMensagem_Boss(`Sou um ※⁂⁜ Vlori ⁜⁂※, não um ※⁂⁜ Vloru!! ⁜⁂※`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
@@ -158,6 +167,7 @@ function tickBoss1() {
 
     } else if (HiitsumoEstado2 === 30) {
         cabeca1.style.display = "none";
+        mensagem2.style.maxWidth = "500px";
         digitarMensagem_Boss(`(Hiitsumo olha de volta para você e sussurra.)`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
@@ -165,6 +175,7 @@ function tickBoss1() {
         cabeca1.style.display   = "flex";
         mensagem2.style.display = "none";
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "326px";
         digitar_Mensagem(`${nomePlayer}, você tem alguma ideia do que fazer?`, "falaHiitsumo");
         HiitsumoEstado2 += 1;
 
@@ -182,6 +193,7 @@ function tickBoss1() {
         opcoes1.style.display   = "none";
         mensagem2.style.display = "none";
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "326px";
         digitar_Mensagem(`O espaço aqui é pequeno demais para usá-la. Nós seríamos esmagados na hora.`, "falaHiitsumo");
         HiitsumoEstado2 += 1;
 
@@ -206,6 +218,7 @@ function tickBoss1() {
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 38) {
+        mensagem1.style.maxWidth = "326px";
         digitar_Mensagem(`Talvez só as palavras funcionem. Precisamos tentar.`, "falaHiitsumo", "feliz");
         HiitsumoEstado2 += 1;
 
@@ -213,7 +226,8 @@ function tickBoss1() {
         mensagem2.style.display = "flex";
         mensagem1.style.display = "none";
         cabeca1.style.display   = "flex";
-        digitarMensagem_Boss(`Eu escutei o plano todo de vocês, ※⁂⁜ Jymnym! ⁜⁂※ E eu desafio vocês a tentarem!`, "falaBoss", "mago");
+        mensagem2.style.maxWidth = "580px";
+        digitarMensagem_Boss(`Eu escutei o plano todo de vocês, ※⁂⁜Jymnym!⁜⁂※ E eu desafio vocês a tentarem!`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 40) {
@@ -223,6 +237,7 @@ function tickBoss1() {
     } else if (HiitsumoEstado2 === 41) {
         mensagem2.style.display = "none";
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "326px";
         digitar_Mensagem(`Se você tiver ideia do que dizer, me fale.`, "falaHiitsumo");
         HiitsumoEstado2 += 1;
 
@@ -235,6 +250,7 @@ function tickBoss1() {
 
     } else if (HiitsumoEstado2 === 43) {
         mensagem1.style.display = "flex";
+        mensagem1.style.maxWidth = "326px";
         digitar_Mensagem(`Que situação chata que nos metemos, não?`, "falaHiitsumo");
         HiitsumoEstado2 += 1;
 
@@ -304,7 +320,7 @@ function tickBoss1() {
     } else if (HiitsumoEstado2 === 58) {
         mensagem1.style.display = "none";
         dica3.style.display     = "flex";
-        digitarMensagem_Boss(`Dica 3: Jymny, wufuxu, Chnylymmuhny, liovul y jlhxyl" Foram coisas que o mago disse.`, "dica-3", "mago");
+        digitarMensagem_Boss(`Dica 3: "Jymny, wufuxu, Chnylymmuhny, liovul y jlhxyl" Foram coisas que o mago disse.`, "dica-3", "mago");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 59) {
@@ -428,12 +444,14 @@ function tickBoss1() {
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
         cabeca1.style.display   = "none";
+        mensagem2.style.maxWidth = "500px";
         digitarMensagem_Boss(`(A engrenagem começa a vibrar e ela some num instante! Sendo teleportada para sua mão.)`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
         atualizarEngrenagem();
 
     } else if (HiitsumoEstado2 === 81) {
         magia.style.display = "none";
+        mensagem2.style.maxWidth = "550px";
         digitarMensagem_Boss(`(E antes que você possa fazer qualquer coisa, vocês somem e aparecem fora do círculo mágico.)`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
@@ -458,6 +476,7 @@ function tickBoss1() {
 
     } else if (HiitsumoEstado2 === 85) {
         cabeca1.style.display = "flex";
+        mensagem2.style.maxWidth = "630px";
         digitarMensagem_Boss(`Eu não vou deixar você me enganar de novo, Vloru!`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
@@ -469,14 +488,17 @@ function tickBoss1() {
         cabeca1.style.display   = "none";
         mensagem1.style.display = "none";
         mensagem2.style.display = "flex";
+        mensagem2.style.maxWidth = "550px";
         digitarMensagem_Boss(`(Ele levanta as mãos e uma grande bola de fogo se forma bem acima de vocês, o calor engole a sala.)`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 88) {
+        mensagem2.style.maxWidth = "450px";
         digitarMensagem_Boss(`(Mas é o tempo suficiente para que Hiitsumo remova a miniatura do bolso.)`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 89) {
+        mensagem2.style.maxWidth = "500px";
         digitarMensagem_Boss(`(O fogo começa a descer na direção de vocês.)`, "falaBoss", "mago");
         HiitsumoEstado2 += 1;
 
