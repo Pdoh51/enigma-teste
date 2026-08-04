@@ -982,7 +982,6 @@ function tickBoss3() {
         digitar_Mensagem(`${nomePlayer}, vamos pra próxima, ok?`, "falaHiitsumo", "feliz");
         HiitsumoEstado2 += 1;
     } else if (HiitsumoEstado2 === 181) {
-        console.log("Fase 2 finalizada");
         // a mensagem de transição agora é exibida na conexão 3, para poder ser avançada por clique
         cabeca1.style.display = "none";
         mensagem1.style.display = "none";
@@ -994,12 +993,11 @@ function tickBoss3() {
         introducao.style.pointerEvents = "auto";
         mensagem.style.pointerEvents = "auto";
         carregar.style.display = "none";
-        digitarMensagemIntro("(Vocês se afastam um pouco da cozinha e vão para um lugar espaçoso.)", "falaHiitsumoIntro");
+        digitarMensagemIntro("(Hiitsumo se aproximou da máquina com afinco, e colocou a engrenagem no lugar correto.)", "falaHiitsumoIntro");
         HiitsumoEstado2 += 1;
 
     } else if (HiitsumoEstado2 === 182) {
         // troca de fase e já mostra a primeira mensagem da conexão 3 no mesmo clique
-        console.log("Fase 3");
         faseAtual = 3;
         HiitsumoEstado2 = 0;
         HiitsumoEstado3 = 0;

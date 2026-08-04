@@ -17,10 +17,12 @@ function tickConexao1() {
         hiitsumoInicial.style.display = "flex";
         hiitsumoInicial.style.opacity = "0";
         hiitsumoInicial.style.visibility = "hidden";
+        mensagem.style.maxWidth = "350px";
         digitarMensagemIntro("(Você está dentro da máquina do tempo, viajando de novo.)", "falaHiitsumoIntro");
         HiitsumoEstado3 += 1;
 
     } else if (HiitsumoEstado3 === 3) {
+        mensagem.style.maxWidth = "530px";
         digitarMensagemIntro("(Seu coração ainda está acelerado, assustado.)", "falaHiitsumoIntro");
         HiitsumoEstado3 += 1;
 
@@ -32,10 +34,13 @@ function tickConexao1() {
         hiitsumoInicial.style.opacity = "1";
         hiitsumoInicial.style.visibility = "visible";
         cabecaIntro.style.display = "flex";
+        mensagem.style.display = "flex";
+        mensagem.style.maxWidth = "400px";
         digitarMensagemIntro("Haha… Hahahaha!", "falaHiitsumoIntro", "chapeuRindo");
         HiitsumoEstado3 += 1;
 
     } else if (HiitsumoEstado3 === 6) {
+        mensagem.style.maxWidth = "350px";
         digitarMensagemIntro("Por um segundo, pensei que não ia dar certo.", "falaHiitsumoIntro", "chapeuCorada");
         HiitsumoEstado3 += 1;
 
@@ -47,6 +52,7 @@ function tickConexao1() {
         carregar.style.display = "none";
         hiitsumoInicial.style.display = "none";
         cabecaIntro.style.display = "none";
+        mensagem.style.maxWidth = "540px";
         digitarMensagemIntro("(Sua visão fica clara de novo, e sem que você pudesse processar, seguem para o próximo passo.)", "falaHiitsumoIntro");
         HiitsumoEstado3 += 1;
 
